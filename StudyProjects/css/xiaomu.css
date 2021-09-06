@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/*网页头部*/
+header {
+  background: #000;
+}
+/*网页logo*/
+.logo {
+  float: left;
+  width: 194px;
+  height: 65px;
+}
+.logo h1 {
+  width: 192px;
+  height: 63px;
+  padding: 1px;
+  text-align: center;
+  line-height: 63px;
+  font: 48px Helvetica;
+  color: #00978e;
+}
+/*网页功能区*/
+.tools {
+  float: right;
+  width: 266px;
+  height: 30px;
+}
+/*网页导航条*/
+.main_nav {
+  float: left;
+  width: 100%;
+  height: 60px;
+  background: #00978e;
+  text-align: center;
+  border: 1px solid #000;
+}
+.main_nav ul li {
+  float: left;
+  list-style: none;
+  width: 150px;
+  height: 60px;
+  line-height: 60px;
+  border: 1px solid #000;
+}
