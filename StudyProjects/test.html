@@ -6,20 +6,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      div {
-        font: italic bold 20px "微软雅黑";
-        color: #ff0000;
+      * {
+        margin: 0;
+        padding: 0;
       }
-      p:last-child {
-        color: #0000ff;
-        font-weight: 700;
+      header,
+      footer {
+        margin: 0 auto;
+      }
+      header {
+        width: 800px;
+        height: 100px;
+      }
+      section {
+        width: 800px;
+        height: 500px;
+        margin: 40px auto;
+      }
+      footer {
+        width: 800px;
+        height: 200px;
+        background: #000;
+      }
+      .h_d1 {
+        width: 300px;
+        height: 100px;
+        background: #f00;
+        float: left;
+      }
+      .h_d2 {
+        width: 250px;
+        height: 30px;
+        background: #ff0;
+        float: right;
+      }
+      .h_d3 {
+        width: 450px;
+        height: 50px;
+        background: #ffc;
+        float: right;
+        margin-top: 20px;
+      }
+      .s_d1 {
+        width: 300px;
+        height: 500px;
+        background: rgb(24, 221, 247);
+        float: left;
+      }
+      .s_d2 {
+        width: 400px;
+        height: 500px;
+        float: right;
+      }
+      .s_d2_d2_d1 {
+        width: 400px;
+        height: 300px;
+        background: rgb(3, 245, 192);
+      }
+      .s_d2_d2_d2 {
+        width: 400px;
+        height: 150px;
+        margin-top: 50px;
+      }
+      .s_d2_d2_d2_d1 {
+        width: 80px;
+        height: 150px;
+        background: rgb(245, 168, 3);
+        float: left;
+        margin-right: 26px;
+      }
+      .s_d2_d2_d2_d1:nth-last-child(1) {
+        margin-right: 0px;
       }
     </style>
   </head>
   <body>
     <!-- 补充代码 -->
-    <div>Web前端攻城狮(Web front siege lion)</div>
-
-    <p>CSS层叠样式表(Cascading Style Sheets)</p>
+    <header>
+      <div class="h_d1"></div>
+      <div class="h_d2"></div>
+      <div class="h_d3"></div>
+    </header>
+    <section>
+      <div class="s_d1"></div>
+      <div class="s_d2">
+        <div class="s_d2_d1"></div>
+        <div class="s_d2_d2">
+          <div class="s_d2_d2_d1"></div>
+          <div class="s_d2_d2_d2">
+            <div class="s_d2_d2_d2_d1"></div>
+            <div class="s_d2_d2_d2_d1"></div>
+            <div class="s_d2_d2_d2_d1"></div>
+            <div class="s_d2_d2_d2_d1"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer></footer>
   </body>
 </html>
