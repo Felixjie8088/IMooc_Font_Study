@@ -22,11 +22,13 @@ header .header_top {
   height: 80px;
   margin: 0 auto;
 }
+/* 网页logo */
 header .header_top .logo {
   float: left;
   padding: 16px 0px;
   line-height: 80px;
 }
+/* 网页导航条 */
 header .header_top .main_nav {
   float: right;
 }
@@ -42,4 +44,66 @@ header .header_top .main_nav ul li {
 }
 header .header_top .main_nav ul li:last-child {
   margin-right: 0px;
+}
+/* banner */
+.banner .banner_content {
+  position: relative;
+}
+/* banner图片 */
+.banner .banner_content img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600px;
+}
+/* banner遮罩层 */
+.banner .banner_content .mask_layer {
+  position: absolute;
+  width: 100%;
+  height: 600px;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+/* banner表单 */
+.banner .banner_content .form {
+  position: absolute;
+  width: 504px;
+  height: 350px;
+  top: 50%;
+  left: 50%;
+  /* margin-top: -175px; */
+  padding-top: 100px;
+  margin-left: -252px;
+}
+.banner .banner_content .form form {
+  text-align: center;
+}
+.banner .banner_content .form .form_div .input_info {
+  background: none;
+  width: 504px;
+  height: 40px;
+  margin-bottom: 20px;
+  color: #808080;
+  border: 1px solid #808080;
+  outline: none;
+}
+.banner .banner_content .form .form_div .input_info:focus {
+  background: #808080;
+}
+.banner .banner_content .form .form_div textarea {
+  background: none;
+  width: 504px;
+  height: 110px;
+  margin-bottom: 20px;
+  color: #808080;
+  border: 1px solid #808080;
+}
+.banner .banner_content .form .form_div input[type="submit"] {
+  background: none;
+  width: 200px;
+  height: 40px;
+  color: #808080;
+  border: 1px solid #808080;
 }
