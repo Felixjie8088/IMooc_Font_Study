@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "微软雅黑";
+  font-size: 16px;
+  color: #fff;
+}
+ul,
+ol {
+  list-style: none;
+}
+/* 网页头部 */
+header {
+  height: 80px;
+  margin: 16px 0px;
+  background: #07cbc9;
+}
+header .header_top {
+  width: 1200px;
+  height: 80px;
+  margin: 0 auto;
+}
+header .header_top .logo {
+  float: left;
+  padding: 16px 0px;
+  line-height: 80px;
+}
+header .header_top .main_nav {
+  float: right;
+}
+header .header_top .main_nav ul {
+  width: 480px;
+  height: 80px;
+}
+header .header_top .main_nav ul li {
+  float: left;
+  width: 63px;
+  line-height: 80px;
+  margin-right: 20px;
+}
+header .header_top .main_nav ul li:last-child {
+  margin-right: 0px;
+}

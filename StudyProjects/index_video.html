@@ -10,53 +10,69 @@
       name="description"
       content="小慕医生是专业的医院，理念是责任、品质、关爱"
     />
-    <link rel="stylesheet" href="./css/xiaomu.css" />
+    <link rel="stylesheet" href="./css/video.css" />
   </head>
   <body>
     <!-- 网页头部 -->
     <header>
-      <!-- 网页logo -->
-      <div class="logo"><h1>小慕医生</h1></div>
-      <!-- 网页功能区 -->
-      <div class="tools">
-        <div class="r1">
-          <img src="./images/tel.png" alt="" srcset="" />
-          <span class="telnumber">088-88888888</span>
-          <a href="#"
-            ><img src="./images/chinese_icon.png" alt="" srcset=""
-          /></a>
-          <a href="#"
-            ><img src="./images/english_icon.png" alt="" srcset=""
-          /></a>
-        </div>
-        <div class="r2">
-          <input type="text" placeholder="找医生/科室" />
-          <i><img src="./images/search.png" alt="" /></i>
+      <div class="header_top">
+        <!-- 网页logo -->
+        <div class="logo"><h1>小慕医生</h1></div>
+        <!-- 网页功能区 -->
+        <div class="tools">
+          <div class="r1">
+            <img class="img_tel" src="./images/tel.png" alt="" srcset="" />
+            <span class="telnumber">088-88888888</span>
+            <a href="#"
+              ><img
+                class="chinese_icon icon"
+                src="./images/chinese_icon.png"
+                alt=""
+                srcset=""
+            /></a>
+            <a href="#"
+              ><img
+                class="english_icon icon"
+                src="./images/english_icon.png"
+                alt=""
+                srcset=""
+            /></a>
+          </div>
+          <div class="r2">
+            <input type="text" class="input_search" placeholder="找医生/科室" />
+            <button class="btn_search">
+              <img src="./images/search.png" alt="" />
+            </button>
+          </div>
         </div>
       </div>
+      <!-- 网页导航条 -->
+      <nav class="main_nav">
+        <ul>
+          <li class="curr"><a href="">首页</a></li>
+          <li><a href="">医院概况</a></li>
+          <li><a href="">医院动态</a></li>
+          <li><a href="">专家学科</a></li>
+          <li><a href="">服务指南</a></li>
+          <li><a href="">医院文化</a></li>
+          <li><a href="">信息公开</a></li>
+          <li><a href="">互动交流</a></li>
+        </ul>
+      </nav>
     </header>
-    <!-- 网页导航条 -->
-    <nav class="main_nav">
-      <ul>
-        <li class="curr_checked">首页</li>
-        <li>医院概况</li>
-        <li>医院动态</li>
-        <li>专家学科</li>
-        <li>服务指南</li>
-        <li>医院文化</li>
-        <li>信息公开</li>
-        <li>互动交流</li>
-      </ul>
-    </nav>
+
     <!-- 网页banner -->
     <section class="banner">
-      <img src="./images/banner.png" alt="" srcset="" />
-      <h2>责任、科学、严谨</h2>
-      <span class="left_arrow arrow">&lt;</span>
-      <span class="right_arrow arrow">&gt;</span>
+      <img class="img_banner" src="./images/banner.png" alt="" srcset="" />
+      <div class="center">
+        <h2>责任、科学、严谨</h2>
+        <span class="left_arrow arrow">&lt;</span>
+        <span class="right_arrow arrow">&gt;</span>
+      </div>
+
       <!-- 轮播图小圆点 -->
-      <ol class="carousel">
-        <li class="curr_carousel_circle"></li>
+      <ol>
+        <li class="curr"></li>
         <li></li>
         <li></li>
         <li></li>

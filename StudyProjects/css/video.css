@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* 去掉所有ul、ol的小圆点 */
+ul,
+ol {
+  list-style: none;
+}
+/* 去掉所有超级链接的下划线 */
+a {
+  text-decoration: none;
+}
+/* 使用继承性，给body标签设置字体 */
+body {
+  font: normal 14px/25px "微软雅黑";
+}
+/* 头部 */
+header {
+}
+header .header_top {
+  width: 1199px;
+  margin: 0 auto;
+  /* 清楚浮动为了不让导航条贴到logo,形成BFC */
+  overflow: hidden;
+}
+/* 网页logo */
+header .header_top .logo {
+  float: left;
+  padding-top: 39px;
+  width: 192px;
+  height: 63px;
+}
+header .header_top .logo h1 {
+  width: 192px;
+  height: 63px;
+}
+/* 网页右上角功能区 */
+header .header_top .tools {
+  float: right;
+  width: 266px;
+  height: 77px;
+  padding-top: 35px;
+}
+/* 网页右上角功能区——电话图片 */
+header .header_top .tools .r1 .img_tel {
+  width: 32px;
+  height: 25px;
+}
+/* 网页右上角功能区——电话文本 */
+header .header_top .tools .r1 .telnumber {
+  font-size: 20px;
+  color: #00978e;
+  display: inline-block;
+  width: 158px;
+  height: 26px;
+  text-align: center;
+}
+/* 网页右上角功能区——多语言icon */
+header .header_top .tools .r1 .icon {
+  width: 24px;
+  height: 24px;
+}
+header .header_top .tools .r1 .chinese_icon {
+  margin-right: 14px;
+}
+/* 网页右上角功能区——搜索框层 */
+header .header_top .tools .r2 {
+  width: 264px;
+  height: 28px;
+  border: 1px solid rgba(202, 202, 202, 0.6);
+  margin-top: 10px;
+  /* 设置边框圆角 */
+  border-radius: 1em;
+}
+/* 网页右上角功能区——搜索框 */
+header .header_top .tools .r2 .input_search {
+  float: left;
+  width: 224px;
+  height: 28px;
+  padding-left: 20px;
+  /* 去掉边框线 */
+  border: none;
+  /* 去掉鼠标点击时的边框 */
+  outline: none;
+  outline: none;
+}
+/* 网页右上角功能区——搜索框按钮 */
+header .header_top .tools .r2 .btn_search {
+  float: right;
+  box-sizing: border-box;
+  width: 20px;
+  height: 28px;
+  /* 扁平化：去掉背景、去掉边框 */
+  background: none;
+  border: none;
+  /* 去掉鼠标点击时的边框 */
+  outline: none;
+  cursor: pointer;
+  /* 相对定位，微调位置 */
+  position: relative;
+  top: 2px;
+  right: 4px;
+}
+/* 导航条 */
+header .main_nav {
+  height: 60px;
+  background: #00978e;
+  margin-top: 29px;
+}
+header .main_nav ul {
+  width: 1200px;
+  height: 60px;
+  margin: 0 auto;
+}
+header .main_nav ul li {
+  float: left;
+  width: 150px;
+  text-align: center;
+  line-height: 60px;
+}
+header .main_nav ul li.curr {
+  background: #015e58;
+}
+header .main_nav ul li a {
+  /* 转为块级元素 */
+  display: block;
+  width: 150px;
+  height: 60px;
+  color: #fff;
+}
+header .main_nav ul li a:hover {
+  background: #015e58;
+}
+/* banner */
+.banner {
+  position: relative;
+}
+section.banner .img_banner {
+  width: 100%;
+}
+.banner .center {
+  position: absolute;
+  width: 1200px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -600px;
+}
+.banner .center h2 {
+  position: absolute;
+  top: 50%;
+  margin-top: -60px;
+  left: 148px;
+  width: 480px;
+  height: 79px;
+  font-size: 60px;
+  color: #015e58;
+  font-weight: normal;
+}
+.banner .center .arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -32px;
+  width: 56px;
+  height: 64px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.banner .center .left_arrow {
+  left: 0;
+}
+.banner .center .right_arrow {
+  right: 0;
+}
+.banner ol {
+  position: absolute;
+  width: 120px;
+  height: 12px;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -60px;
+}
+.banner ol li {
+  float: left;
+  width: 20px;
+  height: 12px;
+  margin-right: 10px;
+  background: #fff;
+  /* 设置圆角 */
+  border-radius: 5em;
+}
+.banner ol li:last-child {
+  margin-right: 0;
+}
+.banner ol li.curr {
+  width: 30px;
+  background: #00978e;
+}
