@@ -10,6 +10,7 @@ ol {
 /* 去掉所有超级链接的下划线 */
 a {
   text-decoration: none;
+  color: #000;
 }
 /* 使用继承性，给body标签设置字体 */
 body {
@@ -194,4 +195,32 @@ section.banner .img_banner {
 .banner ol li.curr {
   width: 30px;
   background: #00978e;
+}
+/* 网页内容 */
+/* 常用链接 */
+.content .useful_links {
+  width: 906px;
+  height: 203.7px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 71.3px;
+}
+.content .useful_links ul li {
+  float: left;
+  width: 106px;
+  height: 147.7px;
+  margin-right: 54px;
+}
+.content .useful_links ul li:last-child {
+  margin-right: 0;
+}
+.content .useful_links ul li a img {
+  width: 106px;
+  height: 106px;
+}
+.content .useful_links ul li a span {
+  display: block;
+  width: 80px;
+  height: 26px;
+  margin: 0 auto;
 }
