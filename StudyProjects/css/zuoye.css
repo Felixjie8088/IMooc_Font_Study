@@ -5,7 +5,6 @@
 body {
   font-family: "微软雅黑";
   font-size: 16px;
-  color: #fff;
 }
 ul,
 ol {
@@ -14,7 +13,7 @@ ol {
 /* 网页头部 */
 header {
   height: 80px;
-  margin: 16px 0px;
+  /* margin: 16px 0px; */
   background: #07cbc9;
 }
 header .header_top {
@@ -25,20 +24,21 @@ header .header_top {
 /* 网页logo */
 header .header_top .logo {
   float: left;
-  padding: 16px 0px;
-  line-height: 80px;
+  /* padding: 16px 0px;
+  line-height: 80px; */
+  padding-top: 16px;
 }
 /* 网页导航条 */
 header .header_top .main_nav {
   float: right;
 }
 header .header_top .main_nav ul {
-  width: 480px;
+  /* width: 480px; */
   height: 80px;
 }
 header .header_top .main_nav ul li {
   float: left;
-  width: 63px;
+  /* width: 63px; */
   line-height: 80px;
   margin-right: 20px;
 }
@@ -46,6 +46,9 @@ header .header_top .main_nav ul li:last-child {
   margin-right: 0px;
 }
 /* banner */
+.banner {
+  height: 600px;
+}
 .banner .banner_content {
   position: relative;
 }
@@ -70,7 +73,7 @@ header .header_top .main_nav ul li:last-child {
 .banner .banner_content .form {
   position: absolute;
   width: 504px;
-  height: 350px;
+  /* height: 350px; */
   top: 50%;
   left: 50%;
   /* margin-top: -175px; */
@@ -82,7 +85,8 @@ header .header_top .main_nav ul li:last-child {
 }
 .banner .banner_content .form .form_div .input_info {
   background: none;
-  width: 504px;
+  /* width: 504px; */
+  width: 502px;
   height: 40px;
   margin-bottom: 20px;
   color: #808080;
@@ -94,7 +98,8 @@ header .header_top .main_nav ul li:last-child {
 }
 .banner .banner_content .form .form_div textarea {
   background: none;
-  width: 504px;
+  /* width: 504px; */
+  width: 502px;
   height: 110px;
   margin-bottom: 20px;
   color: #808080;
@@ -106,4 +111,75 @@ header .header_top .main_nav ul li:last-child {
   height: 40px;
   color: #808080;
   border: 1px solid #808080;
+}
+/* content */
+.content {
+  padding-top: 30px;
+  text-align: center;
+}
+.content .about {
+  width: 1200px;
+  margin: 0 auto;
+}
+.content .about h2 {
+  font-size: 32px;
+}
+.content .about .split_line {
+  width: 60px;
+  height: 3px;
+  background: #07cbc9;
+  margin: 10px auto;
+}
+.content .about .about_up p {
+  color: gray;
+  font-size: 14px;
+  width: 450px;
+  margin: 0 auto;
+}
+.content .about .about_down {
+  padding-top: 30px;
+  position: relative;
+}
+.content .about .about_down h3 {
+  width: 140px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -200px;
+}
+.content .about .about_down .left {
+  width: 300px;
+  padding: 20px;
+  font-size: 16px;
+  border: 1px solid gray;
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -120px;
+}
+.content .about .about_down .left p:last-child {
+  width: 140px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  line-height: 40px;
+  margin: 0 auto;
+}
+.content .about .about_down .right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -192px;
+}
+.content .about .about_down .right_box {
+  width: 260px;
+  padding: 40px 0;
+}
+.content .about .about_down .right_box:first-child {
+  margin-bottom: 30px;
+}
+.content .about .about_down .right_box p:first-child {
+  font-size: 28px;
+  font-weight: bold;
 }

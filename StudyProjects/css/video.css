@@ -200,15 +200,18 @@ section.banner .img_banner {
 /* 常用链接 */
 .content .useful_links {
   width: 906px;
-  height: 203.7px;
+  height: 204px;
   margin: 0 auto;
-  text-align: center;
-  padding-top: 71.3px;
+  padding-top: 72px;
+}
+.content .useful_links ul {
+  /* 清除浮动 */
+  overflow: hidden;
 }
 .content .useful_links ul li {
   float: left;
   width: 106px;
-  height: 147.7px;
+  height: 148px;
   margin-right: 54px;
 }
 .content .useful_links ul li:last-child {
@@ -220,7 +223,8 @@ section.banner .img_banner {
 }
 .content .useful_links ul li a span {
   display: block;
-  width: 80px;
-  height: 26px;
-  margin: 0 auto;
+  color: #333;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
 }
