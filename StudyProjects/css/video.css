@@ -228,3 +228,27 @@ section.banner .img_banner {
   line-height: 30px;
   text-align: center;
 }
+.content .news_and_notices {
+  width: 1200px;
+  height: 377px;
+  background: rgb(28, 114, 226);
+  margin: 0 auto;
+}
+.content .news_and_notices .news {
+  float: left;
+  width: 878px;
+  height: 377px;
+  background: rgb(163, 224, 240);
+}
+.content .news_and_notices .notices {
+  float: right;
+  width: 322px;
+  height: 377px;
+  background: rgb(144, 226, 137);
+}
+.content .news_and_notices .news .news_content .hot_news {
+  float: left;
+}
+.content .news_and_notices .news .news_content .news_list {
+  float: right;
+}
