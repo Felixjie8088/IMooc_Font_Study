@@ -183,3 +183,50 @@ header .header_top .main_nav ul li:last-child {
   font-size: 28px;
   font-weight: bold;
 }
+/* 图文混排区域 */
+.content .graphic_mix {
+  width: 100%;
+  overflow: hidden;
+}
+.content .graphic_mix .item {
+  width: 25%;
+  height: 360px;
+  float: left;
+}
+.content .graphic_mix .info {
+  background: #02cbc9;
+  text-align: left;
+}
+.content .graphic_mix .item img {
+  display: block;
+  width: 100%;
+}
+.content .graphic_mix .info h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+.content .graphic_mix .info p:nth-of-type(1) {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.content .graphic_mix .info p:nth-last-child(2) {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 30px;
+}
+.content .graphic_mix .info p:last-child {
+  width: 140px;
+  height: 40px;
+  background: #000;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  margin: 0 auto;
+  padding-left: 0;
+}
+.content .graphic_mix .info h3 {
+  padding: 20px 0 0 20px;
+}
+.content .graphic_mix .info p {
+  padding-left: 20px;
+}
