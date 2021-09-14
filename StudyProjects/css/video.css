@@ -197,6 +197,10 @@ section.banner .img_banner {
   background: #00978e;
 }
 /* 网页内容 */
+.content h3 {
+  height: 33px;
+  margin-bottom: 10px;
+}
 /* 常用链接 */
 .content .useful_links {
   width: 906px;
@@ -237,10 +241,6 @@ section.banner .img_banner {
   float: left;
   width: 878px;
   height: 377px;
-}
-.content .news_and_notices h3 {
-  height: 33px;
-  margin-bottom: 10px;
 }
 .content .news_and_notices .notices {
   float: right;
@@ -309,4 +309,76 @@ section.banner .img_banner {
 }
 .content .news_and_notices .notices ol li dl dd a {
   color: #999;
+}
+/* 广告图片 */
+.content aside.ad_images {
+  width: 1200px;
+  margin: 20px auto;
+}
+/* 科室介绍 */
+.content .dep_info {
+  width: 100%;
+  background: #fafafa;
+  padding-top: 37px;
+}
+.content .dep_info .center {
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.content .dep_info .center .more {
+  position: absolute;
+  top: 35px;
+  right: 0;
+}
+.content .dep_info .center .more a {
+  color: #999;
+}
+.content .dep_info .dep_content .dep_col_div {
+  width: 265px;
+  float: left;
+  padding-left: 35px;
+}
+.content .dep_info .dep_content .dep_col_div h4 {
+  text-align: center;
+  margin: 18px 0px;
+  position: relative;
+}
+.content .dep_info .dep_content .dep_col_div h4::before {
+  position: absolute;
+  left: 65px;
+  top: 12px;
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: #00978e;
+}
+.content .dep_info .dep_content .dep_col_div h4::after {
+  position: absolute;
+  left: 160px;
+  top: 12px;
+  content: "";
+  width: 40px;
+  height: 2px;
+  background: #00978e;
+}
+.content .dep_info .dep_content .dep_col_div ul li {
+  float: left;
+  margin-right: 21px;
+  margin-bottom: 25px;
+  text-align: center;
+  width: 119px;
+  height: 34px;
+  border: 1px solid #aaa9a9;
+  line-height: 34px;
+}
+.content .dep_info .dep_content .dep_col_div ul li:nth-child(2n) {
+  margin-right: 0px;
+}
+.content .dep_info .dep_content .dep_col_div ul li a {
+  color: #333;
+}
+.content .dep_info .dep_content .dep_col_div ul li.spec a {
+  color: #00978e;
 }

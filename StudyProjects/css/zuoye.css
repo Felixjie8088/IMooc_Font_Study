@@ -124,13 +124,14 @@ header .header_top .main_nav ul li:last-child {
 .content .about h2 {
   font-size: 32px;
 }
-.content .about .split_line {
+.content .split_line {
   width: 60px;
   height: 3px;
   background: #07cbc9;
   margin: 10px auto;
 }
-.content .about .about_up p {
+.content .about .about_up p,
+.content .gallery .gallery_up p {
   color: gray;
   font-size: 14px;
   width: 450px;
@@ -200,6 +201,7 @@ header .header_top .main_nav ul li:last-child {
 .content .graphic_mix .item img {
   display: block;
   width: 100%;
+  /*height: 360px;我在本地看是没有问题，电脑是Mac*/
 }
 .content .graphic_mix .info h3 {
   font-size: 24px;
@@ -229,4 +231,50 @@ header .header_top .main_nav ul li:last-child {
 }
 .content .graphic_mix .info p {
   padding-left: 20px;
+}
+/* Gallery区域 */
+.content .gallery_down {
+  width: 1160px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px;
+}
+.content .gallery_down ul li {
+  float: left;
+  width: 360px;
+  height: 240px;
+  line-height: 30px;
+}
+.content .gallery_down ul li:nth-of-type(3n + 2) {
+  margin: 0px 40px;
+}
+.content .gallery_down ul .split_div {
+  float: left;
+  width: 1160px;
+  height: 30px;
+}
+.content .gallery_down ul li dl {
+  position: relative;
+}
+.content .gallery_down ul li dl dt img {
+  display: block;
+}
+.content .gallery_down ul li dd {
+  position: absolute;
+  width: 350px;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  color: #fff;
+  line-height: 50px;
+  text-align: left;
+  padding-left: 10px;
+}
+/* 网页底部 */
+.footer {
+  background: #07cbc9;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
 }
