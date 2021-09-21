@@ -70,7 +70,7 @@ header .header_top .tools .r2 {
   border: 1px solid rgba(202, 202, 202, 0.6);
   margin-top: 10px;
   /* 设置边框圆角 */
-  border-radius: 1em;
+  border-radius: 4px;
 }
 /* 网页右上角功能区——搜索框 */
 header .header_top .tools .r2 .input_search {
@@ -165,6 +165,7 @@ section.banner .img_banner {
   width: 56px;
   height: 64px;
   background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
 }
 .banner .center .left_arrow {
   left: 0;
@@ -187,7 +188,7 @@ section.banner .img_banner {
   margin-right: 10px;
   background: #fff;
   /* 设置圆角 */
-  border-radius: 5em;
+  border-radius: 6px;
 }
 .banner ol li:last-child {
   margin-right: 0;
@@ -198,8 +199,11 @@ section.banner .img_banner {
 }
 /* 网页内容 */
 .content h3 {
-  height: 33px;
+  height: 20px;
   margin-bottom: 10px;
+  border-left: 8px solid #00978e;
+  padding-left: 10px;
+  line-height: 20px;
 }
 /* 常用链接 */
 .content .useful_links {
@@ -372,6 +376,7 @@ section.banner .img_banner {
   height: 34px;
   border: 1px solid #aaa9a9;
   line-height: 34px;
+  border-radius: 6px;
 }
 .content .dep_info .dep_content .dep_col_div ul li:nth-child(2n) {
   margin-right: 0px;

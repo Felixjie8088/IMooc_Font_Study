@@ -206,6 +206,26 @@ header .header_top .main_nav ul li:last-child {
 .content .graphic_mix .info {
   background: #02cbc9;
   text-align: left;
+  position: relative;
+}
+/* 箭头 通过伪元素实现*/
+.content .graphic_mix .left_arrow::before {
+  content: "";
+  border: 20px solid transparent;
+  border-right-color: #02cbc9;
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  left: -40px;
+}
+.content .graphic_mix .right_arrow::after {
+  content: "";
+  border: 20px solid transparent;
+  border-left-color: #02cbc9;
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  right: -40px;
 }
 .content .graphic_mix .item img {
   display: block;
