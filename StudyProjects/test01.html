@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div.square {
+        width: 200px;
+        height: 200px;
+        perspective: 300px;
+        position: relative;
+        margin: 80px auto;
+      }
+      div.square p {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      div.square p:nth-child(1) {
+        background: rgba(220, 223, 11, 0.521);
+        /* 正面 */
+        transform: translateZ(100px);
+      }
+      div.square p:nth-child(2) {
+        background: rgba(241, 8, 8, 0.521);
+        /* 上面 */
+        transform: rotateX(90deg) translateZ(100px);
+      }
+      div.square p:nth-child(3) {
+        background: rgba(37, 187, 233, 0.521);
+        /* 背面 */
+        transform: rotateX(180deg) translateZ(100px);
+      }
+      div.square p:nth-child(4) {
+        background: rgba(11, 223, 152, 0.521);
+        /* 底面 */
+        transform: rotateX(-90deg) translateZ(100px);
+      }
+      div.square p:nth-child(5) {
+        background: rgba(197, 62, 231, 0.521);
+        /* 左侧面 */
+        transform: rotateY(-90deg) translateZ(100px);
+      }
+      div.square p:nth-child(6) {
+        background: rgba(221, 67, 113, 0.521);
+        /* 右侧面 */
+        transform: rotateY(90deg) translateZ(100px);
+      }
+      /* 五星红旗 */
+      .box1 {
+        width: 300px;
+        height: 200px;
+        background-color: red;
+        position: absolute;
+        left: 50%;
+        margin-left: -150px;
+      }
+      .star {
+        width: 0;
+        height: 0;
+        border-top: 40px solid yellow;
+        border-left: 65px solid transparent;
+        border-right: 65px solid transparent;
+        margin-top: 100px;
+        position: absolute;
+      }
+      .star::before,
+      .star::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 40px solid yellow;
+        border-left: 65px solid transparent;
+        border-right: 65px solid transparent;
+        position: absolute;
+        top: -40px;
+        left: -65px;
+      }
+      .star::before {
+        transform: rotate(-75deg);
+      }
+      .star::after {
+        transform: rotate(-146deg);
+      }
+      .star1 {
+        transform: scale(0.5) translate(-40px, -130px);
+      }
+      .star2 {
+        transform: scale(0.2) translate(120px, -520px) rotate(30deg);
+      }
+      .star3 {
+        transform: scale(0.2) translate(190px, -380px) rotate(30deg);
+      }
+      .star4 {
+        transform: scale(0.2) translate(200px, -240px) rotate(30deg);
+      }
+      .star5 {
+        transform: scale(0.2) translate(120px, -120px) rotate(30deg);
+      }
+      /* 五星红旗2 */
+      .red_flag {
+        width: 300px;
+        height: 200px;
+        position: relative;
+        background-color: #f00;
+        margin: 0 auto;
+        margin-top: 300px;
+      }
+      .red_flag .s {
+        width: 0;
+        height: 0;
+        border-top: 40px solid yellow;
+        border-left: 65px solid transparent;
+        border-right: 65px solid transparent;
+        position: absolute;
+        top: 120px;
+        left: 15px;
+      }
+      .red_flag .s::before,
+      .red_flag .s::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 40px solid yellow;
+        border-left: 65px solid transparent;
+        border-right: 65px solid transparent;
+        position: absolute;
+        top: -40px;
+        left: -65px;
+      }
+      .red_flag .s::before {
+        transform: rotate(75deg);
+      }
+      .red_flag .s::after {
+        transform: rotate(-70deg);
+      }
+      .red_flag .s1 {
+        transform: scale(0.5) translate(-40px, -130px);
+      }
+      .red_flag .s2 {
+        transform: scale(0.2) translate(120px, -520px) rotate(30deg);
+      }
+      .red_flag .s3 {
+        transform: scale(0.2) translate(190px, -380px) rotate(30deg);
+      }
+      .red_flag .s4 {
+        transform: scale(0.2) translate(200px, -240px) rotate(30deg);
+      }
+      .red_flag .s5 {
+        transform: scale(0.2) translate(120px, -120px) rotate(30deg);
+      }
+      /* 空间移动 */
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 200px auto;
+        perspective: 300px;
+        position: relative;
+        margin-bottom: 500px;
+      }
+
+      .box p {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 200px;
+      }
+      .box p:nth-child(1) {
+        background-color: #f00;
+        transform: rotateX(82deg) translateZ(0px);
+      }
+      .box p:nth-child(2) {
+        background-color: #0f0;
+        transform: rotateX(90deg) translateZ(-50px);
+      }
+      .box p:nth-child(3) {
+        background-color: #00f;
+        transform: rotateX(-76deg) translateZ(100px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 补充代码 -->
+    <div class="square">
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+    <hr />
+    <div class="box1">
+      <div class="star star1"></div>
+      <div class="star star2"></div>
+      <div class="star star3"></div>
+      <div class="star star4"></div>
+      <div class="star star5"></div>
+    </div>
+    <hr />
+    <div class="red_flag">
+      <div class="s s1"></div>
+      <div class="s s2"></div>
+      <div class="s s3"></div>
+      <div class="s s4"></div>
+      <div class="s s5"></div>
+    </div>
+    <hr />
+    <div class="box">
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+  </body>
+</html>
