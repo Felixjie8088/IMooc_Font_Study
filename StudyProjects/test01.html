@@ -4,18 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/animate.min.css" />
+    <script src="./js/jquery-1.8.3.min.js"></script>
     <title>Document</title>
     <style>
       * {
         margin: 0;
         padding: 0;
       }
+      section {
+        width: 400px;
+        height: 400px;
+        margin: 80px auto;
+        perspective: 100000px;
+      }
       div.square {
         width: 200px;
         height: 200px;
-        perspective: 300px;
+        perspective: 100000px;
         position: relative;
-        margin: 80px auto;
+        /* 设置变形类型，保留它自己内部的3D效果 此时这个盒子既是舞台也是演员*/
+        transform-style: preserve-3d;
+        transition: transform 10s linear 0s;
+      }
+      section:hover div.square {
+        transform: rotateX(360deg) rotateY(360deg);
       }
       div.square p {
         width: 200px;
@@ -188,18 +201,34 @@
         background-color: #00f;
         transform: rotateX(-76deg) translateZ(100px);
       }
+      /* animate.css 动画 */
+      div.box_1 {
+        width: 300px;
+        height: 300px;
+        background: #f00;
+        margin: 0 auto;
+      }
+
+      div.box_3 {
+        width: 300px;
+        height: 300px;
+        box-shadow: 0px 0px 20px red inset;
+        margin: 0 auto;
+      }
     </style>
   </head>
   <body>
     <!-- 补充代码 -->
-    <div class="square">
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-    </div>
+    <section>
+      <div class="square">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
+    </section>
     <hr />
     <div class="box1">
       <div class="star star1"></div>
@@ -222,5 +251,11 @@
       <p></p>
       <p></p>
     </div>
+
+    <div class="box_1 animated bounceInLeft infinite"></div>
+    <div class="box_2">
+      <input type="radio" name="male" />女 <input type="radio" name="male" />男
+    </div>
+    <div class="box_3"></div>
   </body>
 </html>

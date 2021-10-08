@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>购物车</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div.center {
+        width: 300px;
+        height: 240px;
+        position: relative;
+      }
+      div.center img {
+        width: 300px;
+        height: 240px;
+      }
+      div.center p {
+        width: 300px;
+        height: 40px;
+        line-height: 40px;
+        background: rgb(146, 145, 145, 0.3);
+        opacity: 0;
+        color: white;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: opacity 1s ease 0s;
+      }
+      div.center:hover p {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <img src="./images/duck.png" />
+      <p>这是一只小黄鸭</p>
+    </div>
+  </body>
+</html>
