@@ -1,0 +1,109 @@
+.site_header {
+  height: 150px;
+}
+.site_header a {
+  display: block;
+  color: #fff;
+}
+.site_header .topbar {
+  background: #2a2a2a;
+  height: 32px;
+  line-height: 32px;
+}
+.site_header .topbar .shortcut_links > ul > li {
+  float: left;
+  font-size: 12px;
+  margin-right: 18px;
+}
+.site_header .topbar .shortcut_links > ul > li.have_menu {
+  padding-right: 12px;
+  position: relative;
+}
+.site_header .topbar .shortcut_links > ul > li.have_menu > .arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  right: 0;
+  top: 50%;
+  margin-top: -6px;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease 0s;
+}
+.site_header .topbar .shortcut_links > ul > li.have_menu:hover .arrow {
+  transform: rotate(180deg);
+}
+.site_header .topbar .shortcut_links > ul > li.have_menu > .arrow b {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 2px;
+  left: 3px;
+  transform: rotate(45deg);
+  background: #fff;
+}
+.site_header .topbar .shortcut_links > ul > li.have_menu > .arrow i {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 1px;
+  left: 3px;
+  transform: rotate(45deg);
+  background: #2a2a2a;
+}
+/* 主导航栏 */
+.site_header .main_nav {
+  height: 40px;
+  background: #20bd9a;
+  color: #fff;
+  line-height: 40px;
+}
+.site_header .main_nav ul > li {
+  float: left;
+  font-size: 16px;
+  margin-right: 18px;
+}
+.site_header .main_nav ul > li.have_menu {
+  padding-right: 16px;
+  position: relative;
+}
+.site_header .main_nav ul > li.have_menu::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: 50%;
+  margin-top: -2px;
+  right: 0;
+  border: 6px solid transparent;
+  border-top-color: #fff;
+  border-bottom: none;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease 0s;
+}
+.site_header .main_nav ul > li.have_menu:hover::before {
+  transform: rotate(180deg);
+}
+/* 网页顶部主要内容 */
+.site_header .header_content {
+  height: 36px;
+  padding: 21px 0;
+}
+.site_header .header_content h1 {
+  float: left;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: bold;
+  color: #20bd9a;
+}
+.site_header .header_content .search_box {
+  float: left;
+  margin-left: 20px;
+  width: 405px;
+  padding-top: 6px;
+}
+.site_header .header_content .search_box input {
+  width: 373px;
+  border: 1px solid #20bd9a;
+  border-radius: 4px;
+  font-size: 12px;
+}
