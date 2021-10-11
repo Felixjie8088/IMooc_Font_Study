@@ -2,7 +2,6 @@
   height: 150px;
 }
 .site_header a {
-  display: block;
   color: #fff;
 }
 .site_header .topbar {
@@ -49,6 +48,18 @@
   left: 3px;
   transform: rotate(45deg);
   background: #2a2a2a;
+}
+.site_header .topbar .topbar_r {
+  float: right;
+  width: 225px;
+  color: #fff;
+}
+.site_header .topbar .topbar_r a,
+.site_header .topbar .topbar_r span {
+  margin-right: 9px;
+}
+.site_header .topbar .topbar_r a:last-child {
+  margin-right: 0;
 }
 /* 主导航栏 */
 .site_header .main_nav {
@@ -99,11 +110,27 @@
   float: left;
   margin-left: 20px;
   width: 405px;
-  padding-top: 6px;
+  padding-top: 3px;
 }
 .site_header .header_content .search_box input {
-  width: 373px;
+  width: 361px;
+  height: 28px;
   border: 1px solid #20bd9a;
-  border-radius: 4px;
-  font-size: 12px;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+  /* 取消外线（）文本框选中的时候的边框线 */
+  outline: none;
+  padding-left: 10px;
+  float: left;
+}
+.site_header .header_content .search_box a {
+  display: block;
+  width: 32px;
+  height: 30px;
+  background: #20bd9a;
+  float: left;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+  border-radius: 0 4px 4px 0;
 }
