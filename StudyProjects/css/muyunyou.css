@@ -1,13 +1,14 @@
 .site_header {
   height: 150px;
 }
-.site_header a {
-  color: #fff;
-}
+
 .site_header .topbar {
   background: #2a2a2a;
   height: 32px;
   line-height: 32px;
+}
+.site_header .topbar a {
+  color: #fff;
 }
 .site_header .topbar .shortcut_links > ul > li {
   float: left;
@@ -17,6 +18,38 @@
 .site_header .topbar .shortcut_links > ul > li.have_menu {
   padding-right: 12px;
   position: relative;
+}
+/* 子菜单项基类（默认为社区） */
+.site_header .topbar .shortcut_links > ul > li.have_menu .menu {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 120px;
+  background: #fff;
+  display: none;
+  z-index: 9999;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 20);
+  padding: 10px;
+}
+/* 子菜单项——商城 */
+.site_header .topbar .shortcut_links > ul > li.have_menu .sc {
+  width: 76px;
+}
+/* 子菜单项——酒店·名宿 */
+.site_header .topbar .shortcut_links > ul > li.have_menu .jdms {
+  width: 64px;
+}
+.site_header .topbar .shortcut_links > ul > li.have_menu .menu_list li {
+  height: 20px;
+  line-height: 20px;
+}
+.site_header .topbar .shortcut_links > ul > li.have_menu .menu a {
+  font-size: 12px;
+  color: #1c1f21;
+  line-height: 20px;
+}
+.site_header .topbar .shortcut_links > ul > li.have_menu .menu a:hover {
+  color: blue;
 }
 .site_header .topbar .shortcut_links > ul > li.have_menu > .arrow {
   position: absolute;
@@ -30,6 +63,9 @@
 }
 .site_header .topbar .shortcut_links > ul > li.have_menu:hover .arrow {
   transform: rotate(180deg);
+}
+.site_header .topbar .shortcut_links > ul > li.have_menu:hover .menu {
+  display: block;
 }
 .site_header .topbar .shortcut_links > ul > li.have_menu > .arrow b {
   position: absolute;
@@ -65,6 +101,8 @@
 .site_header .main_nav {
   height: 40px;
   background: #20bd9a;
+}
+.site_header .main_nav ul > li > a {
   color: #fff;
   line-height: 40px;
 }
@@ -76,6 +114,45 @@
 .site_header .main_nav ul > li.have_menu {
   padding-right: 16px;
   position: relative;
+}
+/* 主导航栏子菜单项基类（默认为机酒自由行） */
+.site_header .main_nav ul > li.have_menu .menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 150px;
+  background: #fff;
+  line-height: 18px;
+  display: none;
+  z-index: 9999;
+  color: #1c1f21;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 20);
+  padding: 10px;
+}
+/* 主导航栏子菜单项-跟团游 */
+.site_header .main_nav ul > li.have_menu .gty {
+  width: 106px;
+}
+/* 主导航栏子菜单项-当地玩乐 */
+.site_header .main_nav ul > li.have_menu .ddwl {
+  width: 158px;
+}
+/* 主导航栏子菜单项-深度旅游 */
+.site_header .main_nav ul > li.have_menu .sdly {
+  width: 110px;
+}
+.site_header .main_nav ul > li.have_menu .menu dt {
+  font-size: 14px;
+  font-weight: bold;
+}
+.site_header .main_nav ul > li.have_menu .menu a:hover {
+  color: blue;
+}
+.site_header .main_nav ul > li.have_menu .menu a {
+  font-size: 12px;
+}
+.site_header .main_nav ul > li.have_menu:hover .menu {
+  display: block;
 }
 .site_header .main_nav ul > li.have_menu::before {
   content: "";
