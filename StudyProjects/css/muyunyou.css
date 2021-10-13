@@ -1,8 +1,10 @@
 .site_header {
   height: 150px;
+  min-width: 1152px;
 }
 
 .site_header .topbar {
+  min-width: 1152px;
   background: #2a2a2a;
   height: 32px;
   line-height: 32px;
@@ -99,6 +101,7 @@
 }
 /* 主导航栏 */
 .site_header .main_nav {
+  min-width: 1152px;
   height: 40px;
   background: #20bd9a;
 }
@@ -150,6 +153,7 @@
 }
 .site_header .main_nav ul > li.have_menu .menu a {
   font-size: 12px;
+  color: #1c1f21;
 }
 .site_header .main_nav ul > li.have_menu:hover .menu {
   display: block;
@@ -210,4 +214,21 @@
   line-height: 30px;
   font-size: 20px;
   border-radius: 0 4px 4px 0;
+}
+/* banner */
+.banner img {
+  width: 100%;
+  /* min-width属性，限制最小宽度 */
+  min-width: 1152px;
+}
+/* 轮播图一级菜单 */
+.banner .center {
+  position: relative;
+}
+.banner .center .banner_nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  background: #1c1f21;
 }
