@@ -326,6 +326,30 @@
 .banner .center .banner_nav > ul > li.axzdf::before {
   background: url(../images/muyunyouImgs/左导航图标06.png) no-repeat;
 }
-.banner .center .banner_nav .sub_nav {
+.banner .center .banner_nav .menus_box .menu {
   display: none;
+  position: absolute;
+  top: 0;
+  left: 296px;
+  background: rgba(0, 0, 0, 0.45);
+  height: 100%;
+  width: 324px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.banner .center .banner_nav .menus_box .menu:first-child {
+  display: block;
+}
+.banner .center .banner_nav .menus_box .menu dl {
+  margin-bottom: 14px;
+}
+.banner .center .banner_nav .menus_box .menu dl dt {
+  font-size: 18px;
+  /* height: 26px; */
+  line-height: 30px;
+}
+.banner .center .banner_nav .menus_box .menu dl dd {
+  font-size: 16px;
+  /* height: 22px; */
+  line-height: 22px;
 }
