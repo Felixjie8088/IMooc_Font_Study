@@ -210,6 +210,7 @@
   height: 30px;
   background: #20bd9a;
   float: left;
+  color: #fff;
   text-align: center;
   line-height: 30px;
   font-size: 20px;
@@ -337,19 +338,125 @@
   padding: 16px;
   box-sizing: border-box;
 }
-.banner .center .banner_nav .menus_box .menu:first-child {
+.banner .center .banner_nav .menus_box .curr {
   display: block;
 }
 .banner .center .banner_nav .menus_box .menu dl {
   margin-bottom: 14px;
 }
+.banner .center .banner_nav .menus_box .menu dl a {
+  color: #fff;
+}
 .banner .center .banner_nav .menus_box .menu dl dt {
-  font-size: 18px;
-  /* height: 26px; */
+  color: #fff;
+  font-size: 20px;
   line-height: 30px;
 }
 .banner .center .banner_nav .menus_box .menu dl dd {
-  font-size: 16px;
-  /* height: 22px; */
+  font-size: 14px;
+  line-height: 25px;
+}
+/* 网页宣传 */
+.hot_ad {
+  margin: 32px 0;
+}
+.hot_ad .center ul li {
+  float: left;
+  width: 264px;
+  height: 110px;
+  margin-right: 32px;
+}
+.hot_ad .center ul li:last-child {
+  margin-right: 0;
+}
+/* 新鲜甩尾、机酒自由行、当地玩乐公用部分 */
+.center .hd h2 {
+  float: left;
+  margin-bottom: 32px;
+  font-weight: bold;
+  font-size: 36px;
+  color: #1c1f21;
+  line-height: 54px;
+}
+.center .hd em {
+  float: left;
+  font-size: 12px;
+  color: #1c1f21;
+  line-height: 18px;
+  position: relative;
+  top: 30px;
+  left: 6px;
+}
+/* 新鲜甩尾 */
+.xxsw {
+  background-color: #f7f7f7;
+  padding-top: 40px;
+  height: 698px;
+}
+.xxsw .center .list ul li {
+  float: left;
+  width: 264px;
+  height: 270px;
+  margin-right: 32px;
+  margin-bottom: 32px;
+  background: #fff;
+}
+.xxsw .center .list ul li:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.xxsw .center .list ul li:nth-child(4n) {
+  margin-right: 0;
+}
+.xxsw .center .list ul li .pic_box {
+  width: 264px;
+  height: 184px;
+}
+.xxsw .center .list ul li .text_box {
+  padding: 15px;
+  font-size: 14px;
+  color: #1c1f21;
+  width: 234px;
+  height: 56px;
+}
+/* 机酒自由行 */
+.jjzyx {
+  padding: 40px 0;
+  height: 658px;
+}
+.jjzyx .center .hd > .list {
+  float: right;
+  width: 488px;
+}
+.jjzyx .center .hd > .list ul li {
+  position: relative;
+  float: left;
+  width: 56px;
+  height: 22px;
+  margin-right: 16px;
+  font-size: 14px;
+  color: #20bd9a;
+  text-align: center;
   line-height: 22px;
 }
+.jjzyx .center .hd > .list ul li i {
+  display: none;
+  position: absolute;
+  top: 21px;
+  left: 0px;
+  width: 56px;
+  height: 4px;
+  background-color: #20bd9a;
+}
+.jjzyx .center .hd > .list ul li a {
+  color: rgba(0, 0, 0, 0.85);
+}
+.jjzyx .center .hd > .list ul li:hover a {
+  color: #20bd9a;
+}
+.jjzyx .center .hd > .list ul li:hover i {
+  display: block;
+}
+.jjzyx .center .hd > .list ul li:last-child {
+  margin-right: 0;
+}
+/* 当地玩乐 */
