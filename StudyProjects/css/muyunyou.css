@@ -423,11 +423,11 @@
   padding: 40px 0;
   height: 658px;
 }
-.jjzyx .center .hd > .list {
+.jjzyx .center .hd > .nav_list {
   float: right;
   width: 488px;
 }
-.jjzyx .center .hd > .list ul li {
+.jjzyx .center .hd > .nav_list ul li {
   position: relative;
   float: left;
   width: 56px;
@@ -436,27 +436,85 @@
   font-size: 14px;
   color: #20bd9a;
   text-align: center;
-  line-height: 22px;
+  line-height: 50px;
 }
-.jjzyx .center .hd > .list ul li i {
+.jjzyx .center .hd > .nav_list ul li i {
   display: none;
   position: absolute;
-  top: 21px;
+  top: 35px;
   left: 0px;
   width: 56px;
   height: 4px;
   background-color: #20bd9a;
 }
-.jjzyx .center .hd > .list ul li a {
+.jjzyx .center .hd > .nav_list ul li a {
   color: rgba(0, 0, 0, 0.85);
 }
-.jjzyx .center .hd > .list ul li:hover a {
+.jjzyx .center .hd > .nav_list ul li:hover a {
   color: #20bd9a;
 }
-.jjzyx .center .hd > .list ul li:hover i {
+.jjzyx .center .hd > .nav_list ul li:hover i {
   display: block;
 }
-.jjzyx .center .hd > .list ul li:last-child {
+.jjzyx .center .hd > .nav_list ul li:last-child {
   margin-right: 0;
+}
+.jjzyx .center .list .above {
+  width: 100%;
+  height: 270px;
+  margin-bottom: 32px;
+}
+.jjzyx .center .list ul li {
+  position: relative;
+  float: left;
+  width: 264px;
+  height: 270px;
+  margin-right: 32px;
+  background: #ffffff;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.jjzyx .center .list .above ul li:last-child,
+.jjzyx .center .list .below ul li:last-child {
+  margin-right: 0;
+}
+.jjzyx .center .list .above ul li.big {
+  width: 560px;
+}
+.jjzyx .center .list ul li .desc {
+  padding: 15px;
+  font-size: 14px;
+  color: #1c1f21;
+  width: 234px;
+  height: 56px;
+}
+.jjzyx .center .list .above ul li.big .desc {
+  position: absolute;
+  top: 167px;
+  left: 0;
+  width: 508px;
+  height: 43px;
+  padding: 30px 26px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.jjzyx .center .list ul li .label {
+  position: absolute;
+  top: 144px;
+  left: 0;
+  width: 42px;
+  height: 22px;
+  background-color: #1c1f21;
+  opacity: 0.7;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 9px 16px;
+  text-align: center;
+  line-height: 22px;
+}
+.jjzyx .center .list .above ul li.big .label {
+  top: 127px;
+}
+.jjzyx .center .list .below ul li:last-child {
+  background-image: linear-gradient(180deg, #34e3bc 0%, #15af7a 98%);
 }
 /* 当地玩乐 */
