@@ -4,7 +4,9 @@
 }
 @font-face {
   font-family: "iconfont";
-  src: url("../fonts/iconfont.ttf") format("truetype");
+  src: url("../fonts/iconfont.woff2?t=1634698071163") format("woff2"),
+    url("../fonts/iconfont.woff?t=1634698071163") format("woff"),
+    url("../fonts/iconfont.ttf?t=1634698071163") format("truetype");
 }
 .iconfont {
   font-family: "iconfont" !important;
