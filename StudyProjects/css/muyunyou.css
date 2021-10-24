@@ -449,6 +449,63 @@
 .content_part .center .list .more_grid ul > li:last-child {
   border-right: none;
 }
+/* 机酒自由行 最世界·深度旅行 跟团/半自助游 */
+.content_group {
+  padding: 40px 0;
+  height: 658px;
+}
+.content_group .center .list > ul > li {
+  position: relative;
+  float: left;
+  width: 264px;
+  height: 270px;
+  margin: 0 32px 32px 0;
+  background: #ffffff;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.content_group .center .list > ul > li:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+}
+.content_group .center .list > ul > li:nth-child(3),
+.content_group .center .list > ul > li:nth-child(7) {
+  margin-right: 0;
+}
+.content_group .center .list > ul > li.big_grid {
+  width: 560px;
+}
+.content_group .center .list > ul > li .desc {
+  padding: 15px;
+  font-size: 14px;
+  width: 234px;
+  height: 56px;
+  color: #1c1f21;
+}
+.content_group .center .list > ul > li.big_grid .desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 560px;
+  height: 103px;
+  padding: 30px 26px;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.content_group .center .list > ul > li .label {
+  position: absolute;
+  top: 144px;
+  left: 0;
+  width: 74px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 40px;
+}
+.content_group .center .list > ul > li.big_grid .label {
+  top: 127px;
+}
 /* 新鲜甩尾 */
 .xxsw {
   background-color: #f7f7f7;
@@ -481,62 +538,7 @@
   height: 56px;
 }
 /* 机酒自由行 */
-.jjzyx {
-  padding: 40px 0;
-  height: 658px;
-}
-.jjzyx .center .list > ul > li {
-  position: relative;
-  float: left;
-  width: 264px;
-  height: 270px;
-  margin: 0 32px 32px 0;
-  background: #ffffff;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-.jjzyx .center .list > ul > li:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
-}
-.jjzyx .center .list > ul > li:nth-child(3),
-.jjzyx .center .list > ul > li:nth-child(7) {
-  margin-right: 0;
-}
-.jjzyx .center .list > ul > li.big_grid {
-  width: 560px;
-}
-.jjzyx .center .list > ul > li .desc {
-  padding: 15px;
-  font-size: 14px;
-  width: 234px;
-  height: 56px;
-  color: #1c1f21;
-}
-.jjzyx .center .list > ul > li.big_grid .desc {
-  position: absolute;
-  top: 167px;
-  left: 0;
-  width: 560px;
-  height: 103px;
-  padding: 30px 26px;
-  box-sizing: border-box;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.jjzyx .center .list > ul > li .label {
-  position: absolute;
-  top: 144px;
-  left: 0;
-  width: 74px;
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0.6);
-  font-size: 14px;
-  color: #ffffff;
-  text-align: center;
-  line-height: 40px;
-}
-.jjzyx .center .list > ul > li.big_grid .label {
-  top: 127px;
-}
+
 /* 当地玩乐 */
 .ddwl {
   padding-top: 40px;
@@ -661,4 +663,114 @@
 }
 .tsddty .center .col_box .text_box dl dd em {
   color: #fa6400;
+}
+/* 最世界·深度旅行 */
+.zsj {
+  background-color: #f7f7f7;
+}
+.zsj .center .hd > .nav_list {
+  width: 86px;
+}
+.zsj .center .list > ul > li.big_grid .desc {
+  bottom: 30px;
+  padding: 0 26px;
+  height: 26px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+}
+.zsj .center .list > ul > li.big_grid .info {
+  position: absolute;
+  left: 50%;
+  top: 62px;
+  margin-left: -53px;
+  width: 106px;
+  height: 76px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  padding-top: 30px;
+}
+.zsj .center .list .more_grid {
+  background-image: linear-gradient(180deg, #bd5ee8 0%, #832abb 98%);
+}
+/* 跟团/半自助游 */
+.gtzzy .center .hd > .nav_list {
+  width: 158px;
+}
+.gtzzy .center .list > ul > li.big_grid .desc {
+  bottom: 30px;
+  padding: 0 26px;
+  height: 26px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+}
+.gtzzy .center .list > ul > li.big_grid .info {
+  position: absolute;
+  left: 50%;
+  top: 62px;
+  margin-left: -53px;
+  width: 106px;
+  height: 76px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  padding-top: 30px;
+}
+.gtzzy .center .list .more_grid {
+  background-image: linear-gradient(180deg, #41d8e9 0%, #3685ea 98%);
+}
+/* 友情链接 */
+.yqlj {
+  background-color: #f7f7f7;
+  height: 144px;
+  padding-top: 36px;
+  padding-bottom: 40px;
+}
+.yqlj .center .hd > ul > li a {
+  color: #1c1f21;
+}
+.yqlj .center .hd > ul > li {
+  float: left;
+  padding-right: 27px;
+  margin-right: 30px;
+  border-right: 1px solid #1c1f21;
+}
+.yqlj .center .hd > ul > li:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+.yqlj .center .bd {
+  margin-top: 40px;
+  height: 76px;
+}
+.yqlj .center .bd > .col {
+  float: left;
+  width: 364px;
+  margin-right: 30px;
+}
+.yqlj .center .bd > .col:last-child {
+  margin-right: 0;
+}
+.yqlj .center .bd > .col dt {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1c1f21;
+  line-height: 24px;
+}
+.yqlj .center .bd > .col dd {
+  font-size: 14px;
+  color: #1c1f21;
+  line-height: 22px;
+}
+.yqlj .center .bd > .col .pic_box {
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+}
+.yqlj .center .bd > .col dl {
+  float: left;
+  width: 289px;
 }
