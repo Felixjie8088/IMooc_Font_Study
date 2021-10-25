@@ -419,6 +419,10 @@
   font-size: 14px;
   background-image: linear-gradient(180deg, #34e3bc 0%, #15af7a 98%);
 }
+.content_part .center .list .more_grid a {
+  display: block;
+  height: 270px;
+}
 .content_part .center .list .more_grid p {
   color: #fff;
 }
@@ -555,7 +559,7 @@
 .ddwl .center .list .col:last-child {
   margin-right: 0;
 }
-.ddwl .center .list .col div:hover {
+.ddwl .center .list .col > div:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
 }
 .ddwl .center .list .col .big_grid {
@@ -594,8 +598,10 @@
   margin-bottom: 30px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-.ddwl .center .list .col .pro_grid img {
+.ddwl .center .list .col .pro_grid .pic_box {
   float: left;
+  width: 120px;
+  height: 120px;
 }
 .ddwl .center .list .col .pro_grid .desc {
   float: left;
@@ -648,21 +654,49 @@
   height: 106px;
   padding: 16px 14px;
   box-sizing: border-box;
-  position: relative;
+  /* position: relative; */
+  color: #000;
 }
 .tsddty .center .col_box .text_box dl dt {
   font-size: 16px;
+  font-weight: bold;
   line-height: 24px;
+  height: 60px;
 }
 .tsddty .center .col_box .text_box dl dd {
-  position: absolute;
+  /* position: absolute;
   bottom: 16px;
-  left: 14px;
+  left: 14px; */
   font-size: 12px;
   line-height: 18px;
 }
 .tsddty .center .col_box .text_box dl dd em {
   color: #fa6400;
+}
+.zsj .center .list .big_grid .mask,
+.gtzzy .center .list .big_grid .mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.4s ease-in 0s;
+}
+.zsj .center .list .big_grid:hover .mask,
+.gtzzy .center .list .big_grid:hover .mask {
+  opacity: 1;
+}
+.zsj .center .list .big_grid:hover .info,
+.gtzzy .center .list .big_grid:hover .info {
+  top: 62px;
+  opacity: 1;
+}
+.zsj .center .list .big_grid:hover .desc,
+.gtzzy .center .list .big_grid:hover .desc {
+  bottom: 30px;
+  opacity: 1;
 }
 /* 最世界·深度旅行 */
 .zsj {
@@ -672,16 +706,18 @@
   width: 86px;
 }
 .zsj .center .list > ul > li.big_grid .desc {
-  bottom: 30px;
+  bottom: -30px;
+  opacity: 0;
   padding: 0 26px;
   height: 26px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0);
+  transition: bottom 0.4s linear 0s;
 }
 .zsj .center .list > ul > li.big_grid .info {
   position: absolute;
   left: 50%;
-  top: 62px;
+  top: -107px;
   margin-left: -53px;
   width: 106px;
   height: 76px;
@@ -690,6 +726,8 @@
   color: #fff;
   text-align: center;
   padding-top: 30px;
+  opacity: 0;
+  transition: all 0.4s linear 0s;
 }
 .zsj .center .list .more_grid {
   background-image: linear-gradient(180deg, #bd5ee8 0%, #832abb 98%);
@@ -699,16 +737,18 @@
   width: 158px;
 }
 .gtzzy .center .list > ul > li.big_grid .desc {
-  bottom: 30px;
+  bottom: -30px;
+  opacity: 0;
   padding: 0 26px;
   height: 26px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0);
+  transition: bottom 0.4s linear 0s;
 }
 .gtzzy .center .list > ul > li.big_grid .info {
   position: absolute;
   left: 50%;
-  top: 62px;
+  top: -107px;
   margin-left: -53px;
   width: 106px;
   height: 76px;
@@ -717,6 +757,8 @@
   color: #fff;
   text-align: center;
   padding-top: 30px;
+  opacity: 0;
+  transition: all 0.4s linear 0s;
 }
 .gtzzy .center .list .more_grid {
   background-image: linear-gradient(180deg, #41d8e9 0%, #3685ea 98%);
@@ -733,9 +775,13 @@
 }
 .yqlj .center .hd > ul > li {
   float: left;
-  padding-right: 27px;
-  margin-right: 30px;
+  padding: 0 30px;
+  height: 16px;
+  line-height: 16px;
   border-right: 1px solid #1c1f21;
+}
+.yqlj .center .hd > ul > li:first-child {
+  padding-left: 0;
 }
 .yqlj .center .hd > ul > li:last-child {
   padding-right: 0;
@@ -773,4 +819,49 @@
 .yqlj .center .bd > .col dl {
   float: left;
   width: 289px;
+}
+/* 网页底部 */
+.wydb {
+  height: 129px;
+  padding: 48px 0;
+  background-color: #1c1f21;
+  color: #ffffff;
+}
+.wydb .center .info {
+  height: 46px;
+  margin-bottom: 31px;
+}
+.wydb .center .info .info_left {
+  float: left;
+  width: 230px;
+  height: 46px;
+  font-size: 46px;
+  line-height: 46px;
+  margin-right: 21px;
+}
+.wydb .center .info .info_right {
+  float: left;
+  width: 532px;
+  font-size: 14px;
+  height: 44px;
+  line-height: 22px;
+  margin-right: 21px;
+}
+.wydb .center .list_link ul li a {
+  color: #fff;
+  font-size: 14px;
+}
+.wydb .center .list_link ul li {
+  float: left;
+  padding-right: 15px;
+  margin-right: 15px;
+  border-right: 1px solid #fff;
+}
+.wydb .center .list_link ul li:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+.wydb .center .baxx {
+  margin-top: 8px;
+  font-size: 14px;
 }
