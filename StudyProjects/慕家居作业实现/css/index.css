@@ -45,12 +45,117 @@
 
 /* 网页TOP区  */
 header {
+  height: 161px;
+}
+header .top {
   height: 40px;
   background-color: #0058aa;
 }
-header .center p {
+/* 网页TOP区-服务热线 */
+header .top .center p {
   float: right;
   font-size: 18px;
   color: #ffffff;
   line-height: 40px;
+}
+/* 网页导航区 */
+header .main_nav {
+  height: 121px;
+  background-color: #fff;
+  padding: 19px 0 11px;
+}
+/* 网页导航区-网站logo */
+header .main_nav .center .logo {
+  float: left;
+  width: 192px;
+  height: 91px;
+}
+header .main_nav .center .logo h1 {
+  font-size: 64px;
+  color: #0058aa;
+  line-height: 91px;
+}
+/* 网页导航区-菜单 */
+header .main_nav .menu_list {
+  float: left;
+  width: 561px;
+  height: 91px;
+  margin-left: 109px;
+  margin-right: 62px;
+}
+header .main_nav .menu_list ul li {
+  float: left;
+  width: 64px;
+  height: 91px;
+  margin-right: 60px;
+}
+header .main_nav .menu_list ul li:last-child {
+  margin-right: 0;
+}
+/* 鼠标hover导航图标动画 */
+@keyframes navtouch {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+header .main_nav .menu_list ul li .picbox {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 8.5px 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-bottom: 21px;
+}
+header .main_nav .menu_list ul li .picbox:hover {
+  background-color: #0058aa;
+  color: #fff;
+  animation: navtouch 1s linear 0s infinite alternate;
+}
+header .main_nav .menu_list ul li .picbox:hover a .no_hover {
+  display: inline-block;
+}
+header .main_nav .menu_list ul li .picbox a .have_hover {
+  display: none;
+}
+header .main_nav .menu_list ul li .picbox:hover a .have_hover {
+  display: inline-block;
+}
+header .main_nav .menu_list ul li .picbox:hover a .no_hover {
+  display: none;
+}
+header .main_nav .menu_list ul li .picbox a {
+  display: block;
+  text-align: center;
+}
+header .main_nav .menu_list ul li .textbox {
+  font-size: 16px;
+  color: #545454;
+}
+/* 网页导航区-全局搜索 */
+header .main_nav .search {
+  width: 277px;
+  height: 37px;
+  float: left;
+  padding-top: 26px;
+  box-sizing: border-box;
+}
+header .main_nav .search input {
+  float: left;
+  width: 227px;
+  height: 37px;
+  outline: none;
+  border: 1px solid #000;
+}
+header .main_nav .search a {
+  float: left;
+  display: block;
+  width: 48px;
+  height: 39px;
+  line-height: 39px;
+  background-color: rgb(28, 28, 170);
 }
