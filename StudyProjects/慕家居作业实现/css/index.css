@@ -45,6 +45,7 @@
 
 /* 网页TOP区  */
 header {
+  width: 100%;
   height: 161px;
 }
 header .top {
@@ -149,7 +150,7 @@ header .main_nav .search input {
   width: 227px;
   height: 37px;
   outline: none;
-  border: 1px solid #000;
+  border: 1px solid #d3d3d3;
 }
 header .main_nav .search a {
   float: left;
@@ -157,5 +158,197 @@ header .main_nav .search a {
   width: 48px;
   height: 39px;
   line-height: 39px;
+  color: #fff;
+  font-size: 39px;
+  text-align: center;
   background-color: rgb(28, 28, 170);
+}
+/* 网页banner区 */
+.banner {
+  width: 100%;
+  height: 650px;
+  position: relative;
+  background: url(../images/assets/banner01.png) no-repeat;
+  background-position: center;
+}
+/* 网页banner区-底部圆点切换区 */
+.banner .point_list {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  margin-left: -21px;
+  width: 42px;
+  height: 10px;
+}
+.banner .point_list ul li {
+  float: left;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 6px;
+}
+.banner .point_list ul li.curr {
+  background-color: #0058aa;
+}
+.banner .point_list ul li:hover {
+  cursor: pointer;
+  background-color: #0058aa;
+}
+.banner .point_list ul li:last-child {
+  margin-right: 0;
+}
+/* 网页商品、了解我们区 */
+.prod_about {
+  height: 760px;
+  padding-top: 38px;
+  box-sizing: border-box;
+}
+/* 网页商品区 */
+.prod_about .center .prod {
+  height: 266px;
+  margin-bottom: 32px;
+  padding: 0 73px;
+  position: relative;
+}
+.prod_about .center .prod > ul > li {
+  float: left;
+  width: 171px;
+  margin-right: 50px;
+}
+.prod_about .center .prod > ul > li:last-child {
+  margin-right: 0;
+}
+.prod_about .center .prod > ul > li > .pic_box {
+  margin-bottom: 10px;
+}
+.prod_about .center .prod > ul > li > .text_box p {
+  font-size: 18px;
+  color: #838383;
+}
+.prod_about .center .prod .arrow {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  line-height: 48px;
+  top: 50%;
+  margin-top: -24px;
+}
+.prod_about .center .prod .arrow:hover {
+  color: #0058aa;
+}
+.prod_about .center .prod > .left {
+  left: 0;
+}
+.prod_about .center .prod > .right {
+  right: 0;
+}
+.prod_about .center .prod a {
+  color: rgba(0, 0, 0, 0.6);
+}
+/* 了解我们区 */
+.prod_about .center .about {
+  height: 374px;
+}
+.prod_about .center .about .hd {
+  text-align: center;
+}
+.prod_about .center .about .hd h2 {
+  font-size: 32px;
+  color: #696868;
+}
+.prod_about .center .about .hd em {
+  font-size: 18px;
+  color: #9b9b9b;
+  border-bottom: 1px solid #0058aa;
+}
+.prod_about .center .about .bd {
+  margin-top: 36px;
+}
+.prod_about .center .about .bd .col {
+  float: left;
+  width: 384px;
+}
+.prod_about .center .about .bd .line {
+  width: 142px;
+  height: 4px;
+  margin-bottom: 20px;
+  background-color: #0058aa;
+}
+.prod_about .center .about .bd .pic_box {
+  height: 356px;
+  margin-left: 30px;
+  margin-right: 19px;
+  transform: scale(1);
+  transition: transform 0.5s linear 0s;
+}
+.prod_about .center .about .bd .pic_box:hover {
+  transform: scale(1.3);
+}
+.prod_about .center .about .bd .about_box p:nth-of-type(1) {
+  width: 104px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 26px;
+  color: #0058aa;
+}
+.prod_about .center .about .bd .about_box p:nth-of-type(2) {
+  font-size: 21px;
+  color: #5a5a5a;
+  line-height: 41px;
+}
+.prod_about .center .about .bd .about_box p:nth-of-type(3) {
+  width: 238px;
+  height: 78px;
+  font-size: 16px;
+  color: #7b7c7c;
+  line-height: 26px;
+  margin-bottom: 27px;
+}
+.prod_about .center .about .bd .about_box > button {
+  width: 130px;
+  height: 38px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #0058aa;
+}
+.prod_about .center .about .bd .message_box {
+  text-align: right;
+}
+.prod_about .center .about .bd .message_box .col_box {
+  width: 273px;
+  height: 61px;
+  background: #cccccc;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 10px;
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+.prod_about .center .about .bd .message_box .col_box:last-child {
+  margin-bottom: 0;
+}
+.prod_about .center .about .bd .message_box .col_box .icon_box {
+  float: left;
+  width: 40px;
+  height: 35px;
+  line-height: 35px;
+  margin-right: 19px;
+}
+.prod_about .center .about .bd .message_box .col_box .text_box {
+  float: left;
+}
+.prod_about .center .about .bd .message_box .col_box .text_box p:first-child {
+  font-size: 22px;
+}
+.prod_about .center .about .bd .message_box .col_box .text_box p:last-child {
+  font-size: 12px;
+}
+.prod_about .center .about .bd .message_box .curr {
+  background-color: #0058aa;
+}
+.prod_about .center .about .bd .message_box .col_box:hover {
+  background-color: #0058aa;
+  transition: background-color 0.5s linear 0s;
 }
