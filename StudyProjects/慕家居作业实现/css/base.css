@@ -10,7 +10,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 body {
-  font-family: Helvetica;
+  font-family: "微软雅黑", Helvetica;
 }
 .clearfix {
   overflow: hidden;

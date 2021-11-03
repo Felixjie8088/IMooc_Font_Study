@@ -70,6 +70,7 @@ header .main_nav .center .logo {
   float: left;
   width: 192px;
   height: 91px;
+  cursor: pointer;
 }
 header .main_nav .center .logo h1 {
   font-size: 64px;
@@ -226,6 +227,19 @@ header .main_nav .search a {
   height: 85px;
   text-align: center;
 }
+.content_part .center .hd .gl_line {
+  position: absolute;
+  top: 45px;
+  width: 500px;
+  height: 2px;
+  background-color: #808080;
+}
+.content_part .center .hd > .left {
+  left: 0;
+}
+.content_part .center .hd > .right {
+  right: 0;
+}
 .content_part .center .hd h2 {
   font-size: 32px;
   color: #696868;
@@ -289,14 +303,22 @@ header .main_nav .search a {
   background-color: #0058aa;
 }
 .prod_about .center .about .bd .pic_box {
+  overflow: hidden;
   height: 256px;
   margin-left: 30px;
   margin-right: 19px;
+}
+.prod_about .center .about .bd .pic_box img {
+  overflow: hidden;
   transform: scale(1);
   transition: transform 0.5s linear 0s;
 }
-.prod_about .center .about .bd .pic_box:hover {
-  transform: scale(1.3);
+.prod_about .center .about .bd .pic_box img:hover {
+  transform: scale(1.2);
+}
+.prod_about .center .about .bd .about_box {
+  width: 374px;
+  padding-left: 10px;
 }
 .prod_about .center .about .bd .about_box p:nth-of-type(1) {
   width: 104px;
@@ -324,6 +346,17 @@ header .main_nav .search a {
   font-size: 18px;
   color: #ffffff;
   background-color: #0058aa;
+}
+.prod_about .center .about .bd .about_box > button:hover {
+  animation: updown 0.6s linear 0s infinite alternate;
+}
+@keyframes updown {
+  0% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(-6deg);
+  }
 }
 .prod_about .center .about .bd .message_box {
   margin-top: 15px;
@@ -358,12 +391,9 @@ header .main_nav .search a {
 .prod_about .center .about .bd .message_box .col_box .text_box p:last-child {
   font-size: 12px;
 }
-.prod_about .center .about .bd .message_box .curr {
-  background-color: #0058aa;
-}
 .prod_about .center .about .bd .message_box .col_box:hover {
   background-color: #0058aa;
-  transition: background-color 0.5s linear 0s;
+  transition: background-color 0.8s linear 0s;
 }
 /* 网页精品推荐区 */
 .jptj {
@@ -415,8 +445,12 @@ header .main_nav .search a {
   padding-top: 80px;
   box-sizing: border-box;
 }
-.xwzx .center .hd {
-  margin-bottom: 60px;
+.xwzx .center .hd .gl_line {
+  height: 1px;
+  background-color: #9b9b9b;
+}
+.xwzx .center .bd {
+  padding-top: 60px;
 }
 .xwzx .center .bd ul li {
   float: left;
@@ -438,6 +472,17 @@ header .main_nav .search a {
   text-align: center;
   line-height: 65px;
   background: url(../images/assets/talk-bg.png) no-repeat;
+}
+@keyframes up {
+  0% {
+    top: -20px;
+  }
+  100% {
+    top: 0;
+  }
+}
+.xwzx .center .bd ul li .icon_box:hover {
+  animation: up 0.4s ease-out 0s alternate;
 }
 .xwzx .center .bd ul li .icon_box em {
   font-size: 40px;
