@@ -40,10 +40,10 @@
       }
       .Tips_box {
         width: 30px;
-        height: 4px;
+        height: 5px;
         background: rgb(180, 172, 172);
-        float: left;
         margin-right: 5px;
+        display: inline-block;
       }
       .red {
         background: red;
@@ -73,9 +73,10 @@
       <p>
         <label for="pwd">* 登录密码：</label>
         <input type="password" id="pwd" placeholder="6-20位字母或数字" />
-        <div class="Tips_box red" id="boxRed"></div>
-        <div class="Tips_box orange" id="boxOrange"></div>
-        <div class="Tips_box green" id="boxGreen"></div>
+        <span class="Tips_warning" id="pwdWarning">6-20位字母或数字</span>
+        <span class="Tips_box" id="boxRed"></span>
+        <span class="Tips_box" id="boxOrange"></span>
+        <span class="Tips_box" id="boxGreen"></span>
       </p>
       <p>
         <label for="cPwd">* 确认密码：</label>
@@ -104,15 +105,60 @@
   （3） 如果输入的密码跟上面一致，则提示“两次输入一致”。<br>
   4、满足所有的验证条件，点击下一步提示“信息填写正确”，否则提示“请填写正确的信息”
   */
-  var oName = document.getElementById("Name");
-  var oWarning = document.getElementsByClassName("warning");
-  oName.onblur = function (e) {
-    var reName = /^[\u4E00-\u9FA5]{2,4}$/;
-    console.log(e.target.value);
-    if (!reName.test(e.target.value)) {
-      oWarning[0].style.display = "initial";
+  //  用户名的值
+  var oUserName = document.getElementById("userName");
+  var oUserNameW = document.getElementById("userNameWarning");
+  var oUserNameS = document.getElementById("userNameSuccess");
+  //  密码框的值
+  var oPwd = document.getElementById("pwd");
+  var oPwdW = document.getElementById("pwdWarning");
+  var oTips_box_red = document.getElementById("boxRed");
+  var oTips_box_orange = document.getElementById("boxOrange");
+  var oTips_box_green = document.getElementById("boxGreen");
+  //  确认密码框的值
+  var oCPwd = document.getElementById("cPwd");
+  var oCPwdW = document.getElementById("cPwdWarning");
+  var oCPwdS = document.getElementById("cPwdSuccess");
+
+  // 正则表达式
+  var re_user_name = /^[a-zA-Z]\w{5,29}$/;
+  var re_pwd = /^[a-zA-Z\d]{6,20}$/;
+  var re_pwd_both = /^[(a-z+A-Z+)|(a-z+\d+)|(A-Z+\d+)]{6,20}$/;
+  var re_pwd_num = /^[\d]{6,20}$/;
+  var re_pwd_low = /^[a-z]{6,20}$/;
+  var re_pwd_up = /^[A-Z]{6,20}$/;
+
+  // 用户名文本框失焦
+  oUserName.onblur = function () {
+    if (!re_user_name.test(oUserName.value)) {
+      oUserNameW.style.display = "initial";
+      oUserNameS.style.display = "none";
     } else {
-      oWarning[0].style.display = "none";
+      oUserNameW.style.display = "none";
+      oUserNameS.style.display = "initial";
+    }
+  };
+
+  // 密码文本框失焦
+  oPwd.onblur = function () {
+    oTips_box_red.className = "Tips_box";
+    oTips_box_orange.className = "Tips_box";
+    oTips_box_green.className = "Tips_box";
+    if (!re_pwd.test(oPwd.value)) {
+      oPwdW.style.display = "initial";
+    } else {
+      oPwdW.style.display = "none";
+      if (
+        re_pwd_num.test(oPwd.value) ||
+        re_pwd_low.test(oPwd.value) ||
+        re_pwd_up.test(oPwd.value)
+      ) {
+        oTips_box_red.className += " red";
+      }
+      if (re_pwd_both.test(oPwd.value)) {
+        oTips_box_red.className += " red";
+        oTips_box_orange.className += " green";
+      }
     }
   };
 </script>
