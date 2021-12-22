@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 650px;
+        height: 360px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        position: relative;
+        /* overflow: hidden; */
+      }
+      .box .leftBtn {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgb(119, 124, 175);
+        top: 50%;
+        left: 10px;
+        margin-top: -25px;
+      }
+      .box .rightBtn {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgb(119, 124, 175);
+        top: 50%;
+        right: 10px;
+        margin-top: -25px;
+      }
+      .box ul {
+        list-style: none;
+      }
+      .box ul li {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease 0s;
+      }
+      .box ul li:first-child {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box">
+      <ul class="list" id="list">
+        <li><img src="./images/beijing/0.jpg" /></li>
+        <li><img src="./images/beijing/1.jpg" /></li>
+        <li><img src="./images/beijing/2.jpg" /></li>
+        <li><img src="./images/beijing/3.jpg" /></li>
+        <li><img src="./images/beijing/4.jpg" /></li>
+      </ul>
+      <a href="javascript:;" class="leftBtn" id="leftBtn"></a>
+      <a href="javascript:;" class="rightBtn" id="rightBtn"></a>
+    </div>
+  </body>
+</html>
+
+<script>
+  var oBox = document.getElementById("box");
+  var oList = document.getElementById("list");
+  var oLiArr = document.getElementsByTagName("li");
+  var oLBtn = document.getElementById("leftBtn");
+  var oRBtn = document.getElementById("rightBtn");
+
+  var picCount = 0;
+  // 节流锁
+  var lock = true;
+
+  oRBtn.onclick = function () {
+    if (!lock) return;
+    lock = false;
+    oLiArr[picCount].style.opacity = "0";
+    if (picCount == oLiArr.length - 1) {
+      picCount = -1;
+    }
+    picCount++;
+    oLiArr[picCount].style.opacity = "1";
+    setTimeout(() => {
+      lock = true;
+    }, 500);
+  };
+  oLBtn.onclick = function () {
+    if (!lock) return;
+    lock = false;
+    oLiArr[picCount].style.opacity = "0";
+    if (picCount == 0) {
+      picCount = oLiArr.length;
+    }
+    picCount--;
+    oLiArr[picCount].style.opacity = "1";
+    setTimeout(() => {
+      lock = true;
+    }, 500);
+  };
+</script>

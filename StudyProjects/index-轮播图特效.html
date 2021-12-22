@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 650px;
+        height: 360px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .box .leftBtn {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgb(119, 124, 175);
+        top: 50%;
+        left: 10px;
+        margin-top: -25px;
+      }
+      .box .rightBtn {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgb(119, 124, 175);
+        top: 50%;
+        right: 10px;
+        margin-top: -25px;
+      }
+      .box ul {
+        list-style: none;
+        width: 5000px;
+        position: relative;
+        left: 0;
+      }
+      .box ul li {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box">
+      <ul class="list" id="list">
+        <li><img src="./images/beijing/0.jpg" /></li>
+        <li><img src="./images/beijing/1.jpg" /></li>
+        <li><img src="./images/beijing/2.jpg" /></li>
+        <li><img src="./images/beijing/3.jpg" /></li>
+        <li><img src="./images/beijing/4.jpg" /></li>
+      </ul>
+      <a href="javascript:;" class="leftBtn" id="leftBtn"></a>
+      <a href="javascript:;" class="rightBtn" id="rightBtn"></a>
+    </div>
+  </body>
+</html>
+
+<script>
+  var oBox = document.getElementById("box");
+  var oList = document.getElementById("list");
+  var oLBtn = document.getElementById("leftBtn");
+  var oRBtn = document.getElementById("rightBtn");
+
+  var liFirst = oList.firstElementChild.cloneNode(true);
+
+  oList.appendChild(liFirst);
+
+  var picCount = 0;
+  // 节流锁
+  var lock = true;
+
+  oRBtn.onclick = function () {
+    // 如果锁还在，那么直接什么都不做
+    if (!lock) return;
+    // 先关锁
+    lock = false;
+    // 每次点击的时候加上过渡
+    oList.style.transition = "left .5s ease 0s";
+    // 图片数自增
+    picCount++;
+    // 判断是最后一张图片时，用假的第一张图片替换真的
+    if (picCount > 4) {
+      // 设置延时器取消过渡效果。达到瞬间移动到第一张图片的位置
+      setTimeout(function () {
+        // 取消过渡
+        oList.style.transition = "none";
+        // 直接移动到第一张图片的位置
+        oList.style.left = 0;
+        picCount = 0;
+      }, 500);
+    }
+    oList.style.left = picCount * -650 + "px";
+    // 函数节流
+    setTimeout(() => {
+      lock = true;
+    }, 500);
+  };
+
+  // oLBtn.onclick = function () {
+  //   picCount--;
+  //   if (picCount < 0) {
+  //     picCount = 0;
+  //   }
+  //   oList.style.left = picCount * -650 + "px";
+  // };
+
+  oLBtn.onclick = function () {
+    // 如果锁还在，那么直接什么都不做
+    if (!lock) return;
+
+    // 先关锁
+    lock = false;
+    // 先判断是否是第一张图片，如果是则用假的瞬间替换真的
+    if (picCount == 0) {
+      // 取消过渡，因为要瞬间移动
+      oList.style.transition = "none";
+      // 直接瞬移到最后的假图片上
+      oList.style.left = 5 * -650 + "px";
+      // 设置延时器先瞬间取消过渡，然后再加上
+      setTimeout(() => {
+        // 加过渡
+        oList.style.transition = "left .5s ease 0s";
+        // 真正意义上的最后一个图片
+        picCount = 4;
+        oList.style.left = picCount * -650 + "px";
+      }, 0);
+    } else {
+      picCount--;
+      oList.style.left = picCount * -650 + "px";
+    }
+    // 函数节流
+    setTimeout(() => {
+      lock = true;
+    }, 500);
+  };
+</script>

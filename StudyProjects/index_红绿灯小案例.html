@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box img {
+        width: 5%;
+      }
+      .love {
+        width: 52px;
+        height: 52px;
+        text-align: center;
+        line-height: 52px;
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box" class="box"></div>
+
+    <div id="love" class="love">❤</div>
+  </body>
+</html>
+<script>
+  var arr = [];
+
+  for (var i = 0; i < 10; i++) {
+    var randomNum = parseInt(Math.random() * 36);
+    arr.push(randomNum);
+  }
+
+  var newArr = arr.sort(function (b, a) {
+    return a - b;
+  });
+  document.writeln(newArr);
+  document.writeln("<br>");
+  document.writeln(
+    "这组数中最大的值是：" +
+      Math.max.apply(null, newArr) +
+      "，最小的值是：" +
+      Math.min.apply(null, newArr)
+  );
+  document.writeln("<br>");
+  document.writeln(
+    "这组数中最大的值是：" +
+      newArr[0] +
+      "，最小的值是：" +
+      newArr[newArr.length - 1]
+  );
+
+  var today = new Date();
+  var weekArr = [
+    "星期日",
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "星期六",
+  ];
+  document.writeln("<br>");
+  document.writeln("<br>");
+  document.writeln(today);
+  document.writeln("<br>");
+
+  getNewDate(today);
+  function getNewDate(date) {
+    var year = today.getFullYear();
+    var month = today.getMonth() + 1;
+    var day = today.getDate();
+    var week = today.getDay();
+    var hour = today.getHours();
+    var min = today.getMinutes();
+    var sec = today.getSeconds();
+
+    document.writeln(
+      "今天是" +
+        year +
+        "年" +
+        (month < 10 ? "0" + month.toString() : month) +
+        "月" +
+        day +
+        "日" +
+        weekArr[week] +
+        ""
+    );
+    document.writeln("<br>");
+    document.writeln(
+      (hour < 10 ? "0" + hour.toString() : hour) +
+        ":" +
+        (min < 10 ? "0" + min.toString() : month) +
+        ":" +
+        (sec < 10 ? "0" + sec.toString() : sec)
+    );
+  }
+
+  //安全模式创建的工厂方法函数
+  var UserFactory = function (role) {
+    console.log(this);
+    if (this instanceof UserFactory) {
+      var s = new this[role]();
+      return s;
+    } else {
+      return new UserFactory(role);
+    }
+  };
+  //工厂方法函数的原型中设置所有对象的构造函数
+  UserFactory.prototype = {
+    Admin: function () {
+      this.name = "管理员";
+      this.viewPage = ["首页", "查询", "权限管理"];
+    },
+    User: function () {
+      this.name = "用户";
+      this.viewPage = ["首页", "查询"];
+    },
+  };
+  //调用
+  var admin = UserFactory("Admin");
+  var user = UserFactory("User");
+
+  console.log(admin);
+  console.log(user);
+
+  function SetManager(name) {
+    this.manager = name;
+  }
+
+  SetManager.prototype.getName = function () {
+    console.log(this.manager);
+  };
+
+  var SingletonSetManager = (function () {
+    var manager = null;
+
+    return function (name) {
+      if (!manager) {
+        manager = new SetManager(name);
+      }
+
+      return manager;
+    };
+  })();
+
+  // 提取出通用的单例
+  function getSingleton(fn) {
+    var instance = null;
+
+    return function () {
+      if (!instance) {
+        instance = fn.apply(null, arguments);
+        console.log(this);
+        console.log(arguments);
+      }
+
+      return instance;
+    };
+  }
+
+  // 获取单例
+  var managerSingleton = getSingleton(function (name) {
+    var manager = new SetManager(name);
+    return manager;
+  });
+
+  managerSingleton("a").getName(); // a
+  managerSingleton("b").getName(); // a
+  managerSingleton("c").getName(); // a
+
+  SingletonSetManager("a").getName(); // a
+  SingletonSetManager("b").getName(); // a
+  SingletonSetManager("c").getName(); // a
+
+  // Object.create的兼容性写法，面试常考
+  function object(o) {
+    // 创建一个临时的构造函数
+    function F() {}
+    // 让这个临时构造函数的prototype指向o，这样的话它new出来的对象，__prototype__指向了o
+    F.prototype = o;
+    //返回F的实例
+    return new F();
+  }
+
+  var obj1 = { a: 23, b: 5 };
+  var obj2 = object(obj1);
+  // console.log(obj2.__proto__ === obj1);
+  // console.log(obj2.a);
+  // console.log(obj2.b);
+
+  // 订阅
+  document.body.addEventListener(
+    "click",
+    function () {
+      console.log("click1");
+    },
+    false
+  );
+
+  document.body.addEventListener(
+    "click",
+    function () {
+      console.log("click2");
+    },
+    false
+  );
+
+  // 发布
+  document.body.click(); // click1  click2
+
+  // 定义红绿灯类
+  function TrafficLight() {
+    // 颜色属性，一开始都是红色
+    // 红色1、黄色2、绿色3
+    this.color = 1;
+    // 调用自己的初始化方法
+    this.init();
+    // 绑定监听
+    this.bindEvent();
+  }
+
+  // 在函数原型上添加初始化方法
+  TrafficLight.prototype.init = function () {
+    // 创建自己的DOM
+    this.dom = document.createElement("img");
+    // 设置src属性
+    this.dom.src = "./images/TrafficLight/" + this.color + ".jpg";
+    // 上树
+    var oBox = document.getElementById("box");
+    oBox.appendChild(this.dom);
+  };
+
+  // 在函数原型上添加事件监听方法
+  TrafficLight.prototype.bindEvent = function () {
+    // this指向初始化
+    // 备份上下文，这里的this指的是JS的实例
+    var self = this;
+    // 当自己的dom被点击的时候
+    this.dom.onclick = function () {
+      console.log("bindEvent:this");
+      console.log(this);
+      console.log("bindEvent:self");
+      console.log(self);
+      // 当被点击的时候调用自己的changeColor方法
+      self.changeColor();
+    };
+    // document.addEventListener("click", function () {
+    // });
+  };
+
+  // 在函数原型上添加改变红绿灯的方法
+  TrafficLight.prototype.changeColor = function () {
+    console.log("changeColor:this");
+    console.log(this);
+    // 改变自己的color的值
+    this.color++;
+    this.color = this.color > 3 ? 1 : this.color;
+    console.log(this.color);
+    // 设置src属性
+    this.dom.src = "./images/TrafficLight/" + this.color + ".jpg";
+  };
+  var count = 10;
+  while (count--) {
+    new TrafficLight();
+  }
+</script>
