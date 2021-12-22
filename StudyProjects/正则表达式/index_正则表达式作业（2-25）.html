@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      input {
+        border: 1px solid rgb(233, 225, 225);
+        border-radius: 5px;
+        width: 200px;
+        height: 30px;
+      }
+      .content {
+        width: 700px;
+        height: 300px;
+        border: 1px solid rgb(214, 96, 28);
+        margin: 50px auto;
+        padding: 30px;
+        padding-left: 110px;
+      }
+      .content p {
+        height: 60px;
+      }
+      .content p label {
+        width: 93px;
+      }
+      .Tips_warning {
+        color: red;
+        display: none;
+      }
+      .Tips_success {
+        color: green;
+        display: none;
+      }
+      .Tips_box {
+        width: 30px;
+        height: 4px;
+        background: rgb(180, 172, 172);
+        float: left;
+        margin-right: 5px;
+      }
+      .red {
+        background: red;
+      }
+      .orange {
+        background: orange;
+      }
+      .green {
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <p>
+        <label for="userName">* 用 户 名：</label>
+        <input
+          type="text"
+          id="userName"
+          placeholder="用户名设置成功后不可修改"
+        />
+        <span class="Tips_warning" id="userNameWarning"
+          >6-30位字母、数字或"_"，字母开头</span
+        >
+        <span class="Tips_success" id="userNameSuccess">用户名输入正确</span>
+      </p>
+      <p>
+        <label for="pwd">* 登录密码：</label>
+        <input type="password" id="pwd" placeholder="6-20位字母或数字" />
+        <div class="Tips_box red" id="boxRed"></div>
+        <div class="Tips_box orange" id="boxOrange"></div>
+        <div class="Tips_box green" id="boxGreen"></div>
+      </p>
+      <p>
+        <label for="cPwd">* 确认密码：</label>
+        <input type="password" id="cPwd" placeholder="再次输入您的登录密码" />
+        <span class="Tips_warning" id="cPwdWarning">输入框不能为空</span>
+        <span class="Tips_success" id="cPwdSuccess">两次输入一致</span>
+      </p>
+    </div>
+  </body>
+</html>
+<script>
+  // 校验中文姓名 /^[\u4E00-\u9FA5]{2,4}$/  邮箱校验：/^\w{2,}\@\w{2,}\.[a-z]{2,4}(\.[a-z]{2,4})?$/
+
+  /*
+  1、用户名输入框，正确的条件是：6-30位字母、数字或_， 以字母开头。<br>
+  （1） 如果输入内容的不满足条件时，输入框后面的提示内容为。6-30位字母、数字或’_’，字母开头，且字体颜色变为红色。<br>
+  （2） 如果输入的满足条件，输入框后面的提示内容为：“用户名输入正确”，且字体颜色变成绿色。<br>
+  2、密码输入框，正确的条件是：6-20位字母或数字组成<br>
+  （1） 如果输入内容的不满足条件时，输入框下面给出提示内容为：6-20位字母或数字，且字体颜色变为红色。<br>
+  （2） 如果输入的密码内容是纯数字、纯小写字母或者纯大写字母，密码强度为低，只有第一块变为红色。<br>
+  （3） 如果是两种类型的结合，那么密码强度为一般，第二块变为橘色。<br>
+  （4） 如果是三种类型的结合，那么密码强度为高，第三块变为绿色。<br>
+  3、密码确认框，正确的条件是：与上面的密码输入框的内容一致。<br>
+  （1） 如果为空，那么后面给出文字提示“输入框不能为空”，且字体颜色变为红色。<br>
+  （2） 如果输入的密码跟上面的密码不一致，则提示“两次密码输入不一致，请重新输入”且字体颜色变为红色。<br>
+  （3） 如果输入的密码跟上面一致，则提示“两次输入一致”。<br>
+  4、满足所有的验证条件，点击下一步提示“信息填写正确”，否则提示“请填写正确的信息”
+  */
+  var oName = document.getElementById("Name");
+  var oWarning = document.getElementsByClassName("warning");
+  oName.onblur = function (e) {
+    var reName = /^[\u4E00-\u9FA5]{2,4}$/;
+    console.log(e.target.value);
+    if (!reName.test(e.target.value)) {
+      oWarning[0].style.display = "initial";
+    } else {
+      oWarning[0].style.display = "none";
+    }
+  };
+</script>

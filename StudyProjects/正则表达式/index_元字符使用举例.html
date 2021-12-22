@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>元字符使用举例</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  // 校验格式 123-4567-890
+  var str1 = "123-4567-890";
+  var str2 = "1a3-4de_-ew0";
+  var regexp1 = /^\d{3}-\d{4}-\d{3}$/;
+  var regexp2 = /^\w{3}-\w{4}-\w{3}$/;
+  console.log(regexp1.test(str1));
+  console.log(regexp2.test(str2));
+  console.log(/^[A-Za-z]{5}$/.test("dsadAdasd"));
+  console.log(/^[a-z]{3}[a-ln-z]$/.test("abcm"));
+</script>

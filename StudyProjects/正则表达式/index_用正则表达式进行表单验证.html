@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .warning {
+        color: red;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>
+        请输入中文姓名：
+        <input type="text" id="Name" />
+        <span class="warning" id="nameWarning">输入的姓名不合法</span>
+      </p>
+      <p>
+        请输入手机号码：
+        <input type="text" id="tel" />
+        <span class="warning" id="telWarning">输入的手机号码不合法</span>
+      </p>
+    </div>
+  </body>
+</html>
+<script>
+  // 校验中文姓名 /^[\u4E00-\u9FA5]{2,4}$/  邮箱校验：/^\w{2,}\@\w{2,}\.[a-z]{2,4}(\.[a-z]{2,4})?$/
+  var oName = document.getElementById("Name");
+  var oWarning = document.getElementsByClassName("warning");
+  oName.onblur = function (e) {
+    var reName = /^[\u4E00-\u9FA5]{2,4}$/;
+    console.log(e.target.value);
+    if (!reName.test(e.target.value)) {
+      oWarning[0].style.display = "initial";
+    } else {
+      oWarning[0].style.display = "none";
+    }
+  };
+</script>
