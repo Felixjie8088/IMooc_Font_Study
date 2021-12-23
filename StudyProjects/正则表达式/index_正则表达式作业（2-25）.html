@@ -54,6 +54,21 @@
       .green {
         background: green;
       }
+      .content .btn_submit {
+        text-align: center;
+        color: #fff;
+        width: 300px;
+        height: 40px;
+        line-height: 40px;
+        background-color: rgb(245, 104, 48);
+        margin-left: 50px;
+        margin-top: 30px;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      .content .btn_submit:hover {
+        background-color: rgb(21, 196, 74);
+      }
     </style>
   </head>
   <body>
@@ -84,6 +99,7 @@
         <span class="Tips_warning" id="cPwdWarning">输入框不能为空</span>
         <span class="Tips_success" id="cPwdSuccess">两次输入一致</span>
       </p>
+      <div class="btn_submit" id="btn_submit">注册</div>
     </div>
   </body>
 </html>
@@ -107,58 +123,134 @@
   */
   //  用户名的值
   var oUserName = document.getElementById("userName");
+  //  用户名错误提示
   var oUserNameW = document.getElementById("userNameWarning");
+  //  用户名合法提示
   var oUserNameS = document.getElementById("userNameSuccess");
   //  密码框的值
   var oPwd = document.getElementById("pwd");
+  //  密码框错误提示
   var oPwdW = document.getElementById("pwdWarning");
+  //  密码框Level1
   var oTips_box_red = document.getElementById("boxRed");
+  //  密码框Level2
   var oTips_box_orange = document.getElementById("boxOrange");
+  //  密码框Level3
   var oTips_box_green = document.getElementById("boxGreen");
   //  确认密码框的值
   var oCPwd = document.getElementById("cPwd");
+  //  确认密码框错误提示
   var oCPwdW = document.getElementById("cPwdWarning");
+  //  确认密码框合法提示
   var oCPwdS = document.getElementById("cPwdSuccess");
+  //  提交按钮
+  var oBtnSubmit = document.getElementById("btn_submit");
+
+  // 校验通过标识
+  var check_name_flag = false,
+    check_pwd_flag = false,
+    check_cpwd_flag = false;
 
   // 正则表达式
   var re_user_name = /^[a-zA-Z]\w{5,29}$/;
+  // 密码正则
   var re_pwd = /^[a-zA-Z\d]{6,20}$/;
-  var re_pwd_both = /^[(a-z+A-Z+)|(a-z+\d+)|(A-Z+\d+)]{6,20}$/;
-  var re_pwd_num = /^[\d]{6,20}$/;
-  var re_pwd_low = /^[a-z]{6,20}$/;
-  var re_pwd_up = /^[A-Z]{6,20}$/;
+  var re_pwd_both = /^[a-zA-Z]{6,20}$|^[a-z\d]{6,20}$|^[A-Z\d]{6,20}$/;
+  var re_pwd_single = /^[\d]{6,20}$|^[a-z]{6,20}$|^[A-Z]{6,20}$/;
 
   // 用户名文本框失焦
   oUserName.onblur = function () {
     if (!re_user_name.test(oUserName.value)) {
       oUserNameW.style.display = "initial";
       oUserNameS.style.display = "none";
+      check_name_flag = false;
     } else {
       oUserNameW.style.display = "none";
       oUserNameS.style.display = "initial";
+      check_name_flag = true;
     }
   };
 
   // 密码文本框失焦
   oPwd.onblur = function () {
+    // 初始化
     oTips_box_red.className = "Tips_box";
     oTips_box_orange.className = "Tips_box";
     oTips_box_green.className = "Tips_box";
+
+    // 先校验填写是是否符合大原则
     if (!re_pwd.test(oPwd.value)) {
       oPwdW.style.display = "initial";
+      oTips_box_red.style.display = "none";
+      oTips_box_orange.style.display = "none";
+      oTips_box_green.style.display = "none";
+      check_pwd_flag = false;
     } else {
+      // 其次按照顺序一次判断校验密码强度
       oPwdW.style.display = "none";
-      if (
-        re_pwd_num.test(oPwd.value) ||
-        re_pwd_low.test(oPwd.value) ||
-        re_pwd_up.test(oPwd.value)
-      ) {
+      oTips_box_red.style.display = "inline-block";
+      oTips_box_orange.style.display = "inline-block";
+      oTips_box_green.style.display = "inline-block";
+      if (re_pwd_single.test(oPwd.value)) {
         oTips_box_red.className += " red";
-      }
-      if (re_pwd_both.test(oPwd.value)) {
+      } else if (re_pwd_both.test(oPwd.value)) {
         oTips_box_red.className += " red";
-        oTips_box_orange.className += " green";
+        oTips_box_orange.className += " orange";
+      } else if (re_pwd.test(oPwd.value)) {
+        oTips_box_red.className += " red";
+        oTips_box_orange.className += " orange";
+        oTips_box_green.className += " green";
       }
+      check_pwd_flag = true;
     }
   };
+
+  // 确认密码文本框失焦
+  oCPwd.onblur = function () {
+    // 初始化
+    oCPwdW.style.display = "none";
+    oCPwdS.style.display = "none";
+    if (!oCPwd.value) {
+      oCPwdW.innerHTML = "输入框不能为空";
+      oCPwdW.style.display = "initial";
+      check_cpwd_flag = false;
+    } else if (oPwd.value !== oCPwd.value) {
+      oCPwdW.innerHTML = "两次密码输入不一致，请重新输入";
+      oCPwdW.style.display = "initial";
+      check_cpwd_flag = false;
+    } else {
+      oCPwdW.innerHTML = "";
+      oCPwdW.style.display = "none";
+      oCPwdS.style.display = "initial";
+      check_cpwd_flag = true;
+    }
+  };
+
+  //提交
+  oBtnSubmit.onclick = function () {
+    if (check_name_flag && check_pwd_flag && check_cpwd_flag) {
+      alert("信息填写正确");
+      init();
+    } else {
+      alert("请填写正确的信息");
+    }
+  };
+
+  // 初始化
+  function init() {
+    // 输入框重置
+    oUserName.value = "";
+    oPwd.value = "";
+    oCPwd.value = "";
+    // 提示信息隐藏
+    oUserNameW.style.display = "none";
+    oUserNameS.style.display = "none";
+
+    oCPwdW.style.display = "none";
+    oCPwdS.style.display = "none";
+    // 密码强度提示初始化
+    oTips_box_red.className = "Tips_box";
+    oTips_box_orange.className = "Tips_box";
+    oTips_box_green.className = "Tips_box";
+  }
 </script>
