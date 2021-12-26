@@ -186,7 +186,7 @@
       </div>
     </header>
     <!-- banner -->
-    <section class="banner">
+    <section class="banner" id="banner">
       <!-- 网页轮播图 -->
       <ul id="carousel_list" class="carousel_list">
         <li>
@@ -207,19 +207,19 @@
       </ul>
       <!-- 轮播图图片小圆点 -->
       <ol class="circles" id="circles_ol">
-        <li class="current"></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li data-no="0" class="current"></li>
+        <li data-no="1"></li>
+        <li data-no="2"></li>
+        <li data-no="3"></li>
+        <li data-no="4"></li>
       </ol>
       <!-- 网页轮播图菜单 -->
       <div class="center">
         <a href="javascript:void(0);" id="leftBtn" class="arrow left"></a>
         <a href="javascript:void(0);" id="rightBtn" class="arrow right"></a>
-        <nav class="banner_nav">
-          <ul>
-            <li class="hot">
+        <nav class="banner_nav" id="banner_nav">
+          <ul id="banner_nav_ul">
+            <li class="hot" data-title="hot">
               <dl>
                 <dt>热门出发地</dt>
                 <dd>
@@ -231,7 +231,7 @@
                 </dd>
               </dl>
             </li>
-            <li class="gat">
+            <li class="gat" data-title="gat">
               <dl>
                 <dt>港澳台 国内</dt>
                 <dd>
@@ -242,7 +242,7 @@
                 </dd>
               </dl>
             </li>
-            <li class="rbhg">
+            <li class="rbhg" data-title="rbhg">
               <dl>
                 <dt>日本 韩国</dt>
                 <dd>
@@ -254,7 +254,7 @@
                 </dd>
               </dl>
             </li>
-            <li class="dny">
+            <li class="dny" data-title="dny">
               <dl>
                 <dt>东南亚 南亚</dt>
                 <dd>
@@ -265,7 +265,7 @@
                 </dd>
               </dl>
             </li>
-            <li class="ozmz">
+            <li class="ozmz" data-title="ozmz">
               <dl>
                 <dt>欧洲 美洲</dt>
                 <dd>
@@ -276,7 +276,7 @@
                 </dd>
               </dl>
             </li>
-            <li class="axzdf">
+            <li class="axzdf" data-title="axzdf">
               <dl>
                 <dt>澳新 中东非</dt>
                 <dd>
@@ -287,8 +287,8 @@
               </dl>
             </li>
           </ul>
-          <div class="menus_box">
-            <div class="menu curr">
+          <div class="menus_box" id="menus_box">
+            <div class="menu" data-title="hot">
               <dl>
                 <dt>港澳台</dt>
                 <dd>
@@ -362,7 +362,7 @@
                 </dd>
               </dl>
             </div>
-            <div class="menu">
+            <div class="menu" data-title="gat">
               <dl>
                 <dt>港澳台</dt>
                 <dd>
@@ -381,7 +381,7 @@
                 </dd>
               </dl>
             </div>
-            <div class="menu">
+            <div class="menu" data-title="rbhg">
               <dl>
                 <dt>日本</dt>
                 <dd>
@@ -409,7 +409,7 @@
                 </dd>
               </dl>
             </div>
-            <div class="menu">
+            <div class="menu" data-title="dny">
               <dl>
                 <dt>泰新马</dt>
                 <dd>
@@ -472,7 +472,7 @@
                 </dd>
               </dl>
             </div>
-            <div class="menu">
+            <div class="menu" data-title="ozmz">
               <dl>
                 <dt>欧洲</dt>
                 <dd>
@@ -552,7 +552,7 @@
                 </dd>
               </dl>
             </div>
-            <div class="menu">
+            <div class="menu" data-title="axzdf">
               <dl>
                 <dt>澳新 南太平洋</dt>
                 <dd>
@@ -1289,6 +1289,9 @@
         </div>
       </div>
     </footer>
+    <!-- 返回顶部 -->
+    <a href="javascript:;" class="backToTop" id="backToTop">返回<br />顶部</a>
   </body>
 </html>
 <script src="./js/muyunyou_carousel.js"></script>
+<script src="./js/muyunyou_menu.js"></script>

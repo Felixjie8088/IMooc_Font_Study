@@ -227,6 +227,7 @@
 /* 轮播图一级菜单 */
 .banner {
   position: relative;
+  overflow: hidden;
 }
 .banner .carousel_list {
   width: 600%;
@@ -255,6 +256,7 @@
   margin-left: -100px;
   width: 200px;
   height: 20px;
+  z-index: 9999;
 }
 .banner .circles li {
   float: left;
@@ -263,6 +265,8 @@
   height: 20px;
   background-color: #20bd9a;
   border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
 }
 .banner .circles li:last-child {
   margin-right: 0;
@@ -302,7 +306,9 @@
   height: 100%;
 }
 .banner .center .banner_nav {
+  width: 652px;
   height: 100%;
+  position: relative;
 }
 .banner .center .banner_nav > ul {
   /* 这里的高度100%绝对不能省略，因为如果省略了，
@@ -380,9 +386,10 @@
   width: 324px;
   padding: 16px;
   box-sizing: border-box;
+  z-index: 99999;
 }
 .banner .center .banner_nav .menus_box .curr {
-  /* display: block; */
+  display: block;
 }
 .banner .center .banner_nav .menus_box .menu dl {
   margin-bottom: 14px;
@@ -909,4 +916,18 @@
 .wydb .center .baxx {
   margin-top: 8px;
   font-size: 12px;
+}
+/* 返回顶部 */
+.backToTop {
+  position: fixed;
+  bottom: 80px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  font-size: 15px;
+  text-align: center;
+  padding-top: 12px;
+  color: #000;
+  background-color: #ccc;
+  display: none;
 }

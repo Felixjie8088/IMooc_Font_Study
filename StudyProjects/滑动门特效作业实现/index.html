@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>滑动门特效</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+      header {
+        width: 100%;
+        height: 60px;
+        background-color: #ccc;
+      }
+      header .left_content {
+        float: left;
+        width: 400px;
+        height: 60px;
+        line-height: 60px;
+        text-align: right;
+      }
+      header .right_content {
+        float: left;
+        width: 500px;
+        height: 60px;
+        line-height: 60px;
+        margin-left: 500px;
+      }
+      header .right_content ul {
+        position: relative;
+      }
+      header .right_content ul .move_box {
+        position: absolute;
+        width: 40px;
+        height: 4px;
+        top: 45px;
+        left: 0;
+        background-color: #f01400;
+        transition: left 0.3s ease-in 0s;
+      }
+      header .right_content ul li {
+        float: left;
+        cursor: pointer;
+        margin-right: 20px;
+        width: 40px;
+        text-align: center;
+      }
+      header .right_content ul li.curr {
+        color: #f01400;
+      }
+      header .right_content ul li:last-child {
+        margin-right: 40px;
+      }
+      header .right_content a {
+        float: left;
+        width: 100px;
+        height: 40px;
+        margin-top: 10px;
+        text-align: center;
+        line-height: 40px;
+        background-color: rgb(19, 17, 17);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="left_content">慕课手机</div>
+      <div class="right_content">
+        <ul class="menu_ul" id="menu_ul">
+          <div class="move_box" id="move_box"></div>
+          <li class="curr" data-no="0">首页</li>
+          <li data-no="1">外观</li>
+          <li data-no="2">配置</li>
+          <li data-no="3">型号</li>
+          <li data-no="4">说明</li>
+        </ul>
+        <a href="javascript:;">立即购买</a>
+      </div>
+    </header>
+  </body>
+</html>
+<script>
+  // 滑动门特效实现
+  // 列表
+  var oMenuUl = document.getElementById("menu_ul");
+  var oMenuUlLis = oMenuUl.getElementsByTagName("li");
+  // 移动的小块
+  var oMoveBox = document.getElementById("move_box");
+
+  // 事件委托
+  oMenuUl.onmouseover = function (e) {
+    // 如果是li标签才执行
+    if (e.target.tagName.toLowerCase() == "li") {
+      // 找到li标签上的data-no属性，用来计算移动块的left值
+      var no = e.target.getAttribute("data-no");
+      oMoveBox.style.left = no * 60 + "px";
+      // 循环li标签 进行排他操作没设置样式
+      for (var i = 0; i < oMenuUlLis.length; i++) {
+        if (i == no) {
+          oMenuUlLis[i].className = "curr";
+        } else {
+          oMenuUlLis[i].className = "";
+        }
+      }
+    }
+  };
+</script>
