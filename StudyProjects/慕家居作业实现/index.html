@@ -127,23 +127,33 @@
       </nav>
     </header>
     <!-- 网页Banner区 -->
-    <section class="banner">
-      <div class="center">
-        <div class="point_list">
-          <ul>
-            <li class="curr"></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
+    <section class="banner" id="banner">
+      <ul class="img_ul" id="img_ul">
+        <li><img src="./images/assets/banner01.png" alt="" /></li>
+        <li><img src="./images/assets/banner02.png" alt="" /></li>
+        <li><img src="./images/assets/banner03.png" alt="" /></li>
+      </ul>
+      <div class="point_list" id="point_list">
+        <ul>
+          <li data-no="0" class="curr"></li>
+          <li data-no="1"></li>
+          <li data-no="2"></li>
+        </ul>
       </div>
     </section>
     <section class="prod_about content_part">
       <div class="center">
         <!-- 网页商品区 -->
         <div class="prod">
-          <a class="arrow iconfont left" href="">&#xe691;</a>
-          <a class="arrow iconfont right" href="">&#xe693;</a>
+          <a class="arrow iconfont left" href="javascript:;" id="wysp_left_btn"
+            >&#xe691;</a
+          >
+          <a
+            class="arrow iconfont right"
+            href="javascript:;"
+            id="wysp_right_btn"
+            >&#xe693;</a
+          >
           <ul>
             <li>
               <div class="pic_box">
@@ -374,3 +384,4 @@
     </footer>
   </body>
 </html>
+<script src="./js/banner_carousel.js"></script>

@@ -179,11 +179,22 @@ header .main_nav .search a {
 }
 /* 网页banner区 */
 .banner {
-  width: 100%;
-  height: 650px;
   position: relative;
-  background: url(../images/assets/banner01.png) no-repeat;
-  background-position: center;
+  /* background: url(../images/assets/banner01.png) no-repeat;
+  background-position: center; */
+  /* transform: translateX(-25%); */
+  overflow: hidden;
+}
+.banner .img_ul {
+  width: 400%;
+  height: 650px;
+  transition: transform 0.5s ease 0s;
+  overflow: hidden;
+}
+.banner .img_ul li {
+  width: 25%;
+  height: 650px;
+  float: left;
 }
 /* 网页banner区-底部圆点切换区 */
 .banner .point_list {
@@ -191,18 +202,21 @@ header .main_nav .search a {
   bottom: 50px;
   left: 50%;
   margin-left: -21px;
-  width: 42px;
+  width: 52px;
   height: 10px;
 }
 .banner .point_list ul li {
   float: left;
+  cursor: pointer;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   background-color: #fff;
   margin-right: 6px;
+  transition: all 0.5s ease 0s;
 }
 .banner .point_list ul li.curr {
+  width: 20px;
   background-color: #0058aa;
 }
 .banner .point_list ul li:hover {
