@@ -196,6 +196,10 @@ header .main_nav .search a {
   height: 650px;
   float: left;
 }
+.banner .img_ul li img {
+  width: 100%;
+  height: 650px;
+}
 /* 网页banner区-底部圆点切换区 */
 .banner .point_list {
   position: absolute;
