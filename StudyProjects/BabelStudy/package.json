@@ -1,0 +1,15 @@
+{
+  "name": "babelstudy",
+  "version": "1.0.0",
+  "description": "Babel学习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Felix",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.2"
+  }
+}
