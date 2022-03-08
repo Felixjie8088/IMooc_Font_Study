@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form
+      id="login"
+      action="https://www.imooc.com/api/http/search/suggest?words=js"
+      method="POST"
+      enctype="application/x-www-form-urlencoded"
+    >
+      <input type="text" name="username" placeholder="用户名" />
+      <input type="password" name="password" placeholder="密码" />
+      <input type="submit" id="submit" value="登录" />
+    </form>
+  </body>
+</html>
+<script>
+  // 1.使用Ajax提交表单
+  const form = document.getElementById("login");
+  // const username = form.username.value;
+  const { username, password } = form;
+  // const password = form.password.value;
+  const btn_submit = document.getElementById("submit");
+
+  const send_url = "https://www.imooc.com/api/http/search/suggest?words=js";
+  // 提交
+  btn_submit.addEventListener(
+    "click",
+    (e) => {
+      // 阻止表单默认提交
+      e.preventDefault();
+
+      // const send_data = {
+      //   username: username.value,
+      //   password: password.value,
+      // };
+
+      // 用于发送表单数据
+      const send_data = new FormData(form);
+
+      // 表单数据验证
+
+      // 发送Ajax请求
+      const xhr = new XMLHttpRequest();
+      // xhr.onreadystatechange(() => {
+      //   if (xhr.readyState !== 4) return;
+      //   if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+      //     console.log(xhr.response);
+      //   }
+      // });
+
+      // 加载事件
+      xhr.addEventListener(
+        "load",
+        () => {
+          if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+            console.log(xhr.response);
+          }
+        },
+        false
+      );
+
+      // 请求error事件
+      xhr.addEventListener(
+        "error",
+        () => {
+          console.log("error");
+        },
+        false
+      );
+
+      // 取消请求事件
+      xhr.addEventListener(
+        "abort",
+        () => {
+          console.log("abort");
+        },
+        false
+      );
+
+      xhr.timeout = 1000;
+
+      xhr.open("POST", send_url, true);
+      xhr.responseType = "json";
+      // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      // xhr.send(JSON.stringify(send_data));
+      xhr.send(send_data);
+    },
+    false
+  );
+</script>
