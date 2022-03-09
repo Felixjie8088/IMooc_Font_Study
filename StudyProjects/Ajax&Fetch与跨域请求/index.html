@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <input type="text" />
+    <ul id="result"></ul>
+  </body>
 </html>
 <script type="module">
   // // const url = "https://www.imooc.com/api/http/search/suggest?words=js";
@@ -27,6 +30,40 @@
   import { ajax, ajaxGet, ajaxGetJson, ajaxPost } from "./js/index.js";
 
   const url = "https://www.imooc.com/api/http/search/suggest?words=js";
+
+  const input_n = document.getElementsByTagName("input")[0];
+  const ul_result = document.getElementById("result");
+
+  const handleInputEvent = () => {
+    if (input_n.value.trim() !== "") {
+      const p = ajaxGetJson(url, {
+        params: input_n.value,
+      });
+      p.then((response) => {
+        console.log(response);
+        let data = response.data;
+
+        let html = "";
+        for (let [index, value] of Object.entries(data)) {
+          html += `<li data-no='${index}'>${value.word}</li>`;
+        }
+        ul_result.innerHTML = html;
+      }).catch((err) => {
+        console.log(err);
+      });
+    } else {
+      ul_result.innerHTML = "";
+    }
+  };
+
+  let timer = null;
+  input_n.addEventListener("input", () => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      handleInputEvent();
+    }, 300);
+  });
+
   // const url = "./sadsasa.js";
 
   // const xhr = ajax(url, {
@@ -53,19 +90,19 @@
   // });
   // xhr.abort();
 
-  // 使用Promise改造后的ajax
-  const p = ajaxGetJson(url, {
-    params: { username: "alex" },
-    data: { age: 18 },
-    // timeoutTime: 10,
-  });
-  p.then((response) => {
-    console.log(response);
-  }).catch((err) => {
-    console.log(err);
-  });
+  // // 使用Promise改造后的ajax
+  // const p = ajaxGetJson(url, {
+  //   params: { username: "alex" },
+  //   data: { age: 18 },
+  //   // timeoutTime: 10,
+  // });
+  // p.then((response) => {
+  //   console.log(response);
+  // }).catch((err) => {
+  //   console.log(err);
+  // });
 
   // p.xhr.abort();
 
-  console.log(p);
+  // console.log(p);
 </script>
