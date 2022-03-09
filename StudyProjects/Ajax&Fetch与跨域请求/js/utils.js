@@ -25,5 +25,5 @@ const addURLData = (url, data) => {
   return mark + data;
 }
 
-export { serialize, addURLData };
+export { serialize, addURLData, serializeJSON };
 
