@@ -1,0 +1,20 @@
+{
+  "name": "art-template-webpack-use",
+  "version": "1.0.0",
+  "description": "在webpack中使用art-template",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack"
+  },
+  "author": "Felix",
+  "license": "ISC",
+  "devDependencies": {
+    "art-template-loader": "^1.4.3",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "art-template": "^4.13.2"
+  }
+}
