@@ -1,0 +1,15 @@
+/* 网页宣传 */
+.hot_ad {
+  margin: 32px 0;
+}
+
+.hot_ad .center ul li {
+  float: left;
+  width: 264px;
+  height: 110px;
+  margin-right: 32px;
+}
+
+.hot_ad .center ul li:last-child {
+  margin-right: 0;
+}

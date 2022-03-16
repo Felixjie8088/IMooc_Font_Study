@@ -1,0 +1,54 @@
+/* 网页底部 */
+.wydb {
+  height: 129px;
+  padding: 48px 0;
+  background-color: #1c1f21;
+  color: #ffffff;
+}
+
+.wydb .center .info {
+  height: 46px;
+  margin-bottom: 31px;
+}
+
+.wydb .center .info .info_left {
+  float: left;
+  width: 230px;
+  height: 46px;
+  font-size: 46px;
+  line-height: 46px;
+  margin-right: 21px;
+}
+
+.wydb .center .info .info_right {
+  float: left;
+  width: 532px;
+  font-size: 14px;
+  height: 44px;
+  line-height: 22px;
+  margin-right: 21px;
+}
+
+.wydb .center .list_link ul li a {
+  color: #fff;
+  font-size: 12px;
+}
+
+.wydb .center .list_link ul li {
+  float: left;
+  padding-right: 15px;
+  margin-right: 15px;
+  height: 14px;
+  line-height: 14px;
+  border-right: 1px solid #fff;
+}
+
+.wydb .center .list_link ul li:last-child {
+  padding-right: 0;
+  border-right: none;
+}
+
+.wydb .center .baxx {
+  margin-top: 8px;
+  font-size: 12px;
+}

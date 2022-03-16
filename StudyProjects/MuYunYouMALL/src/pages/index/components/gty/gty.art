@@ -1,0 +1,83 @@
+<div class="hd clearfix">
+  <h2>跟团/半自助游</h2>
+  <em>旅游需要好的选择，踏实省心</em>
+  <div class="nav_list">
+    <ul>
+      <li class="curr">
+        <a href="">半自助游</a>
+      </li>
+      <li>
+        <a href="">城市CityWalk</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="list">
+  <ul>
+    <li class="big_grid">
+      <div class="mask"></div>
+      <a href="">
+        <img src="./images/跟团配图01.png" alt=""/>
+        <div class="info">
+          <p>半自</p>
+          <p>助游</p>
+        </div>
+        <div class="desc">
+          天津直飞沙巴5-6天半自助游（自由活动+出海两岛游+市区游+多种星级酒店）
+        </div>
+      </a>
+    </li>
+    <li class="pro_grid">
+      <a href="">
+        <img src="./images/跟团配图02.png" alt=""/>
+        <div class="desc">
+          成都/西安直飞清迈+拜县6-7天半自助游（2-8人纯玩私家小包团+萌妹子…
+        </div>
+      </a>
+    </li>
+    <li class="pro_grid">
+      <a href="">
+        <img src="./images/跟团配图03.png" alt=""/>
+        <div class="desc">
+          [一价全含]
+          北京直飞日本东京+大阪+名古屋+京都6/7天深度游（全程三…
+        </div>
+      </a>
+    </li>
+    <li class="pro_grid">
+      <a href="">
+        <img src="./images/跟团配图04.png" alt=""/>
+        <div class="desc">
+          天津直飞芽庄5-7天半自助游（优质越南/越捷航空，12天自由行/赠送京…
+        </div>
+      </a>
+    </li>
+    <li class="pro_grid">
+      <a href="">
+        <img src="./images/跟团配图05.png" alt=""/>
+        <div class="desc">
+          广州直飞美娜多5-6半自助游（班达尼莫公园+布纳肯浮潜+1-2天自由活动…
+        </div>
+      </a>
+    </li>
+    <li class="pro_grid">
+      <a href="">
+        <img src="./images/跟团配图06.png" alt=""/>
+        <div class="desc">
+          (免签入境）深圳直飞伊朗德黑兰8天5晚半自助游（含国际往返机票+伊…
+        </div>
+      </a>
+    </li>
+    <li class="more_grid">
+      <a href="">
+        <p>查看更多</p>
+        <p>精品跟团/半自助游</p>
+        <span href="" class="iconfont link_other">&#xe602;</span>
+        <ul>
+          <li>跟团游</li>
+          <li>半自助游</li>
+        </ul>
+      </a>
+    </li>
+  </ul>
+</div>

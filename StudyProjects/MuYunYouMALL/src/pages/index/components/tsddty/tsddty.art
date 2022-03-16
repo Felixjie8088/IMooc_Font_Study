@@ -1,0 +1,53 @@
+<h2>特色当地体验</h2>
+<div class="col_box">
+  <a href="">
+    <div class="pic_box">
+      <img src="./images//特色当地配图01.png" alt=""/>
+    </div>
+    <div class="text_box">
+      <dl>
+        <dt>香港迪士尼乐园门票(一日 / 两日) - 无需换票扫码入园）</dt>
+        <dd><em>★4.8</em>（92833评价)2334.69k 人参加过</dd>
+      </dl>
+    </div>
+  </a>
+</div>
+<div class="col_box">
+  <a href="">
+    <div class="pic_box">
+      <img src="./images/特色当地配图02.png" alt=""/>
+    </div>
+    <div class="text_box">
+      <dl>
+        <dt>罗马金宫剧场人妖秀</dt>
+        <dd><em>★4.6</em>（440条评价)900K+ 人参加过</dd>
+      </dl>
+    </div>
+  </a>
+</div>
+<div class="col_box">
+  <a href="">
+    <div class="pic_box">
+      <img src="./images/特色当地配图03.png" alt=""/>
+    </div>
+    <div class="text_box">
+      <dl>
+        <dt>京都和服体验 - 梦馆</dt>
+        <dd><em>★4.7</em>（4293评价)50k+ 人参加过</dd>
+      </dl>
+    </div>
+  </a>
+</div>
+<div class="col_box">
+  <a href="">
+    <div class="pic_box">
+      <img src="./images/特色当地配图04.png" alt=""/>
+    </div>
+    <div class="text_box">
+      <dl>
+        <dt>英国巨石阵 & 温莎城堡 & 巴斯罗马浴场一日游</dt>
+        <dd><em>★4.5</em> （2104评价)20k+ 人参加过</dd>
+      </dl>
+    </div>
+  </a>
+</div>

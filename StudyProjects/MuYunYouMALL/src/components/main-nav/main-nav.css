@@ -1,0 +1,89 @@
+/* 主导航栏 */
+.site_header .main_nav {
+  min-width: 1152px;
+  height: 40px;
+  background: #20bd9a;
+}
+
+.site_header .main_nav ul > li > a {
+  color: #fff;
+  line-height: 40px;
+}
+
+.site_header .main_nav ul > li {
+  float: left;
+  font-size: 16px;
+  margin-right: 18px;
+}
+
+.site_header .main_nav ul > li.have_menu {
+  padding-right: 16px;
+  position: relative;
+}
+
+/* 主导航栏子菜单项基类（默认为机酒自由行） */
+.site_header .main_nav ul > li.have_menu .menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 150px;
+  background: #fff;
+  line-height: 18px;
+  display: none;
+  z-index: 9999;
+  color: #1c1f21;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 20);
+  padding: 10px;
+}
+
+/* 主导航栏子菜单项-跟团游 */
+.site_header .main_nav ul > li.have_menu .gty {
+  width: 106px;
+}
+
+/* 主导航栏子菜单项-当地玩乐 */
+.site_header .main_nav ul > li.have_menu .ddwl {
+  width: 158px;
+}
+
+/* 主导航栏子菜单项-深度旅游 */
+.site_header .main_nav ul > li.have_menu .sdly {
+  width: 110px;
+}
+
+.site_header .main_nav ul > li.have_menu .menu dt {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.site_header .main_nav ul > li.have_menu .menu a:hover {
+  color: blue;
+}
+
+.site_header .main_nav ul > li.have_menu .menu a {
+  font-size: 12px;
+  color: #1c1f21;
+}
+
+.site_header .main_nav ul > li.have_menu:hover .menu {
+  display: block;
+}
+
+.site_header .main_nav ul > li.have_menu::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top: 50%;
+  margin-top: -2px;
+  right: 0;
+  border: 6px solid transparent;
+  border-top-color: #fff;
+  border-bottom: none;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease 0s;
+}
+
+.site_header .main_nav ul > li.have_menu:hover::before {
+  transform: rotate(180deg);
+}

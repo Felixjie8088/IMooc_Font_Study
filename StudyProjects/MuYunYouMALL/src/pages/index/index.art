@@ -19,92 +19,13 @@
   <!-- 网页导航菜单 -->
   <nav class="main_nav">
     <div class="center">
-      <ul>
-        <li class="have_menu">
-          <a href="">机酒自由行</a>
-          <div class="menu jjzyx">
-            <dl>
-              <dt>全部</dt>
-              <dd>
-                <a href="">自由行</a>
-                <a href="">优惠机票</a>
-                <a href="">酒店</a>
-                <a href="">邮轮</a>
-                <a href="">定制游</a>
-                <a href="">马尔代夫</a>
-                <a href="">海岛游</a>
-              </dd>
-            </dl>
-          </div>
-        </li>
-        <li><a href="">优惠机票</a></li>
-        <li class="have_menu">
-          <a href="">跟团游</a>
-          <div class="menu gty">
-            <dl>
-              <dt>全部</dt>
-              <dd>
-                <a href="">跟团游</a>
-                <a href="">半自助游</a>
-              </dd>
-            </dl>
-          </div>
-        </li>
-        <li><a href="">酒店</a></li>
-        <li class="have_menu">
-          <a href="">当地玩乐</a>
-          <div class="menu ddwl">
-            <dl>
-              <dt>全部</dt>
-              <dd>
-                <a href="">日游小团</a>
-                <a href="">深度体验</a>
-                <a href="">门票票券</a>
-                <a href="">餐饮美食</a>
-                <a href="">WIFI电话卡</a>
-                <a href="">购物</a>
-                <a href="">交通票券</a>
-              </dd>
-            </dl>
-          </div>
-        </li>
-        <li>
-          <a href="">签证</a>
-        </li>
-        <li><a href="">游轮</a></li>
-        <li><a href="">河轮</a></li>
-        <li><a href="">保险</a></li>
-        <li><a href="">租车自驾</a></li>
-        <li class="have_menu">
-          <a href="">深度旅游</a>
-          <div class="menu sdly">
-            <dl>
-              <dt>全部</dt>
-              <dd>
-                <a href="">CityWalk</a>
-                <a href="">特色长线</a>
-                <a href="">Q-Home</a>
-              </dd>
-            </dl>
-          </div>
-        </li>
-        <li><a href="">私人订制</a></li>
-      </ul>
+      <% include('../../components/main-nav/main-nav.art') %>
     </div>
   </nav>
   <!-- 网页顶部主要内容 -->
   <div class="header_content">
     <div class="center">
-      <!-- 网页全局搜索框 -->
-      <h1>慕云游商城</h1>
-      <div class="search_box">
-        <input
-                type="text"
-                id=""
-                placeholder="查询目的地、酒店、机票、攻略"
-        />
-        <a href="" class="iconfont btn">&#xe601;</a>
-      </div>
+      <% include('../../components/header-content/header-content.art') %>
     </div>
   </div>
 </header>
@@ -115,9 +36,9 @@
   <% include('./components/carousel/carousel.art') %>
   <!-- 网页轮播图菜单 -->
   <div class="center">
-  <!-- 左右切换按钮 -->
+    <!-- 左右切换按钮 -->
     {{ include './components/carousel/btn_arrow.art' }}
-<!--    <% include('./components/carousel/btn_arrow.art') %>-->
+    <!--    <% include('./components/carousel/btn_arrow.art') %>-->
     <nav class="banner_nav" id="banner_nav">
       <ul id="banner_nav_ul">
         <li class="hot" data-title="hot">
@@ -511,28 +432,7 @@
 <!-- 需要清除浮动，这样盒子才有高度，否则盒子高是没有的 -->
 <section class="hot_ad clearfix">
   <div class="center">
-    <ul>
-      <li>
-        <a href=""
-        ><img src="././images/muyunyouImgs/small01.png" alt=""
-        /></a>
-      </li>
-      <li>
-        <a href=""
-        ><img src="././images/muyunyouImgs/small02.png" alt=""
-        /></a>
-      </li>
-      <li>
-        <a href=""
-        ><img src="././images/muyunyouImgs/small03.png" alt=""
-        /></a>
-      </li>
-      <li>
-        <a href=""
-        ><img src="././images/muyunyouImgs/small04.png" alt=""
-        /></a>
-      </li>
-    </ul>
+    {{include './components/hotad/hotad.art'}}
   </div>
 </section>
 <!-- 新鲜甩尾 -->
@@ -544,448 +444,46 @@
 <!-- 机酒自由行 -->
 <section class="jjzyx content_part content_group">
   <div class="center">
-{{include './components/jjzyx/jjzyx.art'}}
+    {{include './components/jjzyx/jjzyx.art'}}
   </div>
 </section>
 <!-- 当地玩乐 -->
 <section class="ddwl content_part">
   <div class="center">
-    <div class="hd clearfix">
-      <h2>当地玩乐</h2>
-      <em>像当地人一样，体验本土的吃喝玩乐</em>
-      <div class="nav_list">
-        <ul>
-          <li class="curr">
-            <a href="">国内</a>
-          </li>
-          <li>
-            <a href="">日本</a>
-          </li>
-          <li>
-            <a href="">瑞士</a>
-          </li>
-          <li>
-            <a href="">新西兰</a>
-          </li>
-          <li>
-            <a href="">澳大利亚</a>
-          </li>
-          <li>
-            <a href="">柬埔寨</a>
-          </li>
-          <li>
-            <a href="">泰国</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="list">
-      <div class="col">
-        <div class="big_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/当地玩乐配图01.png" alt=""/>
-            <div class="desc">
-              <p>
-                [亲子佳选]泰国清迈夜间动物园/Night
-                Safari（可选接送；导游；长颈鹿餐厅）
-              </p>
-              <p>
-                <span class="left_info">城市玩乐</span>
-                <span class="right_info">199元起</span>
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="pro_grid">
-          <a href="">
-            <div class="pic_box">
-              <img src="./images/muyunyouImgs/当地玩乐配图02.png" alt=""/>
-            </div>
-            <div class="desc">
-              [樱花季]
-              北京/天津直飞东京/大阪/名古屋/福冈/广岛/北海道/冲绳往返…
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="col">
-        <div class="pro_grid">
-          <a href="">
-            <div class="pic_box">
-              <img src="./images/muyunyouImgs/当地玩乐配图03.png" alt=""/>
-            </div>
-            <div class="desc">
-              [网红新选] 泰国清迈黑白蓝庙一日游清莱黑庙 白庙 蓝庙
-              温泉驿站中文导游+酒店接送+餐赠小…
-            </div>
-          </a>
-        </div>
-        <div class="pro_grid">
-          <a href="">
-            <div class="pic_box">
-              <img src="./images/muyunyouImgs/当地玩乐配图04.png" alt=""/>
-            </div>
-            <div class="desc">
-              [全岛接送+中文导游] 泰国普吉岛+皇帝岛+珊瑚岛一日游双体帆船海钓
-              [帆船晚会+浮潜]…
-            </div>
-          </a>
-        </div>
-        <div class="pro_grid">
-          <a href="">
-            <div class="pic_box">
-              <img src="./images/muyunyouImgs/当地玩乐配图05.png" alt=""/>
-            </div>
-            <div class="desc">
-              享行之旅|泰国苏梅岛一日游 越野车丛林环岛之旅 骑大象纳蒙瀑布
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="col">
-        <div class="pro_grid">
-          <a href="">
-            <div class="pic_box">
-              <img src="./images/muyunyouImgs/当地玩乐配图06.png" alt=""/>
-            </div>
-            <div class="desc">
-              [可接急单]
-              泰国普吉岛西蒙Simon人妖秀门票VIP专座近距离与人妖互动合影…
-            </div>
-          </a>
-        </div>
-        <div class="more_grid">
-          <a href="">
-            <p>查看更多</p>
-            <p>当地玩乐产品</p>
-            <span href="" class="iconfont link_other">&#xe602;</span>
-            <ul>
-              <li>WIFI/电话卡</li>
-              <li>交通票券</li>
-              <li>景点门票</li>
-              <li>特色体验</li>
-            </ul>
-          </a>
-        </div>
-      </div>
-    </div>
+    {{include './components/ddwl/ddwl.art'}}
   </div>
 </section>
 <!-- 特色当地体验 -->
 <section class="tsddty">
   <div class="center">
-    <h2>特色当地体验</h2>
-    <div class="col_box">
-      <a href="">
-        <div class="pic_box">
-          <img src="./images/muyunyouImgs/特色当地配图01.png" alt=""/>
-        </div>
-        <div class="text_box">
-          <dl>
-            <dt>香港迪士尼乐园门票(一日 / 两日) - 无需换票扫码入园）</dt>
-            <dd><em>★4.8</em>（92833评价)2334.69k 人参加过</dd>
-          </dl>
-        </div>
-      </a>
-    </div>
-    <div class="col_box">
-      <a href="">
-        <div class="pic_box">
-          <img src="./images/muyunyouImgs/特色当地配图02.png" alt=""/>
-        </div>
-        <div class="text_box">
-          <dl>
-            <dt>罗马金宫剧场人妖秀</dt>
-            <dd><em>★4.6</em>（440条评价)900K+ 人参加过</dd>
-          </dl>
-        </div>
-      </a>
-    </div>
-    <div class="col_box">
-      <a href="">
-        <div class="pic_box">
-          <img src="./images/muyunyouImgs/特色当地配图03.png" alt=""/>
-        </div>
-        <div class="text_box">
-          <dl>
-            <dt>京都和服体验 - 梦馆</dt>
-            <dd><em>★4.7</em>（4293评价)50k+ 人参加过</dd>
-          </dl>
-        </div>
-      </a>
-    </div>
-    <div class="col_box">
-      <a href="">
-        <div class="pic_box">
-          <img src="./images/muyunyouImgs/特色当地配图04.png" alt=""/>
-        </div>
-        <div class="text_box">
-          <dl>
-            <dt>英国巨石阵 & 温莎城堡 & 巴斯罗马浴场一日游</dt>
-            <dd><em>★4.5</em> （2104评价)20k+ 人参加过</dd>
-          </dl>
-        </div>
-      </a>
-    </div>
+    {{include './components/tsddty/tsddty.art'}}
   </div>
 </section>
 <!-- 最世界·深度旅行 -->
 <section class="zsj content_part content_group">
   <div class="center">
-    <div class="hd clearfix">
-      <h2>最世界·深度旅行</h2>
-      <em>摆脱千篇一律的旅行，探索属于自己的世界</em>
-      <div class="nav_list">
-        <ul>
-          <li class="curr">
-            <a href="">城市CityWalk</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="list">
-      <ul>
-        <li class="big_grid">
-          <div class="mask"></div>
-          <a href="">
-            <img src="./images/muyunyouImgs/最世界配图01.png" alt=""/>
-            <div class="info">
-              <p>城市</p>
-              <p>CityWalk</p>
-            </div>
-            <div class="desc">
-              【City
-              Walk】大阪浪花の城——美食、动漫和不为人知的大阪人辛秘生活
-            </div>
-          </a>
-        </li>
-        <li class="pro_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/最世界配图02.png" alt=""/>
-            <div class="desc">
-              [City Walk] 京都伏见稻荷大社日本清酒厂巡礼半日游——赏千本鸟居…
-            </div>
-          </a>
-        </li>
-        <li class="pro_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/最世界配图03.png" alt=""/>
-            <div class="desc">
-              [City Walk] 京都好物—京都达人带你探店、美物、饮茶、艺术、日杂…
-            </div>
-          </a>
-        </li>
-        <li class="pro_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/最世界配图04.png" alt=""/>
-            <div class="desc">
-              [City Walk] 一日游禅意京都——千年古都的维新之路…
-            </div>
-          </a>
-        </li>
-        <li class="pro_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/最世界配图05.png" alt=""/>
-            <div class="desc">
-              [City Walk] 日本桥— 穿街走巷看东京，感受大城市的市井人情…
-            </div>
-          </a>
-        </li>
-        <li class="pro_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/最世界配图06.png" alt=""/>
-            <div class="desc">
-              [City Walk] 将军之道—京都绝景之旅(含米其林午餐）…
-            </div>
-          </a>
-        </li>
-        <li class="more_grid">
-          <a href="">
-            <p>查看更多</p>
-            <p>深度旅行产品</p>
-            <span href="" class="iconfont link_other">&#xe602;</span>
-            <ul>
-              <li>日游</li>
-              <li>周末</li>
-              <li>亲子</li>
-              <li>长线</li>
-            </ul>
-          </a>
-        </li>
-      </ul>
-    </div>
+    {{include './components/zsj/zsj.art'}}
   </div>
 </section>
 <!-- 跟团/半自助游 -->
 <section class="gtzzy content_part content_group">
   <div class="center">
-    <div class="hd clearfix">
-      <h2>跟团/半自助游</h2>
-      <em>旅游需要好的选择，踏实省心</em>
-      <div class="nav_list">
-        <ul>
-          <li class="curr">
-            <a href="">半自助游</a>
-          </li>
-          <li>
-            <a href="">城市CityWalk</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="list">
-      <ul>
-        <li class="big_grid">
-          <div class="mask"></div>
-          <a href="">
-            <img src="./images/muyunyouImgs/跟团配图01.png" alt=""/>
-            <div class="info">
-              <p>半自</p>
-              <p>助游</p>
-            </div>
-            <div class="desc">
-              天津直飞沙巴5-6天半自助游（自由活动+出海两岛游+市区游+多种星级酒店）
-            </div>
-          </a>
-        </li>
-        <li class="pro_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/跟团配图02.png" alt=""/>
-            <div class="desc">
-              成都/西安直飞清迈+拜县6-7天半自助游（2-8人纯玩私家小包团+萌妹子…
-            </div>
-          </a>
-        </li>
-        <li class="pro_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/跟团配图03.png" alt=""/>
-            <div class="desc">
-              [一价全含]
-              北京直飞日本东京+大阪+名古屋+京都6/7天深度游（全程三…
-            </div>
-          </a>
-        </li>
-        <li class="pro_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/跟团配图04.png" alt=""/>
-            <div class="desc">
-              天津直飞芽庄5-7天半自助游（优质越南/越捷航空，12天自由行/赠送京…
-            </div>
-          </a>
-        </li>
-        <li class="pro_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/跟团配图05.png" alt=""/>
-            <div class="desc">
-              广州直飞美娜多5-6半自助游（班达尼莫公园+布纳肯浮潜+1-2天自由活动…
-            </div>
-          </a>
-        </li>
-        <li class="pro_grid">
-          <a href="">
-            <img src="./images/muyunyouImgs/跟团配图06.png" alt=""/>
-            <div class="desc">
-              (免签入境）深圳直飞伊朗德黑兰8天5晚半自助游（含国际往返机票+伊…
-            </div>
-          </a>
-        </li>
-        <li class="more_grid">
-          <a href="">
-            <p>查看更多</p>
-            <p>精品跟团/半自助游</p>
-            <span href="" class="iconfont link_other">&#xe602;</span>
-            <ul>
-              <li>跟团游</li>
-              <li>半自助游</li>
-            </ul>
-          </a>
-        </li>
-      </ul>
-    </div>
+    {{include './components/gty/gty.art'}}
   </div>
 </section>
 <!-- 友情链接 -->
 <section class="yqlj">
   <div class="center">
-    <nav class="hd clearfix">
-      <ul>
-        <li><a href="">机酒自由行</a></li>
-        <li><a href="">当地玩乐</a></li>
-        <li><a href="">优惠机票</a></li>
-        <li><a href="">签证</a></li>
-        <li><a href="">马尔代夫</a></li>
-        <li><a href="">邮轮</a></li>
-        <li><a href="">租车自驾</a></li>
-        <li><a href="">欧洲铁路</a></li>
-        <li><a href="">新鲜甩尾</a></li>
-        <li><a href="">深度旅行</a></li>
-      </ul>
-    </nav>
-    <div class="bd">
-      <div class="col">
-        <div class="pic_box">
-          <img src="./images/muyunyouImgs/图标01.png" alt=""/>
-        </div>
-        <dl>
-          <dt>贴心服务</dt>
-          <dd>
-            我们收集慕云游者的真实诉求，找寻特色旅行目的地，让慕云游者放心出行
-          </dd>
-        </dl>
-      </div>
-      <div class="col">
-        <div class="pic_box">
-          <img src="./images/muyunyouImgs/图标02.png" alt=""/>
-        </div>
-        <dl>
-          <dt>层层筛选</dt>
-          <dd>
-            对旅游产品供应商严格筛选，资质层层把关
-            为慕云游者挑选符合需求的旅行产品
-          </dd>
-        </dl>
-      </div>
-      <div class="col">
-        <div class="pic_box">
-          <img src="./images/muyunyouImgs/图标03.png" alt=""/>
-        </div>
-        <dl>
-          <dt>安心陪护</dt>
-          <dd>
-            对慕云游者的购买进行跟踪服务以及质量监控，生效投诉先行赔付，出现问题及时解决
-          </dd>
-        </dl>
-      </div>
-    </div>
+    {{include './components/yqlj/yqlj.art'}}
   </div>
 </section>
 <!-- 网页底部 -->
 <footer class="wydb">
   <div class="center">
-    <div class="info">
-      <div class="info_left">慕云游商城</div>
-      <div class="info_right">
-        从一张机票、一家酒店的订购，到一次暖心的接机服务、一张轻松融入当地的交通卡
-        让我们带你探索这个世界
-      </div>
-    </div>
-    <div class="list_link clearfix">
-      <ul>
-        <li><a href="">关于慕云游商城</a></li>
-        <li><a href="">服务与隐私</a></li>
-        <li><a href="">联系我们</a></li>
-        <li><a href="">旅游度假资质</a></li>
-        <li><a href="">营业执照</a></li>
-        <li><a href="">投诉建议</a></li>
-      </ul>
-    </div>
-    <div class="baxx">
-      &copy;2020 imooc.com  京ICP备
-      12003892号-11 京公网安备11010802030151号 营业执照
-    </div>
+    {{include '../../components/footer/footer.art'}}
   </div>
 </footer>
 <!-- 返回顶部 -->
-<a href="javascript:;" class="backToTop" id="backToTop">返回<br/>顶部</a>
+{{include '../../components/backToTop/backToTop.art'}}
 </body>
 </html>

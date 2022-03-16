@@ -1,0 +1,38 @@
+/* 最世界·深度旅行 */
+.zsj {
+  background-color: #f7f7f7;
+}
+
+.zsj .center .hd > .nav_list {
+  width: 86px;
+}
+
+.zsj .center .list > ul > li.big_grid .desc {
+  bottom: -30px;
+  opacity: 0;
+  padding: 0 26px;
+  height: 26px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  transition: bottom 0.4s linear 0s;
+}
+
+.zsj .center .list > ul > li.big_grid .info {
+  position: absolute;
+  left: 50%;
+  top: -107px;
+  margin-left: -53px;
+  width: 106px;
+  height: 76px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  padding-top: 30px;
+  opacity: 0;
+  transition: all 0.4s linear 0s;
+}
+
+.zsj .center .list .more_grid {
+  background-image: linear-gradient(180deg, #bd5ee8 0%, #832abb 98%);
+}
