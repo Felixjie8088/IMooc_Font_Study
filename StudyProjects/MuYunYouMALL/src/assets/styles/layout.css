@@ -1,0 +1,141 @@
+/* 新鲜甩尾、机酒自由行、当地玩乐公用部分 */
+.content_part .center .hd h2 {
+  float: left;
+  margin-bottom: 32px;
+  font-weight: bold;
+  font-size: 36px;
+  color: #1c1f21;
+  line-height: 54px;
+}
+.content_part .center .hd em {
+  float: left;
+  font-size: 12px;
+  color: #1c1f21;
+  line-height: 18px;
+  position: relative;
+  top: 30px;
+  left: 6px;
+}
+.content_part .center .hd > .nav_list {
+  float: right;
+  width: 488px;
+}
+.content_part .center .hd > .nav_list ul li {
+  float: left;
+  /* width: 56px; */
+  margin-right: 16px;
+  font-size: 14px;
+  color: #20bd9a;
+  text-align: center;
+  padding-top: 15px;
+}
+.content_part .center .hd > .nav_list ul li.curr {
+  border-bottom: 4px solid #20bd9a;
+}
+.content_part .center .hd > .nav_list ul li.curr a {
+  color: #20bd9a;
+}
+.content_part .center .hd > .nav_list ul li a {
+  color: rgba(0, 0, 0, 0.85);
+}
+.content_part .center .hd > .nav_list ul li:last-child {
+  margin-right: 0;
+}
+.content_part .center .list .more_grid {
+  box-sizing: border-box;
+  padding: 46px 14px;
+  text-align: center;
+  font-size: 14px;
+  background-image: linear-gradient(180deg, #34e3bc 0%, #15af7a 98%);
+}
+.content_part .center .list .more_grid a {
+  display: block;
+  height: 270px;
+}
+.content_part .center .list .more_grid p {
+  color: #fff;
+}
+.content_part .center .list .more_grid .link_other {
+  position: absolute;
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  left: 50%;
+  top: 50%;
+  color: #fff;
+  margin-top: -24px;
+  margin-left: -24px;
+}
+.content_part .center .list .more_grid ul {
+  margin-top: 110px;
+  padding-left: 35px;
+  text-align: center;
+}
+.content_part .center .list .more_grid ul > li {
+  float: left;
+  border-right: 1px solid #fff;
+  padding: 0 6px;
+  color: #ffffff;
+  height: 22px;
+  line-height: 22px;
+}
+.content_part .center .list .more_grid ul > li:last-child {
+  border-right: none;
+}
+/* 机酒自由行 最世界·深度旅行 跟团/半自助游 */
+.content_group {
+  padding: 40px 0;
+  height: 658px;
+}
+.content_group .center .list > ul > li {
+  position: relative;
+  float: left;
+  width: 264px;
+  height: 270px;
+  margin: 0 32px 32px 0;
+  background: #ffffff;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.content_group .center .list > ul > li:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+}
+.content_group .center .list > ul > li:nth-child(3),
+.content_group .center .list > ul > li:nth-child(7) {
+  margin-right: 0;
+}
+.content_group .center .list > ul > li.big_grid {
+  width: 560px;
+}
+.content_group .center .list > ul > li .desc {
+  padding: 15px;
+  font-size: 14px;
+  width: 234px;
+  height: 56px;
+  color: #1c1f21;
+}
+.content_group .center .list > ul > li.big_grid .desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 560px;
+  height: 103px;
+  padding: 30px 26px;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.content_group .center .list > ul > li .label {
+  position: absolute;
+  top: 144px;
+  left: 0;
+  width: 74px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 40px;
+}
+.content_group .center .list > ul > li.big_grid .label {
+  top: 127px;
+}

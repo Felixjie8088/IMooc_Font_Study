@@ -1,0 +1,31 @@
+/* 新鲜甩尾 */
+.xxsw {
+  background-color: #f7f7f7;
+  padding-top: 40px;
+  height: 698px;
+}
+.xxsw .center .list ul li {
+  float: left;
+  width: 264px;
+  height: 270px;
+  margin-right: 32px;
+  margin-bottom: 32px;
+  background: #fff;
+}
+.xxsw .center .list ul li:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.xxsw .center .list ul li:nth-child(4n) {
+  margin-right: 0;
+}
+.xxsw .center .list ul li .pic_box {
+  width: 264px;
+  height: 184px;
+}
+.xxsw .center .list ul li .text_box {
+  padding: 15px;
+  font-size: 14px;
+  color: #1c1f21;
+  width: 234px;
+  height: 56px;
+}

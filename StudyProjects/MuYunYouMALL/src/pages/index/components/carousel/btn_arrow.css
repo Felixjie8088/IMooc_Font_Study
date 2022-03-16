@@ -1,0 +1,20 @@
+/* 轮播图左右按钮 */
+.banner .center .arrow {
+  position: absolute;
+  width: 32px;
+  height: 44px;
+  top: 50%;
+  margin-top: -22px;
+  opacity: 0.7;
+}
+.banner .center .arrow:hover {
+  opacity: 1;
+}
+.banner .center .left {
+  left: -42px;
+  background: url(./images/左按钮.png) no-repeat;
+}
+.banner .center .right {
+  right: -42px;
+  background: url(./images/右按钮.png) no-repeat;
+}

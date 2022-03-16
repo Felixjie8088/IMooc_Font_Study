@@ -1,0 +1,46 @@
+.banner .carousel_list {
+  width: 600%;
+  /* 清除浮动，不然导航菜单显示有问题 */
+  overflow: hidden;
+  /* translateX中的百分数表示相对于它本身的宽度的多少倍 */
+  /* transform: translateX(-16.666%); */
+  transition: transform 0.5s ease 0s;
+}
+.banner .carousel_list li {
+  float: left;
+  /* 让每个图片是整个大banner的1/6 */
+  width: 16.666%;
+}
+.banner .carousel_list li img {
+  width: 100%;
+  /* min-width属性，限制最小宽度 */
+  min-width: 1152px;
+  /* 图片可能与合资的底部产生一些缝隙，此时可以使用一个小技巧（垂直居中），使用以下属性，去除缝隙 */
+  vertical-align: middle;
+}
+.banner .circles {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  height: 20px;
+  z-index: 9999;
+}
+.banner .circles li {
+  float: left;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: #20bd9a;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s ease 0s;
+}
+.banner .circles li:last-child {
+  margin-right: 0;
+}
+.banner .circles li.current {
+  width: 30px;
+  background-color: #15af7a;
+}
