@@ -1,0 +1,39 @@
+<!-- 网页轮播图 -->
+<div class="slider">
+  <ul class="slider-content">
+    <li class="slider-item">
+      <a href="javascript:;">
+        <img src="images/轮播banner@2x.jpg" alt="" class="slider-img">
+      </a>
+    </li>
+    <li class="slider-item">
+      <a href="javascript:;">
+        <img src="images/轮播banner2@2x.jpg" alt="" class="slider-img">
+      </a>
+    </li>
+    <li class="slider-item">
+      <a href="javascript:;">
+        <img src="images/轮播banner3@2x.jpg" alt="" class="slider-img">
+      </a>
+    </li>
+    <li class="slider-item">
+      <a href="javascript:;">
+        <img src="images/轮播banner4@2x.jpg" alt="" class="slider-img">
+      </a>
+    </li>
+    <li class="slider-item">
+      <a href="javascript:;">
+        <img src="images/轮播banner5@2x.jpg" alt="" class="slider-img">
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- 轮播图图片小圆点 -->
+<ol class="circles" id="circles_ol">
+  <li data-no="0" class="current"></li>
+  <li data-no="1"></li>
+  <li data-no="2"></li>
+  <li data-no="3"></li>
+  <li data-no="4"></li>
+</ol>

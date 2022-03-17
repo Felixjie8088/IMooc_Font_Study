@@ -33,12 +33,11 @@
 <section class="banner" id="banner">
   <!-- 网页轮播图 -->
   <!-- 轮播图图片小圆点 -->
-  <% include('./components/carousel/carousel.art') %>
+  {{include './components/slider/slider.art'}}
   <!-- 网页轮播图菜单 -->
   <div class="center">
     <!-- 左右切换按钮 -->
     {{ include './components/carousel/btn_arrow.art' }}
-    <!--    <% include('./components/carousel/btn_arrow.art') %>-->
     <nav class="banner_nav" id="banner_nav">
       <ul id="banner_nav_ul">
         <li class="hot" data-title="hot">

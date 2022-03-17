@@ -13,8 +13,10 @@ import 'components/topbar';
 import 'components/main-nav';
 //header-content
 import 'components/header-content';
-// carousel
-import './components/carousel';
+// // carousel
+// import './components/carousel';
+// slider
+import './components/slider';
 // hotad
 import './components/hotad';
 // xxsw
