@@ -1,20 +1,24 @@
-.slider,.slider-content,.slider-item,.slider-img{
-  width: 100%;
-  height: 100%;
+.slider, .slider-content, .slider-item, .slider-img {
+    width: 100%;
+    height: 100%;
 }
-.slider{
-  overflow: hidden;
+
+.slider {
+    overflow: hidden;
 }
-.slider-item{
-  float: left;
+
+.slider-item {
+    float: left;
 }
-.slider-img{
-  /*去重图片之间的缝隙*/
-  /*display: block;*/
-  vertical-align: top;
+
+.slider-img {
+    /*去重图片之间的缝隙*/
+    /*display: block;*/
+    vertical-align: top;
 }
+
 /*添加切换动画*/
-.slider-animation{
-  transition-property: transform;
-  transition-duration:0ms;
+.slider-animation {
+    transition-property: transform;
+    transition-duration: 0ms;
 }

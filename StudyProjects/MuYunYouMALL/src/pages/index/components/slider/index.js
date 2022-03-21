@@ -6,4 +6,4 @@ import './module';
 
 import Slider from './module';
 
-new Slider(document.querySelector('slider'),{initialIndex:0});
+new Slider(document.querySelector('.slider'), {initialIndex: 0});
