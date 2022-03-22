@@ -26,6 +26,8 @@ import 'components/loading';
 import './components/hotad';
 // xxsw
 import './components/xxsw';
+// jjzyx
+import './components/jjzyx';
 // ddwl
 import './components/ddwl';
 // tsddty

@@ -1,0 +1,35 @@
+<ul>
+    <li class="big_grid">
+        <a href="">
+            <img src="{{big_one.url}}" alt=""/>
+            <div class="label">{{big_one.type}}</div>
+            <div class="desc">
+                <p>{{big_one.title}}</p>
+                <p>{{big_one["extra-info"]}}</p>
+            </div>
+        </a>
+    </li>
+    {{each items}}
+    <li class="pro_grid">
+        <a href="">
+            <img src="{{$value.url}}" alt=""/>
+            <div class="label">{{$value.type}}</div>
+            <div class="desc">
+                <p>{{$value.title}}</p>
+            </div>
+        </a>
+    </li>
+    {{/each}}
+    <li class="more_grid">
+        <a href="">
+            <p>查看更多</p>
+            <p>{{more.title}}</p>
+            <span href="" class="iconfont link_other">&#xe602;</span>
+            <ul>
+                {{each more.items val}}
+                <li>{{val}}</li>
+                {{/each}}
+            </ul>
+        </a>
+    </li>
+</ul>
