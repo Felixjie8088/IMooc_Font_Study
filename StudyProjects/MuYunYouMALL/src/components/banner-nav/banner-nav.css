@@ -1,0 +1,133 @@
+.banner .center .banner_nav {
+    width: 652px;
+    height: 100%;
+    position: relative;
+}
+
+.banner .center .banner_nav > ul {
+    /* 这里的高度100%绝对不能省略，因为如果省略了，
+    他的height就是0，那么他的子盒子设置16.6%就没有意义了 */
+    height: 100%;
+}
+
+.banner .center .banner_nav > ul > li {
+    position: relative;
+    width: 296px;
+    height: 16.66%;
+    background: rgba(0, 0, 0, 0.45);
+    border-bottom: 1px solid #9e9e9e;
+    /* box-sizing:border-box 属性的作用就是让height属性是盒子的总高度，这种情况：在盒子的高度是百分比写的 */
+    /* 此时就要让盒子的边框涵盖在height里面，就要使用box-sizing属性 */
+    box-sizing: border-box;
+}
+
+.banner .center .banner_nav > ul > li:last-child {
+    border-bottom: none;
+}
+
+.banner .center .banner_nav > ul > li:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.banner .center .banner_nav > ul > li > dl {
+    position: absolute;
+    top: 50%;
+    left: 42px;
+    color: #fff;
+    height: 48px;
+    margin-top: -24px;
+}
+
+.banner .center .banner_nav > ul > li > dl > dt {
+    font-size: 18px;
+    height: 26px;
+    line-height: 26px;
+}
+
+.banner .center .banner_nav > ul > li > dl > dd {
+    font-size: 16px;
+    height: 22px;
+    line-height: 22px;
+}
+
+.banner .center .banner_nav > ul > li::before {
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    left: 8px;
+    content: "";
+    width: 24px;
+    height: 24px;
+}
+
+.banner .center .banner_nav > ul > li.hot::before {
+    background: url(./images/测导航图标01.png) no-repeat;
+}
+
+.banner .center .banner_nav > ul > li.gat::before {
+    background: url(./images/左导航图标02.png) no-repeat;
+}
+
+.banner .center .banner_nav > ul > li.rbhg::before {
+    background: url(./images/左导航图标03.png) no-repeat;
+}
+
+.banner .center .banner_nav > ul > li.dny::before {
+    background: url(./images/左导航图标04.png) no-repeat;
+}
+
+.banner .center .banner_nav > ul > li.ozmz::before {
+    background: url(./images/左导航图标05.png) no-repeat;
+}
+
+.banner .center .banner_nav > ul > li.axzdf::before {
+    background: url(./images/左导航图标06.png) no-repeat;
+}
+
+.banner .center .banner_nav .menus_box .menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 296px;
+    background: rgba(0, 0, 0, 0.45);
+    height: 100%;
+    width: 324px;
+    padding: 16px;
+    box-sizing: border-box;
+    z-index: 99999;
+}
+
+.banner .center .banner_nav .menus_box .curr {
+    display: block;
+}
+
+.banner .center .banner_nav .menus_box .menu dl {
+    margin-bottom: 14px;
+}
+
+.banner .center .banner_nav .menus_box .menu dl a {
+    color: #fff;
+}
+
+.banner .center .banner_nav .menus_box .menu dl dt {
+    color: #fff;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.banner .center .banner_nav .menus_box .menu dl dd {
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.zsj .center .list .big_grid .mask,
+.gtzzy .center .list .big_grid .mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.4s ease-in 0s;
+}

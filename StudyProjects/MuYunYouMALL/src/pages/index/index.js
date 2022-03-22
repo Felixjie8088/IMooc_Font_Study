@@ -2,6 +2,7 @@
 import 'styles/layout.css';
 import 'styles/reset.css';
 import 'styles/base.css';
+
 // css
 import './css/muyunyou.css';
 
@@ -17,6 +18,10 @@ import 'components/header-content';
 // import './components/carousel';
 // slider
 import './components/slider';
+// banner-nav
+import 'components/banner-nav';
+// loading
+import 'components/loading';
 // hotad
 import './components/hotad';
 // xxsw

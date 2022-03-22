@@ -1,0 +1,23 @@
+/* 轮播图左右按钮 */
+.slider .arrow {
+    position: absolute;
+    width: 32px;
+    height: 44px;
+    top: 50%;
+    margin-top: -22px;
+    opacity: 0.7;
+}
+
+.slider .arrow:hover {
+    opacity: 1;
+}
+
+.slider .left {
+    left: 326px;
+    background: url(./images/左按钮.png) no-repeat;
+}
+
+.slider .right {
+    right: 326px;
+    background: url(./images/右按钮.png) no-repeat;
+}
