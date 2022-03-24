@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // 拼接路径
-const resolve = __dirname => path.resolve(__dirname, dir);
+const resolve = dir => path.resolve(__dirname, dir);
 
 module.exports = {
 	mode: "development",//"production" | "development"
@@ -53,7 +53,7 @@ module.exports = {
 			},
 			// 字体文件
 			{
-				test: /\.(woff2?|et|ttf|otf)$/,
+				test: /\.(woff2?|eot|ttf|otf)$/,
 				loader: 'url-loader',
 				options: {
 					limit: 10000,
@@ -65,7 +65,7 @@ module.exports = {
 	plugins: [
 		// 自动将依赖注入html模板，并输出最终的html文件到目标文件夹
 		new HtmlWebpackPlugin({
-			template: './src/pages/index/index.art',//模板文件
+			template: './src/pages/index/index.art', // 模板文件
 			filename: 'index.html',
 			chunks: ['index']
 		}),

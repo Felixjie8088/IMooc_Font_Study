@@ -1,0 +1,53 @@
+.layer .hd {
+    padding-top: 50px;
+    padding-bottom: 42px;
+    overflow: hidden;
+}
+
+.layer .hd h3 {
+    font-size: 36px;
+    color: #1C1F21;
+    line-height: 36px;
+    font-weight: bold;
+    float: left;
+}
+
+.layer .hd .slogan {
+    float: left;
+    color: #1C1F21;
+    padding-top: 20px;
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.layer .hd .displaynone {
+    display: none;
+}
+
+.layer .hd .tabbar {
+    float: right;
+    margin-top: 10px;
+}
+
+.layer .hd .tabbar ul li {
+    float: left;
+    margin-right: 15px;
+    font-size: 15px;
+}
+
+.layer .hd .tabbar ul li:last-child {
+    margin-right: 0;
+}
+
+.layer .hd .tabbar ul li.current {
+    border-bottom: 4px solid #20BD9A;
+    padding-bottom: 4px;
+}
+
+.layer .hd .tabbar ul li.current a {
+    color: #20BD9A;
+}
+
+.layer .hd .tabbar ul li:hover a {
+    color: #20BD9A;
+}
