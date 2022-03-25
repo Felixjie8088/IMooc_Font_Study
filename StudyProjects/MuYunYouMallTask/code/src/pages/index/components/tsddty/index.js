@@ -1,5 +1,5 @@
 // css
-import './fav-ad.css';
+import './tsddty.css';
 
 // api
 import getData from "api/getData";
@@ -7,8 +7,8 @@ import getData from "api/getData";
 import {URL} from "./config";
 // items
 import renderItemsData from './items.art';
-// fav-ad中的items，最后替换其内容
-const fav_items_div = document.getElementById('fav_items_div');
+// tsddty中的items，最后替换其内容
+const tsddty_items_div = document.getElementById('tsddty_items_div');
 
 // 获取bd中的数据
 getData(URL, {}).then(data => {
@@ -16,5 +16,5 @@ getData(URL, {}).then(data => {
 	let bodyHtml = renderItemsData({
 		items: data
 	});
-	fav_items_div.innerHTML = bodyHtml;
+	tsddty_items_div.innerHTML = bodyHtml;
 })

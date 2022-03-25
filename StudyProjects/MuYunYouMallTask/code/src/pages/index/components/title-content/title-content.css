@@ -20,10 +20,6 @@
     font-size: 14px;
 }
 
-.layer .hd .displaynone {
-    display: none;
-}
-
 .layer .hd .tabbar {
     float: right;
     margin-top: 10px;

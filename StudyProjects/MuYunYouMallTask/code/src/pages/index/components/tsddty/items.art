@@ -1,0 +1,21 @@
+<ul>
+    {{each items val}}
+    <li class="grid">
+        <a href="">
+            <div class="pic">
+                <img class="p-img" src="{{val.url}}" alt="">
+            </div>
+            <div class="tip">
+                <div class="inn">
+                    <div class="title">{{val.title}}</div>
+                    <div class="extra">
+                        <span class="star iconfont">&#xe62b;</span>
+                        <span class="score">{{val.score}}</span>
+                        <span class="comment">（{{val.comment_counts}}评价) {{val.join_counts}}人参加过</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    {{/each}}
+</ul>

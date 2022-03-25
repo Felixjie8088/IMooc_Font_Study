@@ -1,0 +1,58 @@
+<div class="bd">
+    <ul>
+        <li class="big grid">
+            <a href="">
+                <div class="pic">
+                    <img class="p-img" src="{{data.one.url}}" alt="">
+                </div>
+                <div class="tip">
+                    <div class="inn">
+                        <p>{{data.one.title}}</p>
+                        <p>{{data.one['extra-info']}}</p>
+                    </div>
+                </div>
+                <div class={{data.one.type?"type":"dpn"}}>
+                    {{data.one.type}}
+                </div>
+                <div class={{hasMask?"mask":"dpn"}}></div>
+                <div class={{hasMask?"y":"dpn"}}>
+                    <div class="c">{{data.one.tag}}</div>
+                    <div class="e">{{data.one['extra-tag']}}</div>
+                </div>
+            </a>
+        </li>
+        {{each data.items}}
+        <li class="grid">
+            <a href="">
+                <div class="pic">
+                    <img class="p-img" src="{{$value.url}}" alt="">
+                </div>
+                <div class="tip">
+                    {{$value.title}}
+                </div>
+                <div class={{$value.type?"type":"dpn"}}>
+                    {{$value.type}}
+                </div>
+            </a>
+        </li>
+        {{/each}}
+        <li class="more grid">
+            <a href="">
+                <div class="more_con">
+                    查看更多<br>
+                    {{data.more.title}}
+                </div>
+                <div class="arrow">
+                    <b class="iconfont">&#xe602;</b>
+                </div>
+                <div class="tj">
+                    <ul>
+                        {{each data.more.items val}}
+                        <li>{{val}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

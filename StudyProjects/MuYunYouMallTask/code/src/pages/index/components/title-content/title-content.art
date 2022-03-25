@@ -1,10 +1,10 @@
 <div class="hd">
     <h3>{{title}}</h3>
     <div class="slogan">{{slogan}}</div>
-    <div class={{isDisplay?"tabbar":"displaynone"}}>
+    <div class={{isDisplay?"tabbar":"dpn"}}>
         <ul>
             {{each items}}
-            <li><a class={{$value.curr?"current":""}} href="javascript:">{{$value.title}}</a></li>
+            <li class={{$value.curr?"current":""}}><a href="javascript:">{{$value.text}}</a></li>
             {{/each}}
         </ul>
     </div>

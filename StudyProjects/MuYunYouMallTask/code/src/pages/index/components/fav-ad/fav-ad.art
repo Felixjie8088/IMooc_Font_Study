@@ -1,34 +1,7 @@
 <section class="layer fav-ad">
     <div class="center-wrap">
-        <ul>
-            <li class="grid">
-                <a href="">
-                    <div class="pic">
-                        <img class="p-img" src="../../../../assets/images/small01.png" alt="">
-                    </div>
-                </a>
-            </li>
-            <li class="grid">
-                <a href="">
-                    <div class="pic">
-                        <img class="p-img" src="../../../../assets/images/small02.png" alt="">
-                    </div>
-                </a>
-            </li>
-            <li class="grid">
-                <a href="">
-                    <div class="pic">
-                        <img class="p-img" src="../../../../assets/images/small03.png" alt="">
-                    </div>
-                </a>
-            </li>
-            <li class="grid">
-                <a href="">
-                    <div class="pic">
-                        <img class="p-img" src="../../../../assets/images/small04.png" alt="">
-                    </div>
-                </a>
-            </li>
-        </ul>
+        <div id="fav_items_div">
+
+        </div>
     </div>
 </section>

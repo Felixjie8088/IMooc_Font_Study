@@ -10,9 +10,18 @@ import 'components/main-nav';
 import 'components/search';
 // fav-ad
 import './components/fav-ad';
-// title-content
-import './components/title-content';
-
+// xxsw
+import './components/xxsw';
+// jjzyx
+import './components/jjzyx';
+// ddwl
+import './components/ddwl';
+// tsddty
+import './components/tsddty';
+// zsj
+import './components/zsj';
+// gty
+import './components/gty';
 // footer-nav
 import 'components/footer-nav';
 // bottom-bar
