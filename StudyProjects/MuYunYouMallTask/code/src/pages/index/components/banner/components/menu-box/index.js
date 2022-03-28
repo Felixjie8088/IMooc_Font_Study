@@ -12,6 +12,8 @@ import {URL} from "./config";
 import renderVMenuData from './v-menu.art';
 // menus
 import renderSecMenu from './components/second-menu/second-menu.art';
+// v-menu-box
+const v_menu_box_div = document.getElementById('v-menu-box');
 // v-menu
 const v_menu_div = document.getElementById('v-menu');
 // menus
@@ -27,23 +29,45 @@ getData(URL, {}).then(data => {
 	
 	// v-menu li
 	const v_menu_lis = v_menu_div.querySelectorAll('li[data-n]');
+	
 	// 一级菜单hover事件
 	for (let i = 0; i < v_menu_lis.length; i++) {
 		let currLi = v_menu_lis[i];
 		(function (i) {
 			currLi.addEventListener("mouseenter", (event) => {
+				// 所有菜单项去掉active类
+				for (let j = 0; j < v_menu_lis.length; j++) {
+					v_menu_lis[j].className = '';
+				}
+				// 自己加active类
+				currLi.className = 'active';
 				let data_n_val = event.target.attributes["data-n"].value;
-				console.log(data_n_val);
 				// 获取当前选中的li的二级菜单
 				getData(URL + '/' + data_n_val, {}).then(data => {
-					console.log(data)
 					let secMenuHtml = renderSecMenu({
 						key: data_n_val,
 						items: data
 					});
 					menus_div.innerHTML = secMenuHtml;
+					// menus li
+					const menus_lis = menus_div.querySelectorAll('.menu');
+					// 让所有菜单隐藏，去掉active类
+					menus_lis[0].className = 'menu';
+					// 让key相同的菜单项添加active类
+					menus_lis[0].classList.add('active');
 				});
 			}, false);
 		})(i);
 	}
+	// 鼠标离开菜单时重置菜单项class
+	v_menu_box_div.addEventListener("mouseleave", () => {
+		// 所有菜单项清空类
+		for (let j = 0; j < v_menu_lis.length; j++) {
+			v_menu_lis[j].className = '';
+		}
+		const menus_lis = menus_div.querySelectorAll('.menu');
+		// 让所有菜单隐藏，去掉active类
+		menus_lis[0].className = 'menu';
+	}, false);
 });
+
