@@ -1,0 +1,9 @@
+<div class="circles" id="circles">
+    <ol>
+        <li class="cur"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+</div>

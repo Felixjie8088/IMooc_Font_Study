@@ -1,0 +1,9 @@
+<section class="banner" id="banner">
+    {{ include './components/carousel/carousel.art' }}
+    <div class="center-wrap">
+        {{ include './components/btn-arrow/btn-arrow.art' }}
+        <div class="v-menu-box" id="v-menu-box">
+            {{ include './components/menu-box/menu-box.art' }}
+        </div>
+    </div>
+</section>

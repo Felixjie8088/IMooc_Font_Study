@@ -1,0 +1,6 @@
+<div class="carousel">
+    <ul id="carousel_list">
+        
+    </ul>
+    {{ include './components/circles/circles.art'}}
+</div>

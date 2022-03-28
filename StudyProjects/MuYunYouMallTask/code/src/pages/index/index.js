@@ -8,6 +8,8 @@ import 'components/topbar';
 import 'components/main-nav';
 // search
 import 'components/search';
+// banner
+import './components/banner';
 // fav-ad
 import './components/fav-ad';
 // xxsw

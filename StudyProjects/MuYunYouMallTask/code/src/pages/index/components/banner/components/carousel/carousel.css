@@ -1,0 +1,20 @@
+.banner .carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner .carousel ul {
+    width: 600%;
+    overflow: hidden;
+}
+
+.banner .carousel ul li {
+    float: left;
+    width: 16.66666667%;
+}
+
+.banner .carousel ul li img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
