@@ -33,6 +33,8 @@ class BaseCarousel {
 		this.carouselItemEls = carouselItemEls;
 		this.circles = circles;
 		
+		// 锁
+		this.lock = true;
 		// 最大最小索引
 		this.minIndex = 0;
 		this.maxIndex = carouselItemEls.length - 1;
@@ -64,6 +66,8 @@ class BaseCarousel {
 		this.setCarouselListWidth();
 		// 自动切换
 		if (this.options.autoPlay) this.autoPlay();
+		// 小圆点的监听事件
+		this.handleCircles();
 	}
 	
 	
@@ -127,43 +131,74 @@ class BaseCarousel {
 	
 	// 切换到指定index
 	to(index = this.currIndex) {
-		this.currIndex = index;
-		console.log(this.minIndex, this.maxIndex, this.currIndex, index);
+		// 函数防抖
+		if (!this.lock) return;
+		// 进入函数就关锁
+		this.lock = false;
+		this.currIndex = index < 0 ? -1 : index;
 		// 设置过渡，之所以每次点击都要重新设置过渡，是因为放置最后一个图片将过渡删除了
 		this.setOverStyle(this.transition);
-		if (this.currIndex == 0) {
+		// 过渡完成后开锁
+		setTimeout(() => {
+			this.lock = true;
+		}, this.options.speed);
+		// 切换上一个按钮的时候的情况
+		if (this.currIndex == -1) {
 			// 瞬间拉到最后
 			this.setOverStyle('none');
-			this.setTransform(this.getDistance(this.currIndex + 1));
-			this.currIndex = this.maxIndex;
-			// 写1秒的延迟是为了防止transition还没有去掉
-			setTimeout(function () {
+			this.setTransform(this.getDistance(this.maxIndex));
+			this.currIndex = this.maxIndex - 1;
+			
+			setTimeout(() => {
 				this.setOverStyle(this.transition);
 				this.setTransform(this.getDistance(this.currIndex));
 			}, 1);
 		}
 		// 如果是最后一张轮播图，就等动画结束之后瞬间拉回0号轮播图
-		else if (this.currIndex > this.maxIndex) {
+		else if (this.currIndex > this.maxIndex - 1) {
+			// 进行拉动
+			this.setTransform(this.getDistance(this.currIndex));
 			// 这个延时器相当于回调函数
-			setTimeout(function () {
+			setTimeout(() => {
 				// 瞬间拉回，要去掉监听
 				this.setOverStyle('none')
 				// 拉回
 				this.setTransform();
-				// 信号量变为0
+				// 索引重置为0
 				this.currIndex = this.minIndex;
 			}, this.options.speed);
-		} else {
+		}
+		// 正常情况下
+		else {
 			this.setTransform(this.getDistance(this.currIndex));
 		}
+		this.setCircle();
 	}
 	
 	// 设置小圆点
 	setCircle() {
+		// 将所有小圆点的样式初始化
 		for (const circle of this.circles) {
 			circle.className = '';
 		}
+		// 当前索引位置的小圆点设置样式
 		this.circles[this.currIndex % this.maxIndex].className = 'cur';
+	}
+	
+	// 小圆点的监听事件
+	handleCircles() {
+		for (let i = 0; i < this.circles.length; i++) {
+			this.circles[i].addEventListener('click', () => {
+				// 当前索引赋值
+				this.currIndex = i;
+				// 设置过渡样式
+				this.setOverStyle(this.transition);
+				// 拉动
+				this.setTransform(this.getDistance(this.currIndex));
+				// 设置小圆点
+				this.setCircle();
+			}, false);
+		}
 	}
 }
 

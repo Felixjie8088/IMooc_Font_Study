@@ -27,8 +27,6 @@ getData(URL, {}).then(data => {
 	// 得到两个按钮
 	const leftbtn = document.querySelector('#leftbtn');
 	const rightbtn = document.querySelector('#rightbtn');
-	// 小圆点
-	const circles = document.querySelectorAll('#circles li');
 	// banner
 	const banner = document.querySelector('#banner');
 	
@@ -38,20 +36,20 @@ getData(URL, {}).then(data => {
 		// 自动切换，单位ms
 		autoPlay: 0
 	});
-	
+	// 左按钮事件
 	leftbtn.addEventListener("click", () => {
 		carousel.prev();
 	}, false);
-	
+	// 右按钮事件
 	rightbtn.addEventListener("click", () => {
 		carousel.next();
 	}, false);
 	
-	
+	// 鼠标移入就暂停
 	banner.addEventListener("mouseenter", () => {
 		carousel.pause()
 	}, false);
-	
+	// 鼠标移出就开启
 	banner.addEventListener("mouseleave", () => {
 		carousel.autoPlay()
 	}, false);
