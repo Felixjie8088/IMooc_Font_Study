@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /* 在此处补充代码*/
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        header {
+            width: 100vw;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 10px;
+        }
+
+        header .logo {
+        }
+
+        header .logo img {
+            vertical-align: top;
+        }
+
+        header .nav {
+            width: 50vw;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header .nav li {
+            list-style: none;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        header .login {
+            flex-basis: 150px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        header .login input {
+            font-size: 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 2px;
+
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: space-between;
+            height: 30vh;
+        }
+
+        section .section {
+            background-color: skyblue;
+            border-radius: 10px;
+            width: 40%;
+            height: 45%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        section .section .box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            font-size: 20px;
+            height: 100%;
+        }
+
+        section .section .shopping .btn {
+            background-color: #ff9f00;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- 头部 -->
+<header>
+    <div class="logo">
+        <img src="http://climg.mukewang.com/59197ab000014f1503000100.jpg" alt="">
+    </div>
+    <ul class="nav">
+        <li>课程</li>
+        <li>路径</li>
+        <li>猿问</li>
+        <li>手记</li>
+    </ul>
+    <div class="login">
+        <input type="button" value="登录">
+        <input type="button" value="注册">
+    </div>
+</header>
+<!-- 主体内容 -->
+<section>
+    <div class="section">
+        <div class="box">
+            <p>《前端小白入门手册》</p>
+            <div>适用人群：没有任何前端基础的小白</div>
+            <div>费用：￥499</div>
+        </div>
+        <div class="shopping">
+            <div class="btn">加入购物车</div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="box">
+            <p>《HTML5月CSS3实现动态网页》</p>
+            <div>适用人群：有html和css基础的童鞋</div>
+            <div>费用：￥599</div>
+        </div>
+        <div class="shopping">
+            <div class="btn">加入购物车</div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="box">
+            <p>《前端小白入门手册》</p>
+            <div>适用人群：没有任何前端基础的小白</div>
+            <div>费用：￥499</div>
+        </div>
+        <div class="shopping">
+            <div class="btn">加入购物车</div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="box">
+            <p>《HTML5月CSS3实现动态网页》</p>
+            <div>适用人群：有html和css基础的童鞋</div>
+            <div>费用：￥599</div>
+        </div>
+        <div class="shopping">
+            <div class="btn">加入购物车</div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
