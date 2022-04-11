@@ -12,7 +12,7 @@
     /*align-items: center;*/
 }
 
-.tabbar-layout .tabbar a {
+.tabbar-layout .tabbar .tabbar-item {
     color: #c2cfcc;
     flex-grow: 1;
     display: flex;
@@ -28,10 +28,10 @@
 
 .tabbar-layout .tabbar a i {
     /*display: block;*/
-    font-size: 20px;
+    font-size: 5.33vw /* 40/7.5 */;
 }
 
-.tabbar-layout .tabbar a.tabbar-item-active {
+.tabbar-layout .tabbar .tabbar-item-active {
     background-color: #e7f3f0;
     color: #00b38a;
 }

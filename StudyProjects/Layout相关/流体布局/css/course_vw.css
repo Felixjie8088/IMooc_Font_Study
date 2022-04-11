@@ -1,0 +1,54 @@
+.slider-layout img {
+    width: 100%;
+}
+
+.course-layout .course {
+    /*overflow: hidden;*/
+    font-size: 14px;
+}
+
+.course-layout .course .course-list {
+    padding-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.course-layout .course .course-title {
+    padding: 0 0 10px 20px;
+    color: #191919;
+    font-size: 16px;
+}
+
+.course-layout .course .course-list .course-item {
+    /*float: left;*/
+    width: 50%;
+    padding: 0 0 10px 20px;
+}
+
+.course-layout .course .course-list .course-item .course-pic {
+    margin-bottom: 6px;
+}
+
+.course-layout .course .course-list .course-item .course-img {
+    width: 100%;
+}
+
+.course-layout .course .course-list .course-item .course-name {
+    height: 40px;
+    line-height: 20px;
+    margin-bottom: 4px;
+    color: #333;
+
+    /*多行文字省略*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal !important;
+    word-wrap: break-word;
+}
+
+.course-layout .course .course-list .course-item .course-price {
+    color: #e93b3b;
+}

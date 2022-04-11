@@ -28,7 +28,7 @@
 
 .tabbar-layout .tabbar a i {
     /*display: block;*/
-    font-size: 20px;
+    font-size: 4rem /* 40/10 */;
 }
 
 .tabbar-layout .tabbar a.tabbar-item-active {

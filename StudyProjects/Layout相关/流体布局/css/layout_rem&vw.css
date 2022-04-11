@@ -1,0 +1,39 @@
+/*layout*/
+html {
+    font-size: 1.333333vw;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.header-layout {
+    width: 100%;
+    height: 10rem /* 100/10 */;
+    background-color: #f00;
+    flex-shrink: 0;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.main-layout {
+    /*padding: 50px 0 50px 0;*/
+    overflow: auto;
+    flex-grow: 1;
+}
+
+.slider-layout {
+    margin-bottom: 20px;
+}
+
+.course-layout {
+    margin-bottom: 10px;
+}
+
+.tabbar-layout {
+    width: 100%;
+    height: 10rem /* 100/10 */;
+    flex-shrink: 0;
+    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.15);
+}
