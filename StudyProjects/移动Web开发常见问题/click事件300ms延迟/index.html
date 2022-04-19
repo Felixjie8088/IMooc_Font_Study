@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .btn {
+            width: 100%;
+            height: 300%;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<button id="btn" class="btn">提交</button>
+</body>
+</html>
+<script>
+	// 移动端click事件300ms延迟的原因
+	// 原因：double-tap to zoom 双击缩放  为了检测双击   在300ms内再次点击判定为双击
+	// 解决方案：
+	// 不使用click事件，把click事件中要处理的放到touchstart或touchend中去处理
+	// 禁止双击缩放（浏览器厂商的努力）【viewport中禁止缩放、touch-action:manipulation】
+	// 使用Fastclick库 【主要针对老版本浏览器】
+	const btn = document.getElementById("btn");
+	btn.addEventListener("touchstart", () => {
+		console.time("click");
+	}, false);
+	// btn.addEventListener("click", () => {
+	// 	console.timeEnd("click");
+	// }, false);
+	btn.addEventListener("touchend", () => {
+		console.timeEnd("click");
+	}, false);
+</script>

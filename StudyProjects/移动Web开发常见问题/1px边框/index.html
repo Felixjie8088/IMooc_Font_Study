@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .list {
+            padding: 0;
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .item {
+            list-style: none;
+            line-height: 60px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .item1 {
+            border-width: 0.5px;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2) {
+            .item2 {
+                position: relative;
+                border: none;
+            }
+
+            .item2::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 200%;
+                height: 200%;
+                /*设置相应边框*/
+                border-bottom: 1px solid #ccc;
+                transform-origin: 0 0;
+                transform: scale(0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+<ul class="list">
+    <li class="item">“变粗” 的1px边框</li>
+    <!--    <li class="item">变粗的原因:并不是真的变粗，而是设计想要的1像素，不是程序员眼中的1CSS像素，而是1物理像素</li>-->
+    <!--    如果dpr=2，设计实际想要的就是1px/2=0.5px-->
+    <!--    如果dpr=3，设计实际想要的就是1px/3=0.3333px-->
+    <li class="item">解决方案</li>
+    <!--    和设计商量，如果不在意这个问题，不用去管-->
+    <!--    直接设置“细”边框（存在兼容性问题，不同的浏览器会有不同的表现）-->
+    <!--    伪类+transform（推荐）-->
+    <li class="item item1">直接设置“细”边框</li>
+    <li class="item item2">伪类+transform（推荐）</li>
+</ul>
+</body>
+</html>

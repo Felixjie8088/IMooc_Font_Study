@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            /*当图片实际宽度小于父容器宽度时，图片会被强行拉伸至与父容器同宽*/
+            width: 100%;
+            /*当图片实际宽度小于父容器宽度时，图片不会随着父容器宽度的变大而进一步拉伸*/
+            /*max-width: 100%;*/
+        }
+
+        .bg-container {
+            width: 100%;
+            /*如果高度固定*/
+            /*height: 200px;*/
+            /*如果高度不固定*/
+            /*相对于宽度的百分比【让容器的宽高比和图片的宽高比一致】*/
+            padding-top: 39.7869%;
+
+            background-color: red;
+            /*background: url("") no-repeat;*/
+
+            /*缩放背景图片以完全覆盖背景区，可能背景图片部分看不见*/
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<!--img图片-->
+<div class="img-container">
+    <img src="" alt="">
+</div>
+<!--背景图片-->
+<div class="bg-container"></div>
+</body>
+</html>
