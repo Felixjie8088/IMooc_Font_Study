@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./swiper-bundle.min.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="swiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="http://climg.mukewang.com/59f2f3c60001e51206000600.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="http://climg.mukewang.com/59f2f3dc0001512e06000533.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="http://climg.mukewang.com/59f2f3fb0001725305000707.jpg" alt=""></div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+</div>
+<script src="swiper-bundle.min.js"></script>
+</body>
+</html>
+<script>
+    const mySwiper = new Swiper('.swiper', {
+        direction: 'horizontal',
+        loop: true, // 循环模式选项
+        speed: 500,
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 2000,
+            stopOnLastSlide: false,
+            disableOnInteraction: false,
+        }
+    })
+</script>
