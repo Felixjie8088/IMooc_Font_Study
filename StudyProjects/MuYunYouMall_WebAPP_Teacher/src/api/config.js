@@ -1,0 +1,2 @@
+export const RESPONSE_SUCCESS_CODE = 200;
+export const TIMEOUTTIME = 30000;

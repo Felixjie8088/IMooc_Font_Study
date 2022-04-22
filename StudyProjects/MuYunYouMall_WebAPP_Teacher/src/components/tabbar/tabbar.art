@@ -1,0 +1,14 @@
+<footer id="tabbar-layout" class="tabbar-layout">
+    <div class="tabbar-item">
+        <i class="iconfont">&#xe699;</i>
+        <a href="javascript:">首页</a>
+    </div>
+    <div class="tabbar-item">
+        <i class="iconfont">&#xe628;</i>
+        <a href="javascript:">目的地</a>
+    </div>
+    <div class="tabbar-item">
+        <i class="iconfont">&#xe610;</i>
+        <a href="javascript:">我的</a>
+    </div>
+</footer>
