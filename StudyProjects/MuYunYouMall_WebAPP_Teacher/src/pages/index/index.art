@@ -8,18 +8,35 @@
     <title>Document</title>
 </head>
 <body>
-<!--页面顶部-->
-{{include './components/header/header.art'}}
-<div class="main-layout" id="main-layout">
-    <!--slider-->
-    {{include './components/header/header.art'}}
-    <!--nav-->
-    {{include './components/header/header.art'}}
-    <!--product-->
-    {{include './components/header/header.art'}}
-
+<div id="index-page" class="index-layout">
+    <!--页面顶部-->
+    <header class="header-layout">
+        {{include './components/header/header.art'}}
+    </header>
+    <!--幻灯片-->
+    <div id="index-slider" class="slider-layout">
+        幻灯片
+        <!--        {{include './components/slider/slider.art'}}-->
+    </div>
+    <!--    &lt;!&ndash;导航&ndash;&gt;-->
+    <!--    <div id="index-nav" class="nav-layout">-->
+    <!--        导航-->
+    <!--        &lt;!&ndash;        {{include './components/nav/nav.art'}}&ndash;&gt;-->
+    <!--    </div>-->
+    <!--    &lt;!&ndash;精选折扣&ndash;&gt;-->
+    <!--    <div id="index-product" class="product-layout">-->
+    <!--        精选折扣-->
+    <!--        &lt;!&ndash;        {{include './components/product/product.art'}}&ndash;&gt;-->
+    <!--    </div>-->
+    <!--标签栏-->
+    <div class="tabbar-layout">
+        标签栏
+        <!--        {{include '../../components/tabbar/tabbar.art'}}-->
+    </div>
+    <!--返回顶部-->
+    <div class="backtop-layout">
+        返回顶部
+    </div>
 </div>
-<!--页面底部-->
-{{include '../../components/tabbar/tabbar.art'}}
 </body>
 </html>
