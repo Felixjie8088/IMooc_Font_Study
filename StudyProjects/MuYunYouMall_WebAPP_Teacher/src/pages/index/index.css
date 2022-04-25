@@ -12,8 +12,16 @@
     height: 54px;
 }
 
+.header-layout .search-box {
+    width: 89.333333%;
+}
+
 .slider-layout, .nav-layout, .product-layout {
     background-color: #fff;
+}
+
+.slider-layout .loading {
+    padding: 60px 0;
 }
 
 .nav-layout {

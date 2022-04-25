@@ -8,6 +8,9 @@ import './index.css'
 import './components/header'
 // 首页页面主体部分
 // slider
+import './components/slider'
+// loading
+import 'components/loading'
 // nav菜单
 // 精选折扣 (产品展示)
 // 页面底部

@@ -14,4 +14,18 @@ const getData = (url, options) => {
 	});
 }
 
-export default getData;
+// 延时
+const delay = ms => {
+	return new Promise(resolve => {
+		setTimeout(resolve, ms);
+	});
+};
+
+// 延迟获取数据
+const getDelayData = (url, options) => {
+	return delay(1000).then(() => {
+		return getData(url, options);
+	});
+}
+
+export {getData, getDelayData};

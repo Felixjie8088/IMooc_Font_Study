@@ -15,9 +15,9 @@
     </header>
     <!--幻灯片-->
     <div id="index-slider" class="slider-layout">
-        幻灯片
-        <!--        {{include './components/slider/slider.art'}}-->
+        {{include '../../components/loading/loading.art'}}
     </div>
+    
     <!--    &lt;!&ndash;导航&ndash;&gt;-->
     <!--    <div id="index-nav" class="nav-layout">-->
     <!--        导航-->

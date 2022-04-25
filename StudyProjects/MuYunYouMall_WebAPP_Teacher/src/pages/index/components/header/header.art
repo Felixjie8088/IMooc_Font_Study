@@ -1,3 +1,4 @@
 <div class="header">
-    首页头部
+    <!--    <%include('../../../../components/searchbox/searchbox.art',{placeholder:'12312'})%>-->
+    {{include '../../../../components/searchbox/searchbox.art'}}
 </div>

@@ -1,0 +1,2 @@
+// css
+import './loading.css'
