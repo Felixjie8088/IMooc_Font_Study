@@ -14,4 +14,6 @@ import 'components/loading';
 // nav菜单
 import './components/nav';
 // 精选折扣 (产品展示)
+import './components/product';
 // 页面底部
+import 'components/tabbar';

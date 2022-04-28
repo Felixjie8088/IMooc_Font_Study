@@ -22,15 +22,13 @@
         {{include '../../components/loading/loading.art'}}
     </div>
 
-    <!--    &lt;!&ndash;精选折扣&ndash;&gt;-->
-    <!--    <div id="index-product" class="product-layout">-->
-    <!--        精选折扣-->
-    <!--        &lt;!&ndash;        {{include './components/product/product.art'}}&ndash;&gt;-->
-    <!--    </div>-->
+    <!--精选折扣-->
+    <div id="index-product" class="product-layout">
+        {{include './components/product/product.art'}}
+    </div>
     <!--标签栏-->
-    <div class="tabbar-layout">
-        标签栏
-        <!--        {{include '../../components/tabbar/tabbar.art'}}-->
+    <div id="tabbar-layout" class="tabbar-layout">
+        <% include('../../components/tabbar/tabbar.art',{active:'index'})%>
     </div>
     <!--返回顶部-->
     <div class="backtop-layout">

@@ -12,8 +12,5 @@ import {requestURL, INDEX_LAYOUT_ID} from "pages/index/components/nav/config";
 const index_nav = document.getElementById(INDEX_LAYOUT_ID);
 // 获取数据
 getData(requestURL, {}).then(data => {
-	index_nav.innerHTML = renderNav({navItems: data});
+    index_nav.innerHTML = renderNav({navItems: data});
 })
-
-
-// index_nav.innerHTML = renderNav();

@@ -1,5 +1,6 @@
 .index-layout {
     height: 100%;
+    padding-bottom: 54px;
     overflow-y: auto;
 }
 
@@ -20,7 +21,7 @@
     background-color: #fff;
 }
 
-.slider-layout .loading, .nav-layout .loading {
+.slider-layout .loading, .nav-layout .loading, .product-layout .loading {
     padding: 60px 0;
 }
 
