@@ -17,12 +17,11 @@
     <div id="index-slider" class="slider-layout">
         {{include '../../components/loading/loading.art'}}
     </div>
-    
-    <!--    &lt;!&ndash;导航&ndash;&gt;-->
-    <!--    <div id="index-nav" class="nav-layout">-->
-    <!--        导航-->
-    <!--        &lt;!&ndash;        {{include './components/nav/nav.art'}}&ndash;&gt;-->
-    <!--    </div>-->
+    <!--导航-->
+    <div id="index-nav" class="nav-layout">
+        {{include '../../components/loading/loading.art'}}
+    </div>
+
     <!--    &lt;!&ndash;精选折扣&ndash;&gt;-->
     <!--    <div id="index-product" class="product-layout">-->
     <!--        精选折扣-->

@@ -20,7 +20,7 @@
     background-color: #fff;
 }
 
-.slider-layout .loading {
+.slider-layout .loading, .nav-layout .loading {
     padding: 60px 0;
 }
 
