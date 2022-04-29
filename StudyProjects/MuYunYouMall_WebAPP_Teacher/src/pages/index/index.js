@@ -17,3 +17,5 @@ import './components/nav';
 import './components/product';
 // 页面底部
 import 'components/tabbar';
+// 返回顶部
+import './components/backtop';
