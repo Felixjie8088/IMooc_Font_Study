@@ -1,0 +1,7 @@
+<div class="header">
+    <div class="header-pic">
+        <img src="./images/portrait.png" class="header-logo-img" alt="">
+        <span class="username">王豆豆</span>
+        <span class="phonenum">18911023266</span>
+    </div>
+</div>

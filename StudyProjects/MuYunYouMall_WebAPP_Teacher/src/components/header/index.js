@@ -16,8 +16,7 @@ class Header extends Scroll {
 			reset: () => {
 				this.el.classList.remove(CHANGED_CLASS_NAME);
 			},
-		}, scrollContainer, eventEl);
-		this.el = el;
+		}, scrollContainer, eventEl, el);
 	}
 }
 

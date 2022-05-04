@@ -9,7 +9,7 @@ class Scroll {
 	* scrollContainer:以该元素来获取滚动条的高度
 	* eventEl:需要监听滚动条滚动的元素，默认为scrollContainer
 	* */
-	constructor(options, scrollContainer, eventEl = scrollContainer) {
+	constructor(options, scrollContainer, eventEl = scrollContainer, el = null) {
 		this.options = {
 			...DEFAULT,
 			...options
@@ -18,6 +18,7 @@ class Scroll {
 		this.scrollContainer = scrollContainer;
 		// 监听滚动事件的元素
 		this.eventEl = eventEl;
+		this.el = el;
 		
 		// 设置状态
 		this.setState(INIT_STATE);

@@ -1,7 +1,6 @@
 {{each proItems}}
 <div class="product-item">
-    <!--            <a href="./details.html?id={{$value.id}}" class="product-link">-->
-    <a href="javascript:" class="product-link">
+    <a href="./details.html?id={{$value.id}}" class="product-link">
         <p class="product-pic">
             <img src="{{$value.url}}" alt="" class="product-img">
         </p>

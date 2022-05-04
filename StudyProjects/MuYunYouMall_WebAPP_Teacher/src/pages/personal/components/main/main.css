@@ -1,0 +1,17 @@
+.main {
+    position: absolute;
+    top: 400px;
+    left: 0;
+    right: 0;
+    bottom: 48px;
+    padding: 0 20px 0 30px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #262626;
+}

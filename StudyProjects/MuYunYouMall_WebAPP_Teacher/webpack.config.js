@@ -10,7 +10,9 @@ module.exports = {
 	// entry: "./app/entry", // string | object | array
 	entry: {
 		index: "./src/pages/index",
-		destination: "./src/pages/destination"
+		destination: "./src/pages/destination",
+		details: "./src/pages/details",
+		personal: "./src/pages/personal",
 	},
 	// 默认为 ./src
 	// 这里应用程序开始执行
@@ -90,6 +92,14 @@ module.exports = {
 			template: './src/pages/destination/destination.art', // 模板文件
 			filename: 'destination.html',
 			chunks: ['destination']
+		}), new HtmlWebpackPlugin({
+			template: './src/pages/details/details.art', // 模板文件
+			filename: 'details.html',
+			chunks: ['details']
+		}), new HtmlWebpackPlugin({
+			template: './src/pages/personal/personal.art', // 模板文件
+			filename: 'personal.html',
+			chunks: ['personal']
 		}),
 	],
 }

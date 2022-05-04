@@ -16,9 +16,8 @@ class BackTop extends Scroll {
 			reset: () => {
 				this.hide();
 			}
-		}, scrollContainer, eventEl)
+		}, scrollContainer, eventEl, el)
 		
-		this.el = el;
 		// 绑定事件
 		this.bindEvent();
 	}
@@ -27,7 +26,7 @@ class BackTop extends Scroll {
 	bindEvent() {
 		super.bindEvent();
 		// 点击事件
-		this.eventEl.addEventListener('click', () => {
+		this.el.addEventListener('click', () => {
 			this.scrollTo();
 		}, false);
 	}
