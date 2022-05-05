@@ -1,12 +1,13 @@
-<div class="product-pic"></div>
+<div id="product-pic" class="product-pic"></div>
 <div class="product-info center">
-    <p class="pro-text">上海/广州直飞三亚5天亲子游（亲子/蜜月+豪华亲子酒店任意搭配+专车接送机+无限次畅游亚特水族馆和水世界+超值赠送5选一）</p>
+    <p class="pro-text">{{title}}</p>
     <p class="pro-freebie">
-        <a href="javascript:" class="pro-zsjj">赠送接机</a>
-        <a href="javascript:" class="pro-zddvxm">赠当地游项目</a>
+        {{each tags val}}
+        <a href="javascript:">{{val}}</a>
+        {{/each}}
     </p>
     <div class="pro-ll-ys">
-        <span class="ll">浏览24004</span>
-        <span class="ys">已售138份</span>
+        <span class="ll">浏览{{vistor_counts}}</span>
+        <span class="ys">已售{{sold_counts}}份</span>
     </div>
 </div>

@@ -1,4 +1,23 @@
-<h2 class="pro-title"></h2>
-<div class="pro-info-text center">
-
+<!-- 产品简介 -->
+<div id="pro-introduction" class="pro-module-item">
+    <h2 class="pro-title">产品简介</h2>
+    <div class="pro-info-text center">
+        {{each intros val}}
+        <p>{{val}}</p>
+        {{/each}}
+    </div>
+</div>
+<!-- 预定流程 -->
+<div id="pro-booking-process" class="pro-module-item">
+    <h2 class="pro-title">预定流程</h2>
+    <div class="pro-info-text center">
+        <img src="./images/img_prebook.png" alt="">
+    </div>
+</div>
+<!-- 退款流程 -->
+<div id="pro-refund-process" class="pro-module-item">
+    <h2 class="pro-title">退款流程</h2>
+    <div class="pro-info-text center">
+        {{refund}}
+    </div>
 </div>

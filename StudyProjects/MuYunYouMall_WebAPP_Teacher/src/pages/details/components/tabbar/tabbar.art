@@ -1,13 +1,15 @@
 <div class="tabbar">
     <a href="javascript:" class="tabbar-button">
         <img src="./images/wodekefu.png" alt="">
-        <span>咨询</span>
+        <span class="tabbar-text">咨询</span>
     </a>
     <a href="javascript:" class="tabbar-button">
         <img src="./images/shoucang.png" alt="">
-        <span>收藏</span>
+        <span class="tabbar-text">收藏</span>
     </a>
     <a href="javascript:" class="tabbar-button">
-        <span>立即预订</span>
+    </a>
+    <a href="javascript:" class="tabbar-button">
+        <span class="tabbar-text">立即预订</span>
     </a>
 </div>

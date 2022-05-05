@@ -2,7 +2,7 @@
     padding-bottom: 40px;
 }
 
-.main, .pro-module {
+.main, .pro-module, .pro-module-item {
     width: 100%;
 }
 
@@ -22,28 +22,4 @@
     display: block;
     width: 89.333333%;
     border-bottom: 1px solid #DADADA;
-}
-
-/*小标题*/
-.pro-title {
-    border-left: 6px solid #BF2A2F;
-    padding-left: 20px;
-    margin: 40px 0;
-    font-size: 20px;
-    color: #333333;
-    letter-spacing: 0;
-    line-height: 24px;
-    font-weight: bold;
-}
-
-/*文字内容*/
-.pro-info-text {
-    font-size: 14px;
-    color: #333333;
-    letter-spacing: 0;
-    line-height: 24px;
-}
-
-.pro-info-text img {
-    width: 100%;
 }

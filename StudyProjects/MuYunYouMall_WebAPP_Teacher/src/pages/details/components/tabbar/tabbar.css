@@ -1,24 +1,33 @@
 .tabbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
-    padding: 4px 0 4px 10px;
+    padding: 6px 0 6px 10px;
 }
 
 .tabbar-button {
     display: flex;
     justify-content: center;
     align-items: center;
+    /*width: 22.608696%;*/
     width: 76px;
     height: 20px;
     padding: 7px 3px;
+    margin-right: 10px;
     border: 1px solid #BF2A2F;
     border-radius: 3px;
 }
 
+.tabbar-button:nth-child(3) {
+    border: none;
+    flex-grow: 1;
+    padding: 0;
+    margin: 0;
+}
+
 .tabbar-button:last-child {
     background: #BF2A2F;
-    width: 32%;
+    width: 120px;
     margin-left: 19.466667%;
 }
 
@@ -26,14 +35,18 @@
     margin-right: 6px;
 }
 
-.tabbar-button span {
+.tabbar-text {
     font-size: 14px;
     color: #BF2A2F;
     letter-spacing: 0;
-    text-align: center;
     line-height: 14px;
 }
 
-.tabbar-button span:last-child {
+.tabbar-button:last-child .tabbar-text {
     color: #FFFFFF;
 }
+
+/*当是这种情况的时候会使所有的这个类名【.tabbar-text】的元素的文字颜色设置为白色     原因？？？*/
+/*.tabbar-text:last-child {*/
+/*    color: #FFFFFF;*/
+/*}*/

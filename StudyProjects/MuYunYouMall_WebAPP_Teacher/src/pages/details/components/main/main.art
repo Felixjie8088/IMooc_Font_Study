@@ -1,31 +1,10 @@
 <div class="main">
     <!-- 图片信息、特色信息、销售情况展示区 -->
-    <div class="product-pic-info">
+    <div id="product-pic-info" class="product-pic-info">
         {{ include './components/propicinfo/propicinfo.art' }}
     </div>
-    <!-- 产品简介 -->
-    <div id="pro-introduction" class="pro-module">
-        <h2 class="pro-title">产品简介</h2>
-        <div class="pro-info-text center">
-            <p>多地出发：全国各地出发，同样适合周边城市的穷游er</p>
-            <p>多种选择：提供不同星级酒店可供选择，满足不同穷游er的需求</p>
-            <p>超级赠送：超值赠送5选1</p>
-            <p>接机服务：贴心赠送专车接送机，出机场不再茫然</p>
-            <p>包含餐食：便利贴心，节省一笔开支</p>
-        </div>
-    </div>
-    <!-- 预定流程 -->
-    <div id="pro-booking-process" class="pro-module">
-        <h2 class="pro-title">预定流程</h2>
-        <div class="pro-info-text center">
-            <img src="./components/procommon/images/img_prebook.png" alt="">
-        </div>
-    </div>
-    <!-- 退款流程 -->
-    <div id="pro-refund-process" class="pro-module">
-        <h2 class="pro-title">退款流程</h2>
-        <div class="pro-info-text center">
-            本商品为特价商品，成功付款后视为消费，原则上不予变更、取消。特殊原因可与商家协商，按照实际损失收取费用，
-        </div>
+    <!-- 产品简介、预定流程、退款流程-->
+    <div id="pro-module" class="pro-module">
+        {{ include './components/procommon/procommon.art' }}
     </div>
 </div>
