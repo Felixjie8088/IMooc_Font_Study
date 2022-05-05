@@ -1,0 +1,2 @@
+// css
+import './propicinfo.css';

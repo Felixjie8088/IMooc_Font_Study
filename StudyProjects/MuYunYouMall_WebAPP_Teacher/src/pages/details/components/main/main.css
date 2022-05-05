@@ -1,0 +1,49 @@
+.main {
+    padding-bottom: 40px;
+}
+
+.main, .pro-module {
+    width: 100%;
+}
+
+.main .center {
+    width: 100%;
+    padding: 0 20px 0 20px;
+}
+
+.product-pic-info {
+    width: 100%;
+    height: 410px;
+}
+
+.product-pic-info:after {
+    content: "";
+    margin: 0 auto;
+    display: block;
+    width: 89.333333%;
+    border-bottom: 1px solid #DADADA;
+}
+
+/*小标题*/
+.pro-title {
+    border-left: 6px solid #BF2A2F;
+    padding-left: 20px;
+    margin: 40px 0;
+    font-size: 20px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 24px;
+    font-weight: bold;
+}
+
+/*文字内容*/
+.pro-info-text {
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+
+.pro-info-text img {
+    width: 100%;
+}

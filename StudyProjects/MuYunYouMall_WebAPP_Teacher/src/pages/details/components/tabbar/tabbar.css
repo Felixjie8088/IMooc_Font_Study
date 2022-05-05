@@ -1,0 +1,39 @@
+.tabbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4px 0 4px 10px;
+}
+
+.tabbar-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 76px;
+    height: 20px;
+    padding: 7px 3px;
+    border: 1px solid #BF2A2F;
+    border-radius: 3px;
+}
+
+.tabbar-button:last-child {
+    background: #BF2A2F;
+    width: 32%;
+    margin-left: 19.466667%;
+}
+
+.tabbar-button img {
+    margin-right: 6px;
+}
+
+.tabbar-button span {
+    font-size: 14px;
+    color: #BF2A2F;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 14px;
+}
+
+.tabbar-button span:last-child {
+    color: #FFFFFF;
+}

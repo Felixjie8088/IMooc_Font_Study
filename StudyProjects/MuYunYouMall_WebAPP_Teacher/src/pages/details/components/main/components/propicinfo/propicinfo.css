@@ -1,0 +1,52 @@
+/*图片信息*/
+.product-pic {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 16px;
+    background: url('http://alimc.img.imooc.com/class/muyun/mall-wepApp/index/discount/10.jpg') no-repeat;
+    background-size: cover;
+}
+
+.product-info {
+    width: 100%;
+}
+
+/*产品描述*/
+.pro-text {
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: justify;
+    line-height: 24px;
+}
+
+/*产品赠品*/
+.pro-freebie {
+    margin: 8px 0 12px 0;
+}
+
+.pro-freebie a {
+    padding: 4px 12px;
+    background: #FFFFFF;
+    border: 1px solid #5278A0;
+    border-radius: 1px;
+    font-size: 14px;
+    color: #5278A0;
+    letter-spacing: 0;
+    line-height: 16px;
+}
+
+/*产品浏览、已售信息*/
+.pro-ll-ys {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 11px;
+}
+
+.pro-ll-ys span {
+    font-size: 12px;
+    color: #999999;
+    letter-spacing: 0;
+    text-align: justify;
+}
