@@ -27,6 +27,7 @@ getData(requestURL + analysisURL(localURL, 'id'), {}).then(res => {
 	//产品图片元素，需要设置背景图片url
 	const pro_pic = document.getElementById(PRODUCTPIC_ID);
 	pro_pic.style.background = `url('${res.img}') no-repeat`;
+	pro_pic.style.backgroundSize = 'cover';
 	
 	// 产品图片展示区元素，获取数据后替换内容
 	pro_module.innerHTML = renderProcommon({...res});
