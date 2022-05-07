@@ -1,8 +1,42 @@
 // index.js
 // 获取应用实例
-const app = getApp()
+// const app = getApp()
 
 Page({
+  onLoad() {
+    console.log("onLoad")
+  },
+  onReady() {
+    console.log("onReady")
+  },
+  onShow() {
+    console.log("onShow")
+  },
+  onHide() {
+    console.log("onHide")
+  },
+  // 每次下拉刷新（松开）时  自动执行的函数
+  onPullDownRefresh() {
+    console.log("onPullDownRefresh")
+  },
+  onPageScroll() {
+    console.log("onPageScroll")
+  },
+  // 页面到最底部时   自动执行的函数
+  onReachBottom() {
+    console.log("onReachBottom")
+  },
+  // 当点击分享时  自动执行的函数
+  onShareAppMessage() {
+    console.log("onShareAppMessage")
+    return {
+      title: "share",
+      path: "pages/index/index"
+    }
+  }
+})
+
+/*Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
@@ -45,4 +79,4 @@ Page({
       hasUserInfo: true
     })
   }
-})
+})*/
