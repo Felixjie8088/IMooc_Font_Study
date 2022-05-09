@@ -1,21 +1,7 @@
 <!--index.wxml-->
-<view class="container">
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
-  <text class="user-motto">hello world</text>
+<view class="course-list">
+  <view class="course-list-item" wx:for="{{list}}" wx:key="*this">
+    <view class="item-zhou">星期{{index+1}}</view>
+    <view class="item-course" wx:for="{{item.content}}" wx:for-item="course" wx:key="*this">{{course}}</view>
+  </view>
 </view>

@@ -1,19 +1,13 @@
 /**index.wxss**/
-.userinfo {
+.course-list {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  color: #aaa;
 }
-
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.course-list-item {
+  width: 20%;
+  text-align: center;
 }
-
-.usermotto {
-  margin-top: 200px;
+.item-zhou,.item-course {
+  border: 1px solid #000;
 }

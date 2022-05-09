@@ -3,36 +3,48 @@
 // const app = getApp()
 
 Page({
-  onLoad() {
-    console.log("onLoad")
-  },
-  onReady() {
-    console.log("onReady")
+  data: {
+    name: "Felix",
+    showName: false,
+    btnText: "显示",
+    list: [{
+        'content': ['语文', '数学', '英语']
+      }, {
+        'content': ['语文', '物理', '英语']
+      },
+      {
+        'content': ['语文', '英语', '化学']
+      },
+      {
+        'content': ['体育', '数学', '英语']
+      },
+      {
+        'content': ['语文', '数学', '英语']
+      }
+    ]
+
   },
   onShow() {
-    console.log("onShow")
+    // console.log(wx.request({
+    //   url: 'https://www.fastmock.site/mock/a6caaef4a9f224b80031c51d139a3976/weixin/api/getData',
+    //   success(res) {
+    //     console.log(res)
+    //   }
+    // }))
   },
-  onHide() {
-    console.log("onHide")
+  changeName() {
+    console.log(this)
+    this.setData({
+      name: "imooc"
+    })
   },
-  // 每次下拉刷新（松开）时  自动执行的函数
-  onPullDownRefresh() {
-    console.log("onPullDownRefresh")
-  },
-  onPageScroll() {
-    console.log("onPageScroll")
-  },
-  // 页面到最底部时   自动执行的函数
-  onReachBottom() {
-    console.log("onReachBottom")
-  },
-  // 当点击分享时  自动执行的函数
-  onShareAppMessage() {
-    console.log("onShareAppMessage")
-    return {
-      title: "share",
-      path: "pages/index/index"
-    }
+  isShowHandle() {
+    this.setData({
+      showName: !this.data.showName
+    })
+    this.setData({
+      btnText: this.data.showName ? "隐藏" : "显示"
+    })
   }
 })
 
