@@ -1,13 +1,1 @@
 /**index.wxss**/
-.course-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.course-list-item {
-  width: 20%;
-  text-align: center;
-}
-.item-zhou,.item-course {
-  border: 1px solid #000;
-}

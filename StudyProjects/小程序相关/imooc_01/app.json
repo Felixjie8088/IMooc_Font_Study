@@ -1,14 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/shopCar/shopCar"
+    "pages/shopCar/shopCar",
+    "pages/personal/personal"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "list": [{
@@ -24,7 +24,7 @@
         "selectedIconPath": "resources/cart-active.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/personal/personal",
         "text": "我的",
         "iconPath": "resources/my.png",
         "selectedIconPath": "resources/my-active.png"
