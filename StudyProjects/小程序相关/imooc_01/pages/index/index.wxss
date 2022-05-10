@@ -1,1 +1,79 @@
 /**index.wxss**/
+.header {
+  position: relative;
+}
+.header-input {
+  /* 设计稿是375的11px  小程序的宽是750rpx 计算：375px/750rpx=11px/22rpx*/
+  height: 72rpx;
+  line-height: 72rpx;
+  padding: 0 36rpx;
+  margin: 22rpx 36rpx 14rpx 36rpx;
+  border: 1rpx solid #d9dde1;
+  border-radius: 36rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+.header-input-placeholder {
+  color: rgba(133, 133, 133, 0.6);
+}
+.header-icon-search {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate3d(-186rpx, 20rpx, 0);
+  color: rgba(133, 133, 133, 0.6);
+}
+/* navigator */
+.navigator {
+  display: flex;
+  align-items: center;
+  height: 112rpx;
+  margin-bottom: 6rpx;
+}
+.navigator-item {
+  flex: 1;
+  position: relative;
+}
+.item-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item-img {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 8.25rpx;
+}
+.item-text {
+  font-size: 32rpx;
+  color: #2b333b;
+  line-height: 40prx;
+}
+.navigator-item-active .item-text {
+  color: #f01414;
+}
+.navigator-item-active::after {
+  content: "";
+  position: absolute;
+  bottom: -15rpx;
+  left: 50%;
+  width: 32rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  background: #f01414;
+}
+/* swiper */
+/* 
+1、用屏幕宽度-图片的宽度，得到两边的边距和 750-x=48rpx 
+2、将边距拆成两部分，得到一边的边距，用边距减去露出的尺寸，得到两张图片之间的边距 48/2-12=12rpx 
+3、图片间距 拆成两部分，分别为图片的外边距 12/2=6rpx 
+4、露出的尺寸 加上 外边距 就等于前后边距previous-margin和next-margin的值 6+12=18rpx  */
+.swiper-item {
+  box-sizing: border-box;
+  padding: 0 6rpx;
+}
+.swiper-img {
+  width: 708rpx;
+  height: 234rpx;
+  border-radius: 20rpx;
+}
