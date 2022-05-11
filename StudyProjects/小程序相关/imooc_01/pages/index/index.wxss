@@ -68,6 +68,9 @@
 2、将边距拆成两部分，得到一边的边距，用边距减去露出的尺寸，得到两张图片之间的边距 48/2-12=12rpx 
 3、图片间距 拆成两部分，分别为图片的外边距 12/2=6rpx 
 4、露出的尺寸 加上 外边距 就等于前后边距previous-margin和next-margin的值 6+12=18rpx  */
+.swiper-layout {
+  height: 234rpx;
+}
 .swiper-item {
   box-sizing: border-box;
   padding: 0 6rpx;
@@ -75,5 +78,67 @@
 .swiper-img {
   width: 708rpx;
   height: 234rpx;
-  border-radius: 20rpx;
+  border-radius: 12rpx;
+}
+/* project */
+.project-layout {
+  margin: 32rpx 0 0 40rpx;
+}
+.project-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 36rpx;
+  color: #2b333b;
+}
+.project-item {
+  display: flex;
+  margin-top: 16rpx;
+}
+.project-item-pic {
+  width: 208rpx;
+  height: 136rpx;
+  border-radius: 16rpx;
+}
+.project-item-content {
+  flex: 1;
+  margin-right: 40rpx;
+  margin-left: 24rpx;
+  border-bottom: 1px solid #d9dde1;
+  padding-bottom: 28rpx;
+}
+.project-item-title {
+  font-size: 32rpx;
+  color: #2b333b;
+  line-height: 40rpx;
+  font-weight: bold;
+}
+.project-item-tags {
+  display: flex;
+  align-items: center;
+  margin-top: 12rpx;
+  font-size: 24rpx;
+  color: #71777D;
+}
+.project-item-tags view{
+  margin-right: 18rpx;
+}
+.project-item-price-active {
+  color: #f01414;
+  font-weight: bold;
+}
+.project-item-notice {
+  background: rgba(242, 13, 13, 0.1);
+  border-radius: 4rpx;
+  font-size: 20rpx;
+  color: #f20d0d;
+  padding: 0 10rpx;
+}
+.project-item-user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-item-icon {
+  width: 20rpx;
+  height: 20rpx;
 }
