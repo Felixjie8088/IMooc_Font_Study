@@ -2,6 +2,7 @@
 .header {
   position: relative;
 }
+
 .header-input {
   /* 设计稿是375的11px  小程序的宽是750rpx 计算：375px/750rpx=11px/22rpx*/
   height: 72rpx;
@@ -13,9 +14,11 @@
   font-size: 26rpx;
   text-align: center;
 }
+
 .header-input-placeholder {
   color: rgba(133, 133, 133, 0.6);
 }
+
 .header-icon-search {
   position: absolute;
   left: 50%;
@@ -23,6 +26,7 @@
   transform: translate3d(-186rpx, 20rpx, 0);
   color: rgba(133, 133, 133, 0.6);
 }
+
 /* navigator */
 .navigator {
   display: flex;
@@ -30,28 +34,34 @@
   height: 112rpx;
   margin-bottom: 6rpx;
 }
+
 .navigator-item {
   flex: 1;
   position: relative;
 }
+
 .item-link {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .item-img {
   width: 36rpx;
   height: 36rpx;
   margin-right: 8.25rpx;
 }
+
 .item-text {
   font-size: 32rpx;
   color: #2b333b;
   line-height: 40prx;
 }
+
 .navigator-item-active .item-text {
   color: #f01414;
 }
+
 .navigator-item-active::after {
   content: "";
   position: absolute;
@@ -62,6 +72,7 @@
   border-radius: 4rpx;
   background: #f01414;
 }
+
 /* swiper */
 /* 
 1、用屏幕宽度-图片的宽度，得到两边的边距和 750-x=48rpx 
@@ -71,34 +82,46 @@
 .swiper-layout {
   height: 234rpx;
 }
+
 .swiper-item {
   box-sizing: border-box;
   padding: 0 6rpx;
 }
+
 .swiper-img {
   width: 708rpx;
   height: 234rpx;
   border-radius: 12rpx;
 }
+
 /* project */
 .project-layout {
   margin: 32rpx 0 0 40rpx;
 }
+
 .project-title {
   font-size: 28rpx;
   font-weight: bold;
   line-height: 36rpx;
   color: #2b333b;
 }
+
+.project-empty {
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
 .project-item {
   display: flex;
   margin-top: 16rpx;
 }
+
 .project-item-pic {
   width: 208rpx;
   height: 136rpx;
   border-radius: 16rpx;
 }
+
 .project-item-content {
   flex: 1;
   margin-right: 40rpx;
@@ -106,12 +129,14 @@
   border-bottom: 1px solid #d9dde1;
   padding-bottom: 28rpx;
 }
+
 .project-item-title {
   font-size: 32rpx;
   color: #2b333b;
   line-height: 40rpx;
   font-weight: bold;
 }
+
 .project-item-tags {
   display: flex;
   align-items: center;
@@ -119,13 +144,16 @@
   font-size: 24rpx;
   color: #71777D;
 }
-.project-item-tags view{
+
+.project-item-tags view {
   margin-right: 18rpx;
 }
+
 .project-item-price-active {
   color: #f01414;
   font-weight: bold;
 }
+
 .project-item-notice {
   background: rgba(242, 13, 13, 0.1);
   border-radius: 4rpx;
@@ -133,11 +161,13 @@
   color: #f20d0d;
   padding: 0 10rpx;
 }
-.project-item-user{
+
+.project-item-user {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .project-item-icon {
   width: 20rpx;
   height: 20rpx;
