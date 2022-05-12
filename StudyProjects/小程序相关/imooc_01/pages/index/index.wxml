@@ -5,30 +5,31 @@
   <icon type="search" class="header-icon-search" size="18" wx:if="{{showIcon}}"></icon>
 </view>
 <!-- navigator -->
-<view class="navigator">
-  <view class="navigator-item navigator-item-active">
-    <navigator class="item-link" hover-class="none" url="">
+<view id="navigator-page" class="navigator">
+  <view class="navigator-item" bindtap="handleNavigatorChange"
+  data-type="recommend">
+    <view class="item-link">
       <image class="item-img" src="../../resources/recommend@2x.png"></image>
       <text class="item-text">推荐</text>
-    </navigator>
+    </view>
   </view>
-  <view class="navigator-item">
-    <navigator class="item-link" hover-class="none" url="">
+  <view class="navigator-item" bindtap="handleNavigatorChange" data-type="project">
+    <view class="item-link">
       <image class="item-img" src="../../resources/project@2x.png"></image>
       <text class="item-text">实战</text>
-    </navigator>
+    </view>
   </view>
-  <view class="navigator-item">
-    <navigator class="item-link" hover-class="none" url="">
+  <view class="navigator-item" bindtap="handleNavigatorChange" data-type="path">
+    <view class="item-link">
       <image class="item-img" src="../../resources/path@2x.png"></image>
       <text class="item-text">路径</text>
-    </navigator>
+    </view>
   </view>
-  <view class="navigator-item">
-    <navigator class="item-link" hover-class="none" url="">
+  <view class="navigator-item" bindtap="handleNavigatorChange" data-type="activity">
+    <view class="item-link">
       <image class="item-img" src="../../resources/course@2x.png"></image>
       <text class="item-text">活动</text>
-    </navigator>
+    </view>
   </view>
 </view>
 <!-- swiper -->

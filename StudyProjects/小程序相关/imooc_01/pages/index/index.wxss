@@ -70,7 +70,18 @@
   width: 32rpx;
   height: 8rpx;
   border-radius: 4rpx;
+}
+.navigator-item-active-recommend::after{
   background: #f01414;
+}
+.navigator-item-active-project::after{
+  background: #d48e05;
+}
+.navigator-item-active-path::after{
+  background: #9447eb;
+}
+.navigator-item-active-activity::after{
+  background: #14A6F0;
 }
 
 /* swiper */
