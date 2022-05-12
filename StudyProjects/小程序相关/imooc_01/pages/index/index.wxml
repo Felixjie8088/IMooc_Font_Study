@@ -6,58 +6,47 @@
 </view>
 <!-- navigator -->
 <view id="navigator-page" class="navigator">
-  <view class="navigator-item" bindtap="handleNavigatorChange"
-  data-type="recommend">
+  <view class="navigator-item" bindtap="handleNavigatorChange" wx:for="{{tabs}}" wx:key="type" data-type="{{item.type}}">
     <view class="item-link">
-      <image class="item-img" src="../../resources/recommend@2x.png"></image>
-      <text class="item-text">推荐</text>
+      <image class="item-img" src="../../resources/{{item.type}}@2x.png"></image>
+      <text class="item-text">{{item.name}}</text>
     </view>
-  </view>
-  <view class="navigator-item" bindtap="handleNavigatorChange" data-type="project">
-    <view class="item-link">
-      <image class="item-img" src="../../resources/project@2x.png"></image>
-      <text class="item-text">实战</text>
-    </view>
-  </view>
-  <view class="navigator-item" bindtap="handleNavigatorChange" data-type="path">
-    <view class="item-link">
-      <image class="item-img" src="../../resources/path@2x.png"></image>
-      <text class="item-text">路径</text>
-    </view>
-  </view>
-  <view class="navigator-item" bindtap="handleNavigatorChange" data-type="activity">
-    <view class="item-link">
-      <image class="item-img" src="../../resources/course@2x.png"></image>
-      <text class="item-text">活动</text>
-    </view>
+    <view hidden="{{type!==item.type}}" class=" navigator-item-active navigator-item-active-{{item.type}}"></view>
   </view>
 </view>
-<!-- swiper -->
-<swiper class="swiper-layout" previous-margin="18rpx" next-margin="18rpx" circular="{{true}}">
-  <swiper-item class="swiper-item" wx:for="{{swiperList}}" wx:key="*this">
-    <image class="swiper-img" src="{{item.imgUrl}}"></image>
-  </swiper-item>
-</swiper>
-<!-- project -->
-<view class="project-layout">
-  <view class="project-title">实战推荐</view>
-  <view class="project-empty" hidden="{{!(searchList&&searchList.length==0)}}">无搜索结果</view>
-  <view class="project-list">
-    <view class="project-item" wx:for="{{searchList?searchList:courses}}" wx:key="*this">
-      <image class="project-item-pic" src="{{item.imgUrl}}"></image>
-      <view class="project-item-content">
-        <view class="project-item-title">{{item.title}}</view>
-        <view class="project-item-tags">
-          <view class="project-item-price-active" wx:if="{{item.promotion}}">¥{{item.price}}</view>
-          <view class="project-item-price" wx:else>¥{{item.price}}</view>
-          <view class="project-item-notice" wx:if="{{item.notice}}">{{item.notice}}</view>
-          <view class="project-item-level">{{item.level}}</view>
-          <view class="project-item-user">
-            <image class="project-item-icon" src="../../resources/user.png"></image>
-            {{item.sales}}
+<!-- 首页推荐内容 -->
+<block wx:if="{{type==='recommend'}}">
+  <!-- swiper -->
+  <swiper class="swiper-layout" previous-margin="18rpx" next-margin="18rpx" circular="{{true}}">
+    <swiper-item class="swiper-item" wx:for="{{swiperList}}" wx:key="*this">
+      <image class="swiper-img" src="{{item.imgUrl}}"></image>
+    </swiper-item>
+  </swiper>
+  <!-- project -->
+  <view class="project-layout">
+    <view class="project-title">实战推荐</view>
+    <view class="project-empty" hidden="{{!(searchList&&searchList.length==0)}}">无搜索结果</view>
+    <view class="project-list">
+      <view class="project-item" wx:for="{{searchList?searchList:courses}}" wx:key="*this">
+        <image class="project-item-pic" src="{{item.imgUrl}}"></image>
+        <view class="project-item-content">
+          <view class="project-item-title">{{item.title}}</view>
+          <view class="project-item-tags">
+            <view class="project-item-price-active" wx:if="{{item.promotion}}">¥{{item.price}}</view>
+            <view class="project-item-price" wx:else>¥{{item.price}}</view>
+            <view class="project-item-notice" wx:if="{{item.notice}}">{{item.notice}}</view>
+            <view class="project-item-level">{{item.level}}</view>
+            <view class="project-item-user">
+              <image class="project-item-icon" src="../../resources/user.png"></image>
+              {{item.sales}}
+            </view>
           </view>
         </view>
       </view>
     </view>
   </view>
-</view>
+</block>
+<!-- 首页活动内容 -->
+<block wx:if="{{type==='activity'}}">
+
+</block>
