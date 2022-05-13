@@ -1,0 +1,95 @@
+/* pages/hot/hot.wxss */
+.tabs {
+  display: flex;
+  padding: 0 120rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  box-shadow: 0 4rpx 8rpx 0 rgba(0, 0, 0, 0.1);
+}
+
+.tab-item {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  font-size: 36rpx;
+  color: #71777D;
+}
+
+.tab-item-active {
+  color: #2B333B;
+}
+
+.tab-item-active::after {
+  content: '';
+  position: absolute;
+  bottom: 10rpx;
+  left: 50%;
+  margin-left: -16rpx;
+  width: 32rpx;
+  height: 4rpx;
+  background: #F01414;
+  border-radius: 4rpx;
+}
+
+.time {
+  display: flex;
+  justify-content: space-around;
+  width: 240rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  margin: 40rpx auto;
+  border: 2rpx solid #71777D;
+  border-radius: 8rpx;
+  padding: 3rpx 6rpx;
+  font-size: 28rpx;
+  color: #71777D;
+}
+
+.time-item {
+  flex: 1;
+  text-align: center;
+  border-radius: 6rpx;
+}
+
+.time-item-active {
+  color: #fff;
+  background: #71777D;
+}
+
+.project-list {
+  margin: auto 48rpx;
+}
+
+.project-item {
+  display: flex;
+  align-items: center;
+  height: 140rpx;
+  margin-bottom: 40rpx;
+}
+
+.project-img {
+  width: 180rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+}
+
+.project-desc {
+  flex: 1;
+  font-size: 28rpx;
+  color: #2B333B;
+  margin: 0 48rpx 0 24rpx;
+  word-break: break-all;
+}
+
+.project-icon,
+.project-text {
+  width: 60rpx;
+  height: 52rpx;
+}
+
+.project-text {
+  text-align: center;
+  line-height: 52rpx;
+  font-size: 18px;
+  color: #71777D;
+}

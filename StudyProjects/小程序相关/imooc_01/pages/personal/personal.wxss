@@ -1,1 +1,6 @@
 /* pages/personal/personal.wxss */
+.personal-page{
+  margin: 100rpx;
+  text-align: center;
+  color: #ccc;
+}

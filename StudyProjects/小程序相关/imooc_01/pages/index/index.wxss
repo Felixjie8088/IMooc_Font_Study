@@ -71,16 +71,20 @@
   height: 8rpx;
   border-radius: 4rpx;
 }
-.navigator-item-active-recommend::after{
+
+.navigator-item-active-recommend::after {
   background: #f01414;
 }
-.navigator-item-active-project::after{
+
+.navigator-item-active-project::after {
   background: #d48e05;
 }
-.navigator-item-active-path::after{
+
+.navigator-item-active-path::after {
   background: #9447eb;
 }
-.navigator-item-active-activity::after{
+
+.navigator-item-active-activity::after {
   background: #14A6F0;
 }
 
@@ -182,4 +186,13 @@
 .project-item-icon {
   width: 20rpx;
   height: 20rpx;
+}
+
+/* 首页活动内容 */
+.activity-item {
+  display: block;
+  width: 702rpx;
+  height: 232rpx;
+  margin: 0 auto 32rpx auto;
+  border-radius: 12rpx;
 }

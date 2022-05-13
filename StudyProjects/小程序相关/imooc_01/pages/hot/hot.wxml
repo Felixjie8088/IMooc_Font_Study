@@ -1,0 +1,21 @@
+<!-- tab选项切换区域 -->
+<view class="tabs">
+  <view class="tab-item {{type===item.type?'tab-item-active':''}}" wx:for="{{rankTypes}}" wx:key="type" bindtap="handleHotTabClick" data-type="{{item.type}}">{{item.title}}</view>
+</view>
+<!-- 周排行、月排行 -->
+<view class="time">
+  <view class="time-item {{timeType===item.name?'time-item-active':''}}" wx:for="{{timeTypes}}" wx:key="name" bindtap="handleHotTimeClick" data-name="{{item.name}}">{{item.title}}</view>
+</view>
+<!-- 具体内容 -->
+<view class="project-list">
+  <view class="project-item" wx:for="{{typeWeekOrMonth==='projectRanking-week'?projectWeek:typeWeekOrMonth==='projectRanking-month'?projectMonth:typeWeekOrMonth==='pathRanking-week'?pathWeek:typeWeekOrMonth==='pathRanking-month'?pathMonth:projectWeek}}" wx:key="imgUrl">
+    <view class="project-pic">
+      <image class="project-img" src="{{item.imgUrl}}"></image>
+    </view>
+    <view class="project-desc">{{item.title}}</view>
+    <view class="project-ranking">
+      <image class="project-icon" src="../../resources/{{index+1}}@2x.png" wx:if="{{index<3}}"></image>
+      <view class="project-text" wx:else>{{index+1}}</view>
+    </view>
+  </view>
+</view>

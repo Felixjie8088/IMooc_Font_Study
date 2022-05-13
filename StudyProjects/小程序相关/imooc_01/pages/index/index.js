@@ -4,6 +4,7 @@ Page({
     showIcon: true,
     "swiperList": [],
     "courses": [],
+    "activities": [],
     "searchList": null,
     "type": "recommend",
     "tabs": [{
@@ -31,14 +32,14 @@ Page({
     wx.request({
       url: 'https://www.fastmock.site/mock/a6caaef4a9f224b80031c51d139a3976/weixin/api/getData',
       success(res) {
-        console.log(res)
         const {
           data,
           success
         } = res.data;
         _self.setData({
           swiperList: data.swiperList,
-          courses: data.courses
+          courses: data.courses,
+          activities: data.activities
         })
       }
     })
@@ -66,6 +67,17 @@ Page({
     } = e
     this.setData({
       type
+    })
+  },
+  // 点击实战推荐跳转
+  handleRecommendClick(){
+    // 直接替换当前页面
+    // wx.redirectTo({
+    //   url: '/pages/hot/hot',
+    // })
+    // 跳转到指定页面带有返回箭头按钮
+    wx.navigateTo({
+      url: '/pages/hot/hot',
     })
   }
 })
