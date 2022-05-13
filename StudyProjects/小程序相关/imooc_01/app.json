@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/hot/hot",
     "pages/index/index",
     "pages/shopCar/shopCar",
-    "pages/personal/personal"
+    "pages/personal/personal",
+    "pages/hot/hot"
   ],
   "window": {
     "backgroundTextStyle": "dark",
