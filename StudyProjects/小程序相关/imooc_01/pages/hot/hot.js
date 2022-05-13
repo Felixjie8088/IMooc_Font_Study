@@ -25,7 +25,7 @@ Page({
     ],
     type: "projectRanking",
     timeType: "week",
-    typeWeekOrMonth: "projectRanking-week",
+    currentList: [],
     projectWeek: [],
     projectMonth: [],
     pathWeek: [],
@@ -54,6 +54,7 @@ Page({
           pathWeek,
           pathMonth
         })
+        _self.changeCurrentList(_self.data.type, _self.data.timeType)
       }
     })
   },
@@ -66,13 +67,11 @@ Page({
         }
       }
     } = e
-    //选项卡切换后默认显示周排行的数据
-    let timeType = 'week'
     this.setData({
       type,
-      timeType,
-      typeWeekOrMonth: type + '-' + timeType
+      timeType: 'week'
     })
+    this.changeCurrentList(this.data.type, 'week')
   },
   // time选项卡点击，切换样式
   handleHotTimeClick(e) {
@@ -85,7 +84,27 @@ Page({
     } = e
     this.setData({
       timeType: name,
-      typeWeekOrMonth: this.data.type + '-' + name
+    })
+    this.changeCurrentList(this.data.type, this.data.timeType)
+  },
+  // 选项卡切换时的数据源
+  //选项卡切换后默认显示周排行的数据
+  changeCurrentList(type, timeType) {
+    let currentList = [];
+    if (type === 'projectRanking' && timeType === 'week') {
+      currentList = this.data.projectWeek;
+    } else if (type === 'projectRanking' && timeType === 'month') {
+      currentList = this.data.projectMonth;
+    } else if (type === 'pathRanking' && timeType === 'week') {
+      currentList = this.data.pathWeek;
+    } else if (type === 'pathRanking' && timeType === 'month') {
+      currentList = this.data.pathMonth;
+    } else {
+      currentList = this.data.projectWeek;
+    }
+
+    this.setData({
+      currentList
     })
   }
 })

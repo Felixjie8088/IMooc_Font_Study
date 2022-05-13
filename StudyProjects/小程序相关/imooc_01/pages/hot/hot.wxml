@@ -8,7 +8,7 @@
 </view>
 <!-- 具体内容 -->
 <view class="project-list">
-  <view class="project-item" wx:for="{{typeWeekOrMonth==='projectRanking-week'?projectWeek:typeWeekOrMonth==='projectRanking-month'?projectMonth:typeWeekOrMonth==='pathRanking-week'?pathWeek:typeWeekOrMonth==='pathRanking-month'?pathMonth:projectWeek}}" wx:key="imgUrl">
+  <view class="project-item" wx:for="{{currentList}}" wx:key="imgUrl">
     <view class="project-pic">
       <image class="project-img" src="{{item.imgUrl}}"></image>
     </view>
