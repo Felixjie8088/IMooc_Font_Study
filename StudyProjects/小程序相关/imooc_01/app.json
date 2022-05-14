@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/shopCar/shopCar",
     "pages/personal/personal",
-    "pages/hot/hot"
+    "pages/hot/hot",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

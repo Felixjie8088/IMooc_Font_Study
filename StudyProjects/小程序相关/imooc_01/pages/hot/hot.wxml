@@ -8,7 +8,7 @@
 </view>
 <!-- 具体内容 -->
 <view class="project-list">
-  <view class="project-item" wx:for="{{currentList}}" wx:key="imgUrl">
+  <view class="project-item" wx:for="{{currentList}}" wx:key="index">
     <view class="project-pic">
       <image class="project-img" src="{{item.imgUrl}}"></image>
     </view>

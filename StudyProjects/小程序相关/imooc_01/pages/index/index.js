@@ -70,7 +70,7 @@ Page({
     })
   },
   // 点击实战推荐跳转
-  handleRecommendClick(){
+  handleRecommendClick() {
     // 直接替换当前页面
     // wx.redirectTo({
     //   url: '/pages/hot/hot',
@@ -78,6 +78,15 @@ Page({
     // 跳转到指定页面带有返回箭头按钮
     wx.navigateTo({
       url: '/pages/hot/hot',
+    })
+  },
+  // 课程点击跳转至详情页
+  handleCourseTap(e) {
+    const {
+      id
+    } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + id,
     })
   }
 })
