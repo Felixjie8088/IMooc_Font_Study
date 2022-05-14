@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/sendExpress/sendExpress",
+    "pages/checkExpress/checkExpress",
+    "pages/personal/personal"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#35BD00",
+    "navigationBarTitleText": "慕慕快递助手",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#35BD00",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "/assets/home-icon.png",
+        "selectedIconPath": "/assets/home-icon-hover.png"
+      },
+      {
+        "text": "寄快递",
+        "pagePath": "pages/sendExpress/sendExpress",
+        "iconPath": "/assets/send-icon.png",
+        "selectedIconPath": "/assets/send-icon-hover.png"
+      },
+      {
+        "text": "查快递",
+        "pagePath": "pages/checkExpress/checkExpress",
+        "iconPath": "/assets/polling-icon.png",
+        "selectedIconPath": "/assets/polling-icon-hover.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/personal/personal",
+        "iconPath": "/assets/my-icon.png",
+        "selectedIconPath": "/assets/my-icon-hover.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
