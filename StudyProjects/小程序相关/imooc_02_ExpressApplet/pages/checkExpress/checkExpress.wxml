@@ -1,2 +1,17 @@
 <!--pages/checkExpress/checkExpress.wxml-->
-<text>pages/checkExpress/checkExpress.wxml</text>
+<view class="checkExpress-layout container">
+<!-- header -->
+  <view class="header-layout">
+    <input type="text" name="" class="express-no" id="ExpressNo" placeholder="请输入快递单号查询" />
+    <view class="input-icon">
+      <image class="scancode-img" src="../../assets/scancode-icon.png"></image>
+    </view>
+  </view>
+  <!-- content -->
+  <view class="content">
+    <view class="content-pic">
+      <image class="content-img" src="../../assets/big-img.png"></image>
+    </view>
+    <view class="content-text">抱歉，还没有查询到您的快递哦～～</view>
+  </view>
+</view>

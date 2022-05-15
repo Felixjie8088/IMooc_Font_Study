@@ -1,19 +1,87 @@
 /**index.wxss**/
-.userinfo {
+.index-layout {
+  font-size: 28rpx;
+  color: #626161;
+}
+
+.header-layout {
+  width: 750rpx;
+  height: 444rpx;
+  background-image: linear-gradient(192deg, rgba(53, 189, 0, 0.29) 0%, #35BD00 88%);
+  margin-bottom: 80rpx;
+}
+
+.header-img {
+  width: 100%;
+  height: 524rpx;
+}
+
+/* .content-layout{
+} */
+.content-title {
+  display: block;
+  margin: 32rpx 0 16rpx 40rpx;
+  color: #999999;
+}
+
+.content-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  color: #aaa;
+  margin: 0 20rpx 40rpx 20rpx;
+  height: 156rpx;
+  background-color: #ffffff;
+  padding: 0 20rpx;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.item-p-headPortrait {
+  width: 92rpx;
+  height: 92rpx;
+}
+.item-p-order{
+  width: 150rpx;
+  height: 150rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.item-p-info {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  margin: 0 0 0 34rpx;
+}
+
+.item-info-name{
+  margin-right: 64rpx;
+  color: #626161;
+}
+.item-info-phone{
+  color: #626161;
+}
+.item-info-way{
+  margin-right: 20rpx;
+  color: #999999;
+}
+.item-info-address{
+  color: #999999;
+}
+
+.item-p-btn {
+  width: 140rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 28rpx;
+  background: #35BD00;
+  border-radius: 60rpx;
+}
+
+.item-p-btn-icon {
+  width: 28rpx;
+  height: 22rpx;
+  margin-right: 10rpx;
+}
+
+.item-p-btn-text {
+  font-size: 24rpx;
+  color: #FFFFFF;
 }

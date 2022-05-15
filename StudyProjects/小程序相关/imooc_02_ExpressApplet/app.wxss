@@ -1,1 +1,5 @@
 /**app.wxss**/
+.container{
+  background-color: #f3f6fa;
+  font-family: Helvetica;
+}

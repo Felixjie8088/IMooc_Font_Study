@@ -1,3 +1,35 @@
 <!--index.wxml-->
-<view class="index-layout">
+<view class="index-layout container">
+  <!-- header -->
+  <view class="header-layout">
+    <image class="header-img" src="../../assets/banner.png"></image>
+  </view>
+  <!-- content -->
+  <view class="content-layout">
+    <text class="content-title">最常用快递员</text>
+    <view class="content-item">
+      <view>
+        <image class="item-p-headPortrait" src="../../assets/portrait-img.png"></image>
+      </view>
+      <view class="item-p-info">
+        <view class="item-info-name">慕慕**</view>
+        <view class="item-info-phone">133****9999</view>
+        <view class="item-info-way">急速快递</view>
+        <view class="item-info-address">深圳机场路</view>
+      </view>
+      <view class="item-p-btn">
+        <image class="item-p-btn-icon" src="../../assets/mail-icon.png"></image>
+        <view class="item-p-btn-text">一键寄出</view>
+      </view>
+    </view>
+    <view class="content-item">
+      <view>
+        <image class="item-p-order" src="../../assets/small-img.png"></image>
+      </view>
+      <view class="item-p-btn">
+        <image class="item-p-btn-icon" src="../../assets/dingdan-icon.png"></image>
+        <view class="item-p-btn-text">我的订单</view>
+      </view>
+    </view>
+  </view>
 </view>

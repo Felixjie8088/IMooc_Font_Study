@@ -1,1 +1,50 @@
 /* pages/checkExpress/checkExpress.wxss */
+.checkExpress-layout {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.header-layout {
+  width: 620rpx;
+  height: 72rpx;
+  padding: 100rpx 64rpx 66rpx 66rpx;
+  background: #35BD00;
+  display: flex;
+  align-items: center;
+}
+
+.express-no {
+  width: 555rpx;
+  height: 32rpx;
+  background: #F6F6F6;
+  padding: 20rpx 22rpx 20rpx 45rpx;
+  border-radius: 10rpx 0 0 10rpx;
+  border-right: none;
+}
+
+.input-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 88rpx;
+  height: 84rpx;
+  background-color: #F6F6F6;
+  border-radius: 0 10rpx 10rpx 0;
+  border-left: none;
+}
+.scancode-img{
+  width: 30rpx;
+  height: 28rpx;
+  background-color: #F6F6F6;
+}
+.content{
+  margin-top: 224rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content-img{
+  width: 332rpx;
+  height: 330rpx;
+}

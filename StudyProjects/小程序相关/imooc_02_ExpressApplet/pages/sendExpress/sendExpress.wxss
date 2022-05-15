@@ -1,1 +1,49 @@
 /* pages/sendExpress/sendExpress.wxss */
+.header-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 40rpx 0;
+  height: 156rpx;
+  background-color: #ffffff;
+}
+
+.item-p-headPortrait {
+  width: 92rpx;
+  height: 92rpx;
+}
+
+.item-p-info {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  margin: 0 0 0 34rpx;
+}
+
+.item-info-name{
+  margin-right: 64rpx;
+  color: #626161;
+}
+.item-info-phone{
+  color: #626161;
+}
+.item-info-way{
+  margin-right: 20rpx;
+  color: #999999;
+}
+.item-info-address{
+  color: #999999;
+}
+
+.item-p-btn {
+  display: flex;
+  width: 150rpx;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.item-p-btn-icon {
+  width: 16rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
