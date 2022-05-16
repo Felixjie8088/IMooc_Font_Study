@@ -3,17 +3,56 @@
   <!-- header -->
   <view class="header-layout">
     <view>
-        <image class="item-p-headPortrait" src="../../assets/portrait-img.png"></image>
-      </view>
-      <view class="item-p-info">
+      <image class="item-p-headPortrait" src="../../assets/portrait-img.png"></image>
+    </view>
+    <view class="item-p-info">
+      <view class="info-up">
         <view class="item-info-name">慕慕**</view>
         <view class="item-info-phone">133****9999</view>
+      </view>
+      <view class="info-down">
         <view class="item-info-way">急速快递</view>
         <view class="item-info-address">深圳机场路</view>
       </view>
-      <view class="item-p-btn">
-        <image class="item-p-btn-icon" src="../../assets/arrow-gray.png"></image>
-      </view>
+    </view>
+    <view class="item-p-btn">
+      <image class="item-p-btn-icon" src="../../assets/arrow-gray.png"></image>
+    </view>
   </view>
   <!-- content -->
+  <view class="content-layout">
+    <view class="item-info">
+      <view class="item-icon"></view>
+      <view class="item-text">发件人信息</view>
+      <view class="item-pic">
+        <image class="item-img" src="../../assets/people-icon-tool-gerenliebiao.png"></image>
+      </view>
+    </view>
+    <view class="item-info">
+      <view class="item-icon"></view>
+      <view class="item-text">收件人信息</view>
+      <view class="item-pic">
+        <image class="item-img" src="../../assets/people-icon-tool-gerenliebiao.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- next-step -->
+  <view class="btn-next-step">下一步</view>
+  <!-- footer -->
+  <view class="footer-layout">
+    <view class="footer-item">
+      <image class="f-item-img" src="../../assets/punctual-icon.png"></image>
+      <text class="f-item-text">守时守约</text>
+    </view>
+    <view class="footer-item">|</view>
+    <view class="footer-item">
+      <image class="f-item-img" src="../../assets/paid-icon.png"></image>
+      <text class="f-item-text">丢损必赔</text>
+    </view>
+    <view class="footer-item">|</view>
+    <view class="footer-item">
+      <image class="f-item-img" src="../../assets/guarantee-icon.png"></image>
+      <text class="f-item-text">急速官方保证</text>
+    </view>
+  </view>
 </view>

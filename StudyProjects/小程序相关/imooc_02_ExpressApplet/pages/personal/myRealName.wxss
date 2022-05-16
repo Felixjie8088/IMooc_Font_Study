@@ -1,0 +1,41 @@
+/* pages/personal/myRealName.wxss */
+.content-layout {
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 40rpx;
+}
+
+.item-link {
+  display: flex;
+  align-items: center;
+  height: 108rpx;
+  background-color: #FFFFFF;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.item-link-text {
+  width: 120rpx;
+  margin: 0 76rpx 0 56rpx;
+}
+
+.item-link-input {
+  color: #626161;
+}
+
+.item-link-upload {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* btn-submit */
+.btn-submit {
+  background: #35BD00;
+  text-align: center;
+  vertical-align: middle;
+  margin: auto 40rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 14px;
+  color: #FFFFFF;
+  border-radius: 50rpx;
+}

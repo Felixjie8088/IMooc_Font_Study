@@ -50,18 +50,30 @@
   margin: 0 0 0 34rpx;
 }
 
+.info-up{
+  margin-bottom: 12rpx;
+}
+
+.item-info-name,.item-info-phone,.item-info-way,.item-info-address{
+  display: inline-flex;
+}
+
 .item-info-name{
   margin-right: 64rpx;
+  font-size: 28rpx;
   color: #626161;
 }
 .item-info-phone{
+  font-size: 28rpx;
   color: #626161;
 }
 .item-info-way{
+  font-size: 24rpx;
   margin-right: 20rpx;
   color: #999999;
 }
 .item-info-address{
+  font-size: 24rpx;
   color: #999999;
 }
 

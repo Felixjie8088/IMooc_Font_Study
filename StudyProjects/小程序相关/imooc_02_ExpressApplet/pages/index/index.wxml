@@ -12,10 +12,14 @@
         <image class="item-p-headPortrait" src="../../assets/portrait-img.png"></image>
       </view>
       <view class="item-p-info">
-        <view class="item-info-name">慕慕**</view>
-        <view class="item-info-phone">133****9999</view>
-        <view class="item-info-way">急速快递</view>
-        <view class="item-info-address">深圳机场路</view>
+        <view class="info-up">
+          <view class="item-info-name">慕慕**</view>
+          <view class="item-info-phone">133****9999</view>
+        </view>
+        <view class="info-down">
+          <view class="item-info-way">急速快递</view>
+          <view class="item-info-address">深圳机场路</view>
+        </view>
       </view>
       <view class="item-p-btn">
         <image class="item-p-btn-icon" src="../../assets/mail-icon.png"></image>

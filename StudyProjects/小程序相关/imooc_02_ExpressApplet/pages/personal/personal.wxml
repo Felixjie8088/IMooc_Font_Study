@@ -1,2 +1,53 @@
 <!--pages/personal/personal.wxml-->
-<text>pages/personal/personal.wxml</text>
+<view class="personal-layout container">
+  <view class="header-layout">
+    <view class="header-u-icon">
+      <image class="header-u-img" src="../../assets/portrait-img.png"></image>
+    </view>
+    <view class="header-u-info">
+      <view class="header-u-name">慕慕</view>
+      <view class="header-u-sign">还没有你的个性签名哦</view>
+    </view>
+    <view class="header-u-arrow">
+      <image class="header-u-arrow-img" src="../../assets/arrow-white.png"></image>
+    </view>
+  </view>
+  <view class="content-layout">
+    <view class="item-link">
+      <view class="item-link-pic">
+        <image class="item-link-img" src="../../assets/phone-icon.png"></image>
+      </view>
+      <text class="item-link-text">绑定手机</text>
+    </view>
+    <view class="item-link">
+      <view class="item-link-pic">
+        <image class="item-link-img" src="../../assets/realname-icon.png"></image>
+      </view>
+      <text class="item-link-text" bindtap="handleMyRealNameTap">我的实名</text>
+    </view>
+    <view class="item-link">
+      <view class="item-link-pic">
+        <image class="item-link-img" src="../../assets/voucher-icon.png"></image>
+      </view>
+      <text class="item-link-text">我的抵用券</text>
+    </view>
+    <view class="item-link">
+      <view class="item-link-pic">
+        <image class="item-link-img" src="../../assets/address-icon.png"></image>
+      </view>
+      <text class="item-link-text">常用地址</text>
+    </view>
+    <view class="item-link">
+      <view class="item-link-pic">
+        <image class="item-link-img" src="../../assets/news-icon.png"></image>
+      </view>
+      <text class="item-link-text">消息中心</text>
+    </view>
+    <view class="item-link">
+      <view class="item-link-pic">
+        <image class="item-link-img" src="../../assets/service-icon.png"></image>
+      </view>
+      <text class="item-link-text">客服服务</text>
+    </view>
+  </view>
+</view>

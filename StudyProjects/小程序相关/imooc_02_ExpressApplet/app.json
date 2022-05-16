@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/sendExpress/sendExpress",
     "pages/index/index",
-    "pages/checkExpress/checkExpress",
-    "pages/personal/personal"
+    "pages/personal/myRealName",
+    "pages/personal/personal",
+    "pages/sendExpress/sendExpress",
+    "pages/checkExpress/checkExpress"
   ],
   "window": {
     "backgroundTextStyle": "light",

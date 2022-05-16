@@ -1,0 +1,20 @@
+<view class="content-layout container">
+  <view class="item-link">
+    <text class="item-link-text">姓名</text>
+    <input type="text" class="item-link-input" name="userName" id="userName" value="慕慕" />
+  </view>
+  <view class="item-link">
+    <text class="item-link-text">证件号码</text>
+    <input type="text" class="item-link-input" name="idNum" id="idNum" value="7766568*****223366"/>
+  </view>
+  <view class="item-link">
+    <text class="item-link-text">证件照片</text>
+    <input type="file" name="idPhoto" id="idPhoto" placeholder="请上传身份证照片（非必传）" placeholder-class="item-link-upload"/>
+  </view>
+  <view class="item-link">
+    <text class="item-link-text">手机号码</text>
+    <input type="text" class="item-link-input" name="userPhone" id="userPhone" value="1234****7890"/>
+  </view>
+</view>
+ <!-- submit -->
+ <view class="btn-submit">提交</view>
