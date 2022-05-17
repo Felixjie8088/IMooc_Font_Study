@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <!--    <script src="https://unpkg.com/vue@next"></script>-->
+    <script src="./vue.global.js"></script>
+</head>
+<body>
+<div id="root"></div>
+</body>
+</html>
+<script>
+	Vue.createApp({
+		data() {
+			return {
+				content: 'hello world', show: true
+			}
+		},
+		mounted() {
+			console.log('mounted');
+		},
+		template: `
+      <div>{{ content }}</div>
+      <button v-on:click="handleBtnClick">reverse</button>
+      <div>
+      <span v-if="show">{{ content }}</span>
+      <button v-on:click="handleShowBtnClick">显示/隐藏</button>
+      </div>
+    `,
+		methods: {
+			handleBtnClick() {
+				const newContent = this.content.split('').reverse().join('');
+				this.content = newContent;
+			},
+			handleShowBtnClick() {
+				this.show = !this.show;
+			}
+		}
+	}).mount('#root')
+</script>
