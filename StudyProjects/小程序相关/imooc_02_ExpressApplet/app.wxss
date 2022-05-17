@@ -1,5 +1,11 @@
 /**app.wxss**/
+/* 为了让container占满整个屏幕的高度，不知道有没有其他的实现方式 */
 .container{
   background-color: #f3f6fa;
   font-family: Helvetica;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

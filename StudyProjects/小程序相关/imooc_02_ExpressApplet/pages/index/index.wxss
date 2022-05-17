@@ -16,8 +16,6 @@
   height: 524rpx;
 }
 
-/* .content-layout{
-} */
 .content-title {
   display: block;
   margin: 32rpx 0 16rpx 40rpx;
@@ -90,7 +88,7 @@
 .item-p-btn-icon {
   width: 28rpx;
   height: 22rpx;
-  margin-right: 10rpx;
+  margin-right: 15rpx;
 }
 
 .item-p-btn-text {
