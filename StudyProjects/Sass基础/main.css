@@ -1,0 +1,31 @@
+.header {
+  color: #555555; }
+
+.header {
+  color: #666666; }
+
+.text {
+  width: 600px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.content-text {
+  width: 1000px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.header {
+  width: 1000px; }
+  @media screen and (min-width: 768px) {
+    .header {
+      width: 500px; } }
+
+.footer {
+  color: blue; }
+  @media screen and (min-width: 768px) {
+    .footer {
+      color: red; } }
+
+/*# sourceMappingURL=main.css.map */

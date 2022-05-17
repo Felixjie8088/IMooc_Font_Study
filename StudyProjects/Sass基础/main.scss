@@ -1,0 +1,37 @@
+@import "header";
+@import "content";
+
+
+@mixin singleline-ellipsis($width){
+  width: $width;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin ipad{
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+.text{
+  @include singleline-ellipsis(600px)
+}
+.content-text{
+  @include singleline-ellipsis(1000px)
+}
+
+.header{
+  width: 1000px;
+  @include ipad{
+    width: 500px;
+  }
+}
+
+.footer{
+  color: blue;
+  @include ipad{
+    color: red;
+  }
+}
