@@ -1,107 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      header,
-      footer {
-        margin: 0 auto;
-      }
-      header {
-        width: 800px;
-        height: 100px;
-      }
-      section {
-        width: 800px;
-        height: 500px;
-        margin: 40px auto;
-      }
-      footer {
-        width: 800px;
-        height: 200px;
-        background: #000;
-      }
-      .h_d1 {
-        width: 300px;
-        height: 100px;
-        background: #f00;
-        float: left;
-      }
-      .h_d2 {
-        width: 250px;
-        height: 30px;
-        background: #ff0;
-        float: right;
-      }
-      .h_d3 {
-        width: 450px;
-        height: 50px;
-        background: #ffc;
-        float: right;
-        margin-top: 20px;
-      }
-      .s_d1 {
-        width: 300px;
-        height: 500px;
-        background: rgb(24, 221, 247);
-        float: left;
-      }
-      .s_d2 {
-        width: 400px;
-        height: 500px;
-        float: right;
-      }
-      .s_d2_d2_d1 {
-        width: 400px;
-        height: 300px;
-        background: rgb(3, 245, 192);
-      }
-      .s_d2_d2_d2 {
-        width: 400px;
-        height: 150px;
-        margin-top: 50px;
-      }
-      .s_d2_d2_d2_d1 {
-        width: 80px;
-        height: 150px;
-        background: rgb(245, 168, 3);
-        float: left;
-        margin-right: 26px;
-      }
-      .s_d2_d2_d2_d1:nth-last-child(1) {
-        margin-right: 0px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- 补充代码 -->
-    <header>
-      <div class="h_d1"></div>
-      <div class="h_d2"></div>
-      <div class="h_d3"></div>
-    </header>
-    <section>
-      <div class="s_d1"></div>
-      <div class="s_d2">
-        <div class="s_d2_d1"></div>
-        <div class="s_d2_d2">
-          <div class="s_d2_d2_d1"></div>
-          <div class="s_d2_d2_d2">
-            <div class="s_d2_d2_d2_d1"></div>
-            <div class="s_d2_d2_d2_d1"></div>
-            <div class="s_d2_d2_d2_d1"></div>
-            <div class="s_d2_d2_d2_d1"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer></footer>
-  </body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title
+</head>
+<body>
+
+</body>
 </html>
+<script>
+	// 1.	有一百匹马，驮一百担货，大马驮3担，中马驮2担，两只小马驮1担，问有大，中，小马各几匹？
+	// 总共100匹马100担货  一匹大马驮3担 一匹中马驮2担 两匹小马驮1担  那么假设大马x，中马y,小马就是100-（x+y）
+	for (var x = 0; x <= 33; x++) {
+		for (var y = 0; y <= 50; y++) {
+			if (3 * x + 2 * y + ((100 - (x + y)) / 2) === 100) {//总货数是100
+				document.write(`大马：${x}匹，中马：${y}匹，小马：${100 - (x + y)}匹 <br/>`)
+			}
+		}
+	}
+	document.write('<br/><br/>');
+
+	// 2.	设计一个程序,输出如下: [类名是: Factorial.java]输入数字,计算这个数字的阶乘  思路：递归
+	function factorial(n) {
+		var result = 1;
+		if (n === 1) {
+			result = 1;
+		} else {
+			result = n * factorial(n - 1);
+		}
+		return result;
+	}
+	document.write(`10的阶乘是：${factorial(10)}`);
+	document.write('<br/><br/>');
+	// 3.	设计一个程序,打印出(2~200)之间的所有质数(素数).要求:每行只输出 10个素数, 不能把所有数都写到一行中.
+	var count = 10;//每行只输入10个数
+	for (var i = 2; i < 201; i++) {
+		// 质数：大于1且只能被1或者自己整除的数
+		if (i % 1 == 0 || i % i == 0) {
+			document.write(i + ' ');
+			// 能整除10就换行
+			if (i % 10 == 0) {
+				document.write('<br/>')
+			}
+		}
+	}
+	document.write('<br/><br/>');
+	// 4.	神奇的数字[AmazingNumber],打印以下三个数字阵列:
+	var startNum = 1, endNum = 9, first_num_str = '';
+	for (var i = startNum; i <= endNum; i++) {
+		first_num_str += i.toString();
+		document.write(`${first_num_str} * 8 + ${i.toString()} = ${parseInt(first_num_str) * 8 + i}<br />`);
+	}
+	document.write('<br/><br/>');
+	startNum = 1, endNum = 9, first_num_str = '';
+	for (var i = startNum; i <= endNum; i++) {
+		first_num_str += i.toString();
+		document.write(`${first_num_str} * 9 + ${(i + 1).toString()} = ${parseInt(first_num_str) * 9 + (i + 1)}<br />`);
+	}
+	document.write('<br/><br/>');
+	startNum = 0, endNum = 9, first_num_str = '';
+	for (var i = endNum; i >= 2; i--) {
+		first_num_str += i.toString();
+		document.write(`${first_num_str} * 9 + ${(i - 2).toString()} = ${parseInt(first_num_str) * 9 + (i - 2)}<br />`);
+	}
+</script>
