@@ -13,23 +13,66 @@
 </body>
 </html>
 <script>
-	/*
+    /*
     * createApp 博阿是创建一个Vue应用，存储到app变量中
     * 传入的参数表示，这个应用最外层的组件，应该如何展示
     * mvvm 设计模式，m->model数据，v->view视图，vm->viewModel视图数据连接层
     *
     *
     * 生命周期函数：在某一时刻自动执行的函数
+    *
+    * computed 和 method 都能实现的功能，建议使用computed  因为有缓存
+    * computed 和 watch 都能实现的功能，建议使用computed  因为简洁
     * */
-	const app = Vue.createApp({
-		data() {
-			return {
-				message: 'hello world'
-			}
-		},
-		template: `
-      <div>{{ message }}</div>`
-	});
-	//vm 代表的就是vue应用的根组件
-	const vm = app.mount('#root');
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: 'hello world',
+                count: 1,
+                price: 5,
+                checkListData: [],
+                numStr: '123'
+            }
+        },
+        watch: {
+            price(curr, prev) {
+                console.log(prev, 'price changed', curr);
+            }
+        },
+        // 计算属性  当计算属性以来的内容发生变更时，才会重新执行计算
+        computed: {
+            total() {
+                return this.count * this.price
+            }
+        },
+        // 只要页面重新渲染，就会重新执行计算
+        template: `
+          <div>一般属性计算：{{ count * price }}</div>
+          <div>计算属性计算：{{ total }}</div>
+          <br>
+          {{checkListData}}
+          1 <input type="checkbox" v-model="checkListData" value="1">
+          2 <input type="checkbox" v-model="checkListData" value="2">
+          3 <input type="checkbox" v-model="checkListData" value="3">
+          <br>
+          <input type="number" v-model="numStr">
+          <br>
+          组件之间传值：
+          <test/>
+        `
+    });
+    app.component('test', {
+        props: {
+            content: {
+                type: String,
+                required: false,
+                default: '我是默认的值'
+            }
+        },
+        template: `
+          <div>{{ content }}</div>
+        `
+    })
+    //vm 代表的就是vue应用的根组件
+    const vm = app.mount('#root');
 </script>
