@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+<script>
+    /*
+    * slot 插槽  无法直接给slot标签设置事件，可以将slot包裹起来之后再外层元素上添加事件
+    * slot中使用的数据，作用域的问题
+    * 父模板里调用的数据属性，使用的都是父模板里的数据
+    * 子模板里调用的数据属性，使用的都是子模板里的数据
+    * */
+    // const app = Vue.createApp({
+    //     // 只要页面重新渲染，就会重新执行计算
+    //     template: `
+    //     <test>
+    //         <div>提交</div>
+    //     </test>
+    //     <test>
+    //         <button>提交</button>
+    //     </test>
+    //     `
+    // });
+    // app.component('test', {
+    //     methods: {
+    //         handleClick() {
+    //             console.log(123);
+    //         }
+    //     },
+    //     template: `
+    //       <div>
+    //         <input />
+    //         <span @click="handleClick">
+    //             <slot></slot>
+    //         </span>
+    //       </div>
+    //     `
+    // })
+
+    /*
+    * 具名插槽  简写：#
+    */
+    // const app = Vue.createApp({
+    //     // 只要页面重新渲染，就会重新执行计算
+    //     template: `
+    //     <layout>
+    //         <template #header>
+    //             <div>header</div>
+    //         </template>
+    //         <template v-slot:footer>
+    //             <div>footer</div>
+    //         </template>
+    //     </layout>
+    //     `
+    // });
+    // app.component('layout', {
+    //     template: `
+    //       <div>
+    //         <slot name="header"></slot>
+    //         <div>content</div>
+    //         <slot name="footer"></slot>
+    //       </div>
+    //     `
+    // })
+
+    /*
+    * 作用域插槽
+    */
+    const app = Vue.createApp({
+        // 只要页面重新渲染，就会重新执行计算
+        // template: `
+        // <list v-slot="slotProps">
+        //     <div>{{slotProps.item}}</div>
+        // </list>
+        // `
+        template: `
+        <list v-slot="{item}">
+            <div>{{item}}</div>
+        </list>
+        `
+    });
+    app.component('list', {
+        data() {
+            return {
+                list: [1, 2, 3]
+            }
+        },
+        template: `
+          <div>
+            <slot v-for="item in list" :item="item"></slot>
+          </div>
+        `
+    })
+    //vm 代表的就是vue应用的根组件
+    const vm = app.mount('#root');
+</script>

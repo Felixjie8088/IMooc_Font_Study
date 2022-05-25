@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+<script>
+    /*
+    * 动态组件：根据数据的变化，结合component 这个标签，来随时动态切换组件的显示
+    * keep-alive 标签用于解决动态组件在切换时重新渲染导致切换前的一些操作的组件内容被重置
+    * */
+    // const app = Vue.createApp({
+    //     data() {
+    //         return {
+    //             currItem: 'input-item'
+    //         }
+    //     },
+    //     methods: {
+    //         handleClick() {
+    //             let curr_item = this.currItem;
+    //             this.currItem = curr_item === 'input-item' ? 'common-item' : 'input-item';
+    //         }
+    //     },
+    //     // 只要页面重新渲染，就会重新执行计算
+    //     // template: `
+    //     // <input-item v-show="currItem==='input-item'" />
+    //     // <common-item v-show="currItem==='common-item'" />
+    //     // <button @click="handleClick">切换</button>
+    //     // `
+    //     template: `
+    //     <keep-alive>
+    //         <component :is="currItem" />
+    //     </keep-alive>
+    //     <button @click="handleClick">切换</button>
+    //     `
+    // });
+    // app.component('input-item', {
+    //     template: `
+    //       <input />
+    //     `
+    // })
+    // app.component('common-item', {
+    //     template: `
+    //       <div>hello world</div>
+    //     `
+    // })
+
+    /*
+    * 异步组件
+    * 异步执行某些组件的逻辑
+    * */
+    const AsyncCommonItem = Vue.defineAsyncComponent(() => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({
+                    template: `<div>this is an async component</div>`
+                })
+            }, 4000)
+        })
+    })
+
+    const app = Vue.createApp({
+        template: `
+        <common-item />
+        <async-component />
+        `
+    });
+    app.component('common-item', {
+        template: `
+          <div>hello world</div>
+        `
+    })
+    app.component('async-component', AsyncCommonItem)
+    //vm 代表的就是vue应用的根组件
+    const vm = app.mount('#root');
+</script>

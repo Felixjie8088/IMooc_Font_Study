@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+<script>
+    /*
+    * v-once:让某个标签只渲染一次
+    * ref
+    * 
+    * 
+    * 
+    * 
+    * 
+    * */
+    const app = Vue.createApp({
+        data() {
+            return {
+                count: 1,
+            }
+        },
+        mounted() {
+            console.log(this.$refs.count)
+        },
+        // 只要页面重新渲染，就会重新执行计算
+        // template: `
+        //   <div @click="count += 1" v-once>{{ count }}</div>
+        // `
+        template: `
+        <div>
+          <div ref="count">{{ count }}</div>
+        </div>
+        `
+    });
+    //vm 代表的就是vue应用的根组件
+    const vm = app.mount('#root');
+</script>
