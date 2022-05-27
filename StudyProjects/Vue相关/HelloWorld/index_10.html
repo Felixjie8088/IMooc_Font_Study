@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+    <style>
+        .list-item {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .v-leave-to,
+        .v-enter-from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .v-leave-active,
+        .v-enter-active {
+            transition: all 1s linear 0s;
+        }
+
+        .v-move {
+            transition: all 1s ease-in 0s;
+        }
+
+        .v-enter-to {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+<script>
+    /*
+    * 列表动画
+    * 
+    * 
+    * 
+    * 
+    * */
+    const app = Vue.createApp({
+        data() {
+            return {
+                list: [1, 2, 3]
+            }
+        },
+        methods: {
+            handleClick() {
+                this.list.unshift(this.list.length + 1);
+            },
+            handleDeleteClick(e) {
+                const { index } = e.target.dataset;
+                this.list.splice(index, 1);
+            }
+        },
+        template: `
+        <div>
+            <transition-group>
+                <span 
+                class="list-item" 
+                v-for='(item,index) in list'
+                :key='item'
+                :data-index="index"
+                @click="handleDeleteClick"
+                >
+                {{item}}</span>
+            </transition-group>
+          <button @click="handleClick">切换</button>
+        </div>
+        `
+    });
+    //vm 代表的就是vue应用的根组件
+    const vm = app.mount('#root');
+</script>

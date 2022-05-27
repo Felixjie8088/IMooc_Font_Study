@@ -18,11 +18,8 @@
 <script>
     /*
     * v-once:让某个标签只渲染一次
-    * ref
-    * 
-    * 
-    * 
-    * 
+    * ref:实际上是获取 dom 节点/组件引用的一个语法
+    * provide / inject  跨组件/多级组件之间传值，但是有缺点  就是子/子孙组件只能拿到第一次传过来的值，当数据发生变化时，子/子孙组件中的数据不会发生变化
     * 
     * */
     const app = Vue.createApp({
@@ -34,6 +31,15 @@
         mounted() {
             console.log(this.$refs.count)
         },
+        // provide: {
+        //     count: 1,
+        // },
+        // 使用data里面的数据时
+        provide() {
+            return {
+                count: this.count,
+            }
+        },
         // 只要页面重新渲染，就会重新执行计算
         // template: `
         //   <div @click="count += 1" v-once>{{ count }}</div>
@@ -41,8 +47,18 @@
         template: `
         <div>
           <div ref="count">{{ count }}</div>
+          <child :count="count" />
         </div>
         `
+    });
+
+    app.component('child', {
+        template: `<child-child />`
+    });
+
+    app.component('child-child', {
+        inject: ['count'],
+        template: `<div>{{count}}</div>`
     });
     //vm 代表的就是vue应用的根组件
     const vm = app.mount('#root');

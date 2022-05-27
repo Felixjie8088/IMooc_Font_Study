@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+    <style>
+        @keyframes shake {
+            0% {
+                transform: translateX(-50px);
+            }
+
+            50% {
+                transform: translateX(50px);
+            }
+
+            100% {
+                transform: translateX(0px);
+            }
+        }
+
+        .v-leave-active {
+            animation: shake ease-out 3s;
+        }
+
+        .v-enter-active {
+            animation: shake ease-in 3s;
+        }
+
+        /* 入场效果 */
+        /* .v-enter-from {
+            opacity: 0;
+        }
+
+        .v-enter-active {
+            transition: opacity ease-out 3s;
+        }
+
+        .v-enter-to {
+            opacity: 1;
+        } */
+
+        /* 出场效果 */
+        /* 可以省略 */
+        /* .v-leave-from {
+            opacity: 1;
+        }
+
+        .v-leave-active {
+            transition: opacity ease-out 3s;
+        }
+
+        .v-leave-to {
+            opacity: 0;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+<script>
+    /*
+    * 单元素/单组件的入场出场动画
+    * 如果transition标签设置了name属性，对应的固定样式就得用name的值替换v，否则没有效果
+    * */
+    const app = Vue.createApp({
+        data() {
+            return {
+                show: false
+            }
+        },
+        methods: {
+            handleClick() {
+                this.show = !this.show;
+            }
+        },
+        template: `
+        <div>
+            <transition>
+                <div v-show="show">helllo world</div>
+            </transition>
+          <button @click="handleClick">切换</button>
+        </div>
+        `
+    });
+    //vm 代表的就是vue应用的根组件
+    const vm = app.mount('#root');
+</script>
