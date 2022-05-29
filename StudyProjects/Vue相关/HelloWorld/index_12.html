@@ -9,27 +9,6 @@
     <title>Document</title>
     <script src="./vue.global.js"></script>
     <style>
-        @keyframes shake {
-            0% {
-                transform: translateX(-50px);
-            }
-
-            50% {
-                transform: translateX(50px);
-            }
-
-            100% {
-                transform: translateX(0px);
-            }
-        }
-
-        .v-leave-active {
-            animation: shake ease-out 3s;
-        }
-
-        .v-enter-active {
-            animation: shake ease-in 3s;
-        }
     </style>
 </head>
 
@@ -40,29 +19,47 @@
 </html>
 <script>
     /*
-    * 状态动画
+    * mixin  混入
+    * 组件 data 优先级高于mixin data 优先级
+    * 组件 methods 优先级高于mixin methods 优先级
+    * 生命周期函数，先执行mixin里面的，再执行组件里面的
     * */
-    const app = Vue.createApp({
+
+    const myMixin = {
         data() {
             return {
-                animateNum: 1
+                number: 2
             }
+        },
+        created() {
+            console.log('mixin created');
         },
         methods: {
             handleClick() {
-                this.animateNum = 1;
-                const interval = setInterval(() => {
-                    this.animateNum++;
-                    if (this.animateNum === 10) {
-                        clearInterval(interval);
-                    }
-                }, 1000)
+                console.log('mixin handleClick');
+            }
+        },
+    };
+
+    const app = Vue.createApp({
+        data() {
+            return {
+                Num: 1
+            }
+        },
+        mixins: [myMixin],
+        created() {
+            console.log('app created');
+        },
+        methods: {
+            handleClick() {
+                console.log('app handleClick');
             }
         },
         template: `
         <div>
             <transition>
-                <div>{{animateNum}}</div>
+                <div>{{Num}}</div>
             </transition>
           <button @click="handleClick">增加</button>
         </div>
