@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+    <style>
+        .header {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+<script>
+    /*
+    * 自定义指令 directive
+    * */
+    // // 定义自定义指令(局部指令)
+    // const directives = {
+    //     focus: {
+    //         mounted(el) {
+    //             el.focus();
+    //         }
+    //     }
+    // }
+
+
+    const app = Vue.createApp({
+        data() {
+            return {
+                show: true
+            }
+        },
+        // directives,
+        // mounted() {
+        //     this.$refs.input.focus();
+        // },
+        template: `
+        <div>
+            <div v-if="show" class="header" v-pos="100">
+                <input v-focus />
+            </div>
+        </div>
+        `
+    });
+    // 定义自定义指令(全局指令)
+    app.directive('focus', {
+        beforeMount(el) {
+            console.log('beforeMount', el);
+        },
+        mounted(el) {
+            el.focus();
+        },
+        beforeUpdate(el) {
+            console.log('beforeUpdate', el);
+        },
+        updated(el) {
+            console.log('updated', el);
+        },
+        beforeUnmount(el) {
+            console.log('beforeUnmount', el);
+        },
+        unmounted(el) {
+            console.log('unmounted', el);
+        },
+    })
+
+    // // 定义自定义指令(全局指令)
+    // app.directive('pos', {
+    //     beforeMount(el) {
+    //         console.log('beforeMount', el);
+    //     },
+    //     mounted(el, binding) {
+    //         el.style.top = `${binding.value}px`;
+    //     },
+    //     beforeUpdate(el) {
+    //         console.log('beforeUpdate', el);
+    //     },
+    //     updated(el) {
+    //         console.log('updated', el);
+    //     },
+    //     beforeUnmount(el) {
+    //         console.log('beforeUnmount', el);
+    //     },
+    //     unmounted(el) {
+    //         console.log('unmounted', el);
+    //     },
+    // })
+
+    // 定义自定义指令(全局指令)
+    // app.directive('pos', {
+    //     mounted(el, binding) {
+    //         el.style.top = `${binding.value}px`;
+    //     },
+    //     updated(el, binding) {
+    //         el.style.top = `${binding.value}px`;
+    //     }
+    // })
+    // 上面的写法<<=>>下面的写法
+    app.directive('pos', (el, binding) => {
+        el.style.top = `${binding.value}px`;
+    })
+
+
+    //vm 代表的就是vue应用的根组件
+    const vm = app.mount('#root');
+</script>

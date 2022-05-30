@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+    <style>
+        .area {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            width: 200px;
+            height: 300px;
+            background: #333;
+        }
+
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, .5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+<script>
+    /*
+    * teleport 传送门
+    * */
+
+    const app = Vue.createApp({
+        data() {
+            return {
+                show: false
+            }
+        },
+        methods: {
+            handleClick() {
+                this.show = !this.show;
+            }
+        },
+        template: `
+        <div class="area">
+            <button @click="handleClick">按钮</button>
+            <teleport to="body">
+                <div class="mask" v-show="show"></div>
+            </teleport>
+        </div>
+        `
+    });
+
+    //vm 代表的就是vue应用的根组件
+    const vm = app.mount('#root');
+</script>
