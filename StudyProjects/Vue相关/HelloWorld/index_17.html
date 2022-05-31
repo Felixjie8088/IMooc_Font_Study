@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.global.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
+<script>
+  /*
+  * toRef 、 context
+  * 
+  * */
+  const app = Vue.createApp({
+    template: `
+        <div>
+            <div>{{data.name}}</div>
+            <child app='app' @change="handleChange">parent</child>
+        </div>
+        `,
+    methods: {
+      handleChange() {
+        alert('change');
+      }
+    },
+    // created 实力被完全初始化之前
+    setup(props, context) {
+      const { ref, reactive, toRef } = Vue;
+      const data = reactive({ name: 'hello' })
+      return {
+        data
+      }
+    }
+  });
+
+  app.component('child', {
+    template: `
+        <div>
+            <div @click="handleClick">child</div>
+        </div>
+        `,
+    setup(props, context) {
+      const { attrs, slots, emit } = context;
+      const { h } = Vue;
+      console.log(attrs);//父组件传过来的 None-Props 属性
+      console.log(slots.default());
+      console.log(emit);
+      function handleClick() {
+        emit('change');
+      }
+      // return () => h('div', {}, slots.default());
+      return { handleClick };
+    }
+  });
+  //vm 代表的就是vue应用的根组件
+  const vm = app.mount('#root');
+</script>

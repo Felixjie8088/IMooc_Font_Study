@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.global.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
+<script>
+  /*
+  * 使用 Composition API 开发TodoList
+  * 
+  * */
+  // 封装list操作的内容
+  const listRelativeEffect = () => {
+    const { reactive } = Vue;
+    let list = reactive([]);
+    const handleClick = (item) => {
+      list.push(item);
+    };
+    const handleLiClick = (e) => {
+      list.splice(parseInt(e.target.dataset.index), 1);
+    };
+    return { list, handleClick, handleLiClick }
+  };
+  // 封装input框操作的内容
+  const inputRelativeEffect = () => {
+    const { ref } = Vue;
+    let inputValue = ref('');
+    const handleInputChange = (e) => {
+      inputValue.value = e.target.value;
+    };
+    return { inputValue, handleInputChange }
+  };
+  const app = Vue.createApp({
+    template: `
+        <div>
+            <div>
+              <input :value="inputValue" @change="handleInputChange"/>
+              <button @click="() => handleClick(inputValue)">提交</button>  
+            </div>
+            <ul @click="handleLiClick">
+              <li v-for="(item,index) in list" :key="item" :data-index="index">{{item}}</li>
+            </ul>
+        </div>
+        `,
+    // created 实力被完全初始化之前
+    setup(props, context) {
+      const { list, handleClick, handleLiClick } = listRelativeEffect();
+      const { inputValue, handleInputChange } = inputRelativeEffect();
+      return {
+        list, handleClick, handleLiClick,
+        inputValue, handleInputChange
+      }
+    }
+  });
+  //vm 代表的就是vue应用的根组件
+  const vm = app.mount('#root');
+</script>

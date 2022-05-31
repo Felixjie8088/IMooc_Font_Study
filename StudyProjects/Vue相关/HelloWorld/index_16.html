@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+<script>
+    /*
+    * setup  ref\reactive 响应式的引用
+    * ref:处理基础类型的数据较合适
+    * reactive:处理非基础类型的数据较合适
+    * 原理：通过proxy对数据进行封装，当数据变化时，触发模板等内容的更新
+    * */
+    const app = Vue.createApp({
+        template: `
+        <div>
+            <div>{{name}}</div>
+            <div>{{list}}</div>
+        </div>
+        `,
+        // created 实力被完全初始化之前
+        setup(props, context) {
+            const { ref, reactive, readonly, toRefs } = Vue;
+            // Proxy ,'hello' 变成 Proxy ({value:'felix'}) 这样的一个响应式引用
+            // let name = ref('hello');
+            // setTimeout(() => {
+            //     name.value = 'felix'
+            // }, 2000)
+            // return {
+            //     name
+            // }
+            // Proxy ,{ name: 'hello' } 变成 Proxy ({ name: 'hello' }) 这样的一个响应式引用
+            // const nameObj = reactive({ name: 'hello', list: [1, 2, 3] });
+            // setTimeout(() => {
+            //     nameObj.name = 'felix';
+            //     nameObj.list[1] = 4;
+            // }, 2000);
+            // return { nameObj }
+            const nameObj = reactive({ name: 'hello', list: [1, 2, 3] });
+            setTimeout(() => {
+                nameObj.name = 'felix';
+                nameObj.list[1] = 4;
+            }, 2000);
+            // toRefs原理： Proxy ({ name: 'hello', list: [1, 2, 3] }), { name: Proxy ({ value: 'felix' }), list: Proxy {0: 1, 1: 2, 2: 3} }
+            const { name, list } = nameObj;
+            console.log(name);
+            console.log(list);
+            // const { name, list } = toRefs(nameObj);
+            return { name, list }
+        }
+    });
+    //vm 代表的就是vue应用的根组件
+    const vm = app.mount('#root');
+</script>

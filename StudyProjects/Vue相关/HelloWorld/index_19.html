@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.global.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>
+<script>
+  /*
+  * computed方法生成计算属性
+  * 
+  * */
+  const app = Vue.createApp({
+    template: `
+        <div>
+            <div @click="handleDivClick">普通计算：{{count * price}}--计算属性：{{countAdd}}</div>
+        </div>
+        `,
+    // created 实力被完全初始化之前
+    setup(props, context) {
+      const { ref, computed } = Vue;
+      let count = ref(0);
+      let price = ref(10);
+      const handleDivClick = () => {
+        count.value += 1;
+      };
+      let countAdd = computed({
+        get: () => {
+          return count.value * price.value;
+        },
+        set: (param) => {
+          count.value = param / price.value;
+        }
+      });
+      return { count, price, handleDivClick, countAdd }
+    }
+  });
+  //vm 代表的就是vue应用的根组件
+  const vm = app.mount('#root');
+</script>
