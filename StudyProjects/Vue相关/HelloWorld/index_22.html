@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+</head>
+
+<body>
+<div id="root"></div>
+</body>
+
+</html>
+<script>
+	/*
+    *
+    * */
+	const app = Vue.createApp({
+		template: `
+      <div>
+      <child></child>
+      </div>
+    `,
+		// created 实力被完全初始化之前
+		setup(props, context) {
+			const {ref, provide, readonly} = Vue;
+			let name = ref('felix');
+			provide('name', readonly(name));
+			provide('nameObj', {name: 'felix'});
+			provide('changeName', (value) => {
+				name.value = value;
+			});
+			return {name}
+		}
+	});
+	app.component('child', {
+		setup(props, context) {
+			const {inject, ref} = Vue;
+			// inject('provide提供的值','如果没有接收到才使用的值')
+			const name = inject('name', ref('hello'));
+			const nameObj = inject('nameObj', {name: 'felix'});
+			const changeName = inject('changeName');
+			const handleClick = () => {
+				changeName('hi');
+			};
+			return {name, handleClick}
+		},
+		template: `
+      <div @click="handleClick">{{ name }}</div>`
+	});
+	//vm 代表的就是vue应用的根组件
+	const vm = app.mount('#root');
+</script>

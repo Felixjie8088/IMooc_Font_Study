@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+</head>
+
+<body>
+<div id="root"></div>
+</body>
+
+</html>
+<script>
+	/*
+    * watch 侦听器：具备一定的惰性 lazy 参数可以拿到原始和当前值  可以侦听多个数据的变化，用一个侦听器承载
+    * watchEffect 侦听器 偏向于effect： 立即执行，没有惰性  immediately  不需要传递你要侦听的内容，自动会感知代码依赖，不需要传递很多参数，只要传递一个回调函数 缺点：不能拿到前一次的值
+    * */
+	const app = Vue.createApp({
+		template: `
+      <div>
+      <div>
+        Name:<input type="text" v-model="name">
+      </div>
+      <div>Name is {{ name }}</div>
+      <div>
+        Name-reactive:<input type="text" v-model="name_reactive">
+        Name-eng-reactive:<input type="text" v-model="eng_name_reactive">
+      </div>
+      <div>Name-reactive is {{ name_reactive }}</div>
+      </div>
+    `,
+		// created 实力被完全初始化之前
+		setup(props, context) {
+			const {ref, reactive, toRefs, watch, watchEffect} = Vue;
+			let name = ref('');
+			let nameObj = reactive({name_reactive: 'felix', eng_name_reactive: 'jie'});
+			watch(name, (currentValue, prevValue) => {
+				// console.log(currentValue, prevValue);
+			});
+			watch([() => nameObj.name_reactive, () => nameObj.eng_name_reactive],
+				([currName, currEngName], [prevName, prevEngName]) => {
+					console.log(currName, prevName);
+					console.log(currEngName, prevEngName);
+				}, {
+					immediate: true
+				});
+
+			const stop = watchEffect(() => {
+				console.log(nameObj.name_reactive);
+				setTimeout(() => {
+					stop();
+				}, 5000);
+			});
+			const {name_reactive, eng_name_reactive} = toRefs(nameObj);
+			return {name, name_reactive, eng_name_reactive}
+		}
+	});
+	//vm 代表的就是vue应用的根组件
+	const vm = app.mount('#root');
+</script>
