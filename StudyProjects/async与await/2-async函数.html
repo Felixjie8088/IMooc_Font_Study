@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+	// 1.async函数的返回值  是Promise对象
+	//async函数内部 return 后面的值，如果不是Promise对象，相当于包了一层Promise.resolve()再返回；如果是Promise对象，直接返回该Promise对象
+	async function fn() {
+
+	}
+
+	console.log(fn());
+	// 2.async函数的各种形式
+	// 函数声明
+	// function fn(){}
+	// async function fn() {}
+	// 函数表达式
+	// const fn = function (){}
+	// const fn = async function (){}
+	// 箭头函数
+	// const fn = () => {}
+	// const fn = async () => {}
+	// const fn = async param => {}
+	// 对象写法
+	// const obj = {
+	// 	// fn:function() {},
+	// 	// async fn:function() {},
+	// 	// fn:()=>{},
+	// 	// fn:async ()=>{},
+	// 	// fn(){},
+	// 	// async fn(){}
+	// }
+	// Class的方法
+	class ClassName {
+		// fn(){}
+		async fn() {
+		}
+	}
+</script>
