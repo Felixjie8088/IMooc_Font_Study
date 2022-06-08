@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+	// 处理异步操作时，如果不存在继发关系，最好让它们并发执行
+	// 先执行异步操作，再await等待结果
+	// 可以通过Promise.all 让异步操作并发执行
+	let url = 'https://www.imooc.com/api/http/search/suggest?words=';
+
+	function wait(ms) {
+		return new Promise(resolve => {
+			setTimeout(resolve, ms);
+		});
+	}
+
+	function getJSON(url) {
+		return new Promise(resolve => {
+			const xhr = new XMLHttpRequest();
+			xhr.addEventListener('load', () => {
+				if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+					resolve(xhr.response);
+				}
+			}, false);
+			xhr.open('GET', url, true);
+			xhr.responseType = 'json'
+			xhr.send(null);
+		});
+	}
+
+	function getJSONAsync(url) {
+		return new Promise(resolve => {
+			const xhr = new XMLHttpRequest();
+			xhr.addEventListener('load', async () => {
+				if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+					// 模拟网络延迟
+					await wait(1000);
+					resolve(xhr.response);
+				}
+			}, false);
+			xhr.open('GET', url, true);
+			xhr.responseType = 'json'
+			xhr.send(null);
+		});
+	}
+
+	// 继发请求
+	// (async () => {
+	// 	const result = await getJSON(`${url}js`);
+	// 	console.log(result);
+	// 	const result1 = await getJSON(`${url}${result.data[0].word}`);
+	// 	console.log(result1);
+	// })();
+	//
+	// (async () => {
+	// 	const result = await getJSONAsync(`${url}js`);
+	// 	console.log(result);
+	// 	const result1 = await getJSONAsync(`${url}json`);
+	// 	console.log(result1);
+	// })();
+	// 并发请求
+	(async () => {
+		const result = getJSONAsync(`${url}js`);
+		const result1 = getJSONAsync(`${url}json`);
+		const jsResult = await result
+		const jsonResult = await result1
+		console.log(jsResult);
+		console.log(jsonResult);
+	})();
+	// Promise.all()并发
+	(async () => {
+		Promise.all([getJSONAsync(`${url}js`), getJSONAsync(`${url}json`)]).then(datas => {
+			console.log(datas);
+		})
+		// 相当于
+		const result2 = await Promise.all([getJSONAsync(`${url}js`), getJSONAsync(`${url}json`)]);
+		console.log(result2);
+	})();
+</script>
