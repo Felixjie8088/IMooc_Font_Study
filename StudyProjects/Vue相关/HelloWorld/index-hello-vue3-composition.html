@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./vue.global.js"></script>
+</head>
+<body>
+<div id="root">
+    <h1>{{stateTitle.title}}</h1>
+    <p>{{stateCounter.counter}}</p>
+</div>
+</body>
+</html>
+<script>
+	const {createApp, reactive, onMounted} = Vue;
+	const useTitle = () => {
+		const stateTitle = reactive({
+			title: 'hello'
+		});
+		onMounted(() => {
+
+			stateTitle.title = 'hello mounted'
+		});
+		setTimeout(() => {
+			stateTitle.title = 'vue3';
+		}, 2000);
+		return stateTitle;
+	};
+	const useCounter = () => {
+		const stateCounter = reactive({
+			counter: 0
+		});
+		onMounted(() => {
+			stateCounter.counter = 1;
+		});
+		return stateCounter;
+	};
+	const app = createApp({
+		setup() {
+			// 上下文给render使用
+			const stateTitle = useTitle();
+			const stateCounter = useCounter();
+			return {stateTitle, stateCounter}
+		}
+	});
+	app.mount('#root');
+</script>
