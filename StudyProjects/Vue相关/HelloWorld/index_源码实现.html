@@ -10,27 +10,27 @@
 </head>
 <body>
 <div id="root">
-    <h2>{{setUpdata.title}}</h2>
+    <h2>{{state.title}}</h2>
 </div>
 </body>
 </html>
 <script>
-	/*
-        // 接收obj，代理它，使它成为响应式的  替换Object.defineProperty()
-        function reactive(obj) {
-            return new Proxy(obj, {
-                get(target, key) {
-                    console.log('get', key);
-                    return target[key];
-                },
-                set(target, key, val) {
-                    console.log('set', key);
-                    target[key] = val;
-                    // app.update();
-                }
-            });
-        }
-    */
+	// 接收obj，代理它，使它成为响应式的  替换Object.defineProperty()
+	function reactive(obj) {
+		return new Proxy(obj, {
+			get(target, key) {
+				console.log('get', key);
+				track(target, key);
+				return target[key];
+			},
+			set(target, key, val) {
+				console.log('set', key);
+				target[key] = val;
+				// app.update();
+				trigger(target, key);
+			}
+		});
+	}
 
 	// 添加副作用函数
 	const effectStack = [];
@@ -53,7 +53,41 @@
 	}
 
 	// 依赖手机函数track
-	function track() {
+	// const targetMap = {setUpdate: {title: [eff]}}
+	// {target:{key:[eff]}}
+	const targetMap = {};
+
+	function track(target, key) {
+		// 获取副作用函数
+		const effect = effectStack[effectStack.length - 1];
+		if (effect) {
+			let map = targetMap[target];
+			if (!map) {
+				map = targetMap[target] = {};
+			}
+			let deps = map[key]
+			if (!deps) {
+				deps = map[key] = [];
+			}
+			// 将副作用函数放入deps
+			if (deps.indexOf(effect) === -1) {
+				deps.push(effect);
+			}
+		}
+	}
+
+	function trigger(target, key) {
+		const map = targetMap[target];
+		if (map) {
+			const deps = map[key];
+			if (deps) {
+				deps.forEach(dep => dep());
+			}
+		}
+	}
+
+	function h(tag, props, children) {
+		return {tag, props, children}
 	}
 
 	// createApp()返回应用程序实例是什么样子
@@ -66,25 +100,15 @@
 				},
 				insert(child, parent, anchor) {
 					return parent.insertBefore(child, anchor || null);
+				},
+				createElement(tag) {
+					return document.createElement(tag);
 				}
 			});
 			return renderer.createApp(options);
 		},
-		reactive(obj) {
-			return new Proxy(obj, {
-				get(target, key) {
-					console.log('get', key);
-					return target[key];
-				},
-				set(target, key, val) {
-					console.log('set', key, val);
-					target[key] = val;
-					app.update();
-				}
-			});
-		},
 		// 扩展性  自定义渲染器
-		createRenderer({querySelector, insert}) {
+		createRenderer({querySelector, insert, createElement}) {
 			// 返回自定义渲染器
 			return {
 				createApp(options) {
@@ -100,7 +124,7 @@
 							}
 							// 兼容 options api
 							if (options.setup) {
-								this.setupState = options.setup();
+								this.setupState = options.setup().state;
 							} else {
 								this.data = options.data();
 							}
@@ -108,39 +132,111 @@
 							this.proxy = new Proxy(this, {
 								// target:当前的app实例
 								get(target, key) {
-									console.log(key, target.setupState);
-									if (key in target.setupState.setUpdata) {
-										return target.setupState.setUpdata[key];
+									console.log(key, target.setupState, key in target.setupState);
+									if (key in target.setupState) {
+										return target.setupState[key];
 									} else {
 										return target.data[key];
 									}
 								},
 								set(target, key, val) {
-									if (key in target.setupState.setUpdata) {
-										target.setupState.setUpdata[key] = val;
+									if (key in target.setupState) {
+										target.setupState[key] = val;
 									} else {
 										target.data[key] = val;
 									}
 								}
 							});
 							// app实例上加了一个更新函数
-							this.update = function () {
-								console.log(this.proxy);
-								const el = options.render.call(this.proxy);
-								// 追加到宿主元素上去
-								// 先清空内容，再追加
-								parent.innerHTML = '';
-								// parent.appendChild(el);
-								insert(el, parent);
-							}
+							this.update = effect(() => {
+								// const el = options.render.call(this.proxy);
+								// // 追加到宿主元素上去
+								// // 先清空内容，再追加
+								// parent.innerHTML = '';
+								// // parent.appendChild(el);
+								// insert(el, parent);
+
+								// 获取虚拟dom
+								const vnode = options.render.call(this.proxy);
+								// 判断有没有挂载过，没有就走mounted逻辑，有就走update逻辑
+								if (!this.isMounted) {
+									// mounted  vnode => dom
+									const el = this.createElm(vnode);
+									console.log(el);
+									parent.innerHTML = '';
+									insert(el, parent);
+									this.isMounted = true;
+								} else {
+									// update  diff算法  前一次的vnode  这次的vnode  进行比较
+									this.patch(this._vnode, vnode);
+								}
+								this._vnode = vnode;
+							})
 							// 初始化执行一次update函数
 							this.update();
 						},
+						createElm(vnode) {
+							// 创建根节点
+							const el = createElement(vnode.tag);
+							// todo props
+							// children
+							// 如果children是个字符串，说明是设置当前节点的文本内容，如果是个数组那么就得继续递归调用该函数创建节点
+							if (typeof vnode.children === 'string') {
+								el.textContent = vnode.children;
+							} else {
+								// 递归创建子元素
+								vnode.children.forEach(child => {
+									insert(this.createElm(child), el);
+								})
+							}
+							vnode.el = el;
+							return el;
+						},
+						patch(_vnode, vnode) {
+							// 在走patch之前已经走过一次mounted，所以_vnode就是之前的节点且_vnode.el就是老节点的根元素，要将这个赋值给新节点的el用于下一次比较
+							const el = vnode.el = _vnode.el;
+							// 判断前后两者是否是相同节点，是才比较，否则不比较
+							if (_vnode.tag === vnode.tag && _vnode.key === vnode.key) {
+								// todo props
+								// children
+								const oldCh = _vnode.children;
+								const newCh = vnode.children;
+								// 旧的children和新的children都是字符串或者都是节点
+								// 旧的children是字符串、新的children是节点
+								// 旧的children是节点、新的children是字符串
+								if (typeof oldCh === 'string') {
+									if (typeof newCh === 'string') {
+										// 文本更新
+										if (oldCh !== newCh) {
+											el.textContent = newCh;
+										}
+									} else {
+										// replace text with elements
+										el.textContent = '';
+										newCh.forEach(child => {
+											insert(this.createElm(child), el);
+										})
+									}
+								} else {
+									if (typeof newCh === 'string') {
+										// replace elements with text
+										// 设置文本，并且将子元素全部清空
+										el.textContent = newCh;
+									} else {
+										// todo elements
+									}
+								}
+							}
+						},
 						compile(template) {
 							return function render() {
-								const h2 = document.createElement('h2');
-								h2.textContent = this.title;
-								return h2;
+								// console.log(this.title);
+								// const h2 = document.createElement('h2');
+								// h2.textContent = this.title;
+								// return h2;
+								// 返回vnode虚拟dom
+								return h('h2', null, this.title);
+								// return h('h2', null, [h('h1', null, this.title + 'child1')]);
 							}
 						}
 					}
@@ -150,7 +246,7 @@
 	}
 </script>
 <script>
-	const {createApp, reactive} = Vue;
+	const {createApp} = Vue;
 	const app = createApp({
 		data() {
 			return {
@@ -158,12 +254,12 @@
 			}
 		},
 		setup() {
-			const setUpdata = reactive({title: 'Hello World!!!!!!'});
+			const state = reactive({title: 'Hello World!!!!!!'});
 			setTimeout(() => {
-				setUpdata.title = 'vue3!';
+				state.title = 'vue3!';
 			}, 2000);
-			return {setUpdata};
-			// return {title: setUpdata.title};
+			return {state};
+			// return {title: state.title};
 			// return {title: 'Hello World!!!!!!'}
 		}
 	});
