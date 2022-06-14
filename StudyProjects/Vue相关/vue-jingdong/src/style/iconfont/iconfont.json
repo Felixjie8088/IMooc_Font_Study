@@ -1,0 +1,51 @@
+{
+  "id": "3464500",
+  "name": "仿京东到家",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5388028",
+      "name": "地图_定位_o",
+      "font_class": "ditu_dingwei_o",
+      "unicode": "ebbb",
+      "unicode_decimal": 60347
+    },
+    {
+      "icon_id": "8842685",
+      "name": "铃铛",
+      "font_class": "lingdang",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "12497981",
+      "name": "订单管理",
+      "font_class": "dingdanguanli",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "15838485",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "17546286",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "19378053",
+      "name": "购物袋",
+      "font_class": "gouwudai",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    }
+  ]
+}
