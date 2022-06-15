@@ -4,9 +4,13 @@
     <!-- 顶部位置定位 -->
     <div class="position" id="position">
       <i class="iconfont icon-ditu_dingwei_o"></i>
-      <span
-        class="position__text">北京理工大学国防科技园2号楼10层北京理工大学国防科技园2号楼10层北京理工大学国防科技园2号楼10层北京理工大学国防科技园2号楼10层北京理工大学国防科技园2号楼10层</span>
+      <span class="position__text">北京理工大学国防科技园2号楼10层</span>
       <i class="iconfont icon-lingdang"></i>
+    </div>
+    <!-- 搜索框 -->
+    <div class="search">
+      <i class="iconfont icon-search"></i>
+      <input type="text" class="searchbox" id="searchcontent" placeholder="山姆会员商店优惠商品">
     </div>
   </div>
   <!-- 底部菜单栏 -->
@@ -31,15 +35,6 @@
 </template>
 
 <style lang="scss">
-  @import url('./style/viriable.scss');
-  // @import url('./style/mixins.scss');
-
-  @mixin ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
   .wrapper {
     position: absolute;
     left: 0;
@@ -48,6 +43,7 @@
     bottom: .51rem;
     padding: 0 .18rem;
 
+    // 位置定位
     .position {
       padding: .16rem 0;
       line-height: 0.22rem;
@@ -66,13 +62,49 @@
       }
 
       .iconfont.icon-lingdang {
-        position: relative;
-        top: .01rem;
+        position: absolute;
+        right: .18rem;
+        top: .18rem;
       }
 
       &__text {
-        @include ellipsis;
         padding-right: .20rem;
+        @include ellipsis;
+        color: $content-fontcolor;
+      }
+    }
+
+    // 搜索框
+    .search {
+      position: relative;
+      display: flex;
+      width: 3.39rem;
+      height: .16rem;
+      padding: .08rem 0;
+      line-height: .32rem;
+
+      .searchbox {
+        padding: 0;
+        width: 100%;
+        height: .32rem;
+        background: #f5f5f5;
+        border: 1px solid rgba(0, 0, 0, 0);
+        border-radius: .16rem;
+        outline: none;
+
+        &::-webkit-input-placeholder {
+          padding-left: .44rem;
+          color: #B7B7B7;
+          font-size: .14rem;
+          line-height: .16rem;
+        }
+      }
+
+      .icon-search {
+        position: absolute;
+        color: #B7B7B7;
+        font-size: .16rem;
+        left: .16rem;
       }
     }
   }
