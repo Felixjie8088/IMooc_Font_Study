@@ -121,24 +121,23 @@ export default {
 .search {
   position: relative;
   display: flex;
-  width: 3.39rem;
   height: 0.32rem;
   line-height: 0.32rem;
 
   &__box {
-    padding: 0;
+    padding: 0 0.2rem 0 0.44rem;
+    box-sizing: border-box;
     width: 100%;
     height: 0.32rem;
     background: #f5f5f5;
     border: 0 solid rgba(0, 0, 0, 0);
     border-radius: 0.16rem;
     outline: none;
+    font-size: 0.14rem;
+    line-height: 0.16rem;
 
     &::-webkit-input-placeholder {
-      padding-left: 0.44rem;
       color: #b7b7b7;
-      font-size: 0.14rem;
-      line-height: 0.16rem;
     }
   }
 
