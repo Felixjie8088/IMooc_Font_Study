@@ -19,11 +19,15 @@
           <span class="item-info-name">番茄250g/份</span>
           <span class="item-info-sales">月售10件</span>
           <p class="item-info-price">
-            <span class="item-info-price-new">¥33.6</span>
-            <span class="item-info-price-old">¥33.6</span>
+            <span class="item-info-price-new">&yen;33.6</span>
+            <span class="item-info-price-old">&yen;33.6</span>
           </p>
         </div>
-        <i class="item-btn-add iconfont icon-jiahao"></i>
+        <div class="item-numbers">
+          <span class="item-numbers-minus">-</span>
+          0
+          <span class="item-numbers-plus">+</span>
+        </div>
       </div>
     </div>
   </div>
@@ -67,6 +71,7 @@ export default {
   }
   .prod-list {
     flex: 1;
+    overflow-y: scroll;
     &-item {
       position: relative;
       display: flex;
@@ -82,6 +87,9 @@ export default {
         flex-direction: column;
         color: $content-fontcolor;
         font-size: 0.14rem;
+        &-name {
+          font-weight: bold;
+        }
         &-sales {
           font-size: 0.12rem;
           line-height: 0.16rem;
@@ -100,14 +108,31 @@ export default {
           }
         }
       }
-      .item-btn-add {
+      .item-numbers {
         position: absolute;
-        right: 0.18rem;
+        right: 0;
         bottom: 0.12rem;
-        color: #0091ff;
-        width: 0.2rem;
-        height: 0.2rem;
-        font-size: 0.2rem;
+        &-minus,
+        &-plus {
+          display: inline-block;
+          width: 0.2rem;
+          height: 0.2rem;
+          line-height: 0.16rem;
+          font-size: 0.2rem;
+          border-radius: 50%;
+          text-align: center;
+        }
+        &-minus {
+          border: 0.01rem solid #666;
+          color: #666;
+          margin-right: 0.05rem;
+        }
+        &-plus {
+          border: 0.01rem solid #0091ff;
+          background: #0091ff;
+          color: #fff;
+          margin-left: 0.05rem;
+        }
       }
     }
   }
