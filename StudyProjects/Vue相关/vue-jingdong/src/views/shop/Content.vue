@@ -1,31 +1,31 @@
 <template>
   <div class="content">
-    <div class="slider">
-      <span class="slider-item">全部商品</span>
-      <span class="slider-item">秒杀</span>
-      <span class="slider-item">新鲜水果</span>
-      <span class="slider-item">休闲食品</span>
-      <span class="slider-item">时令蔬菜</span>
-      <span class="slider-item">肉蛋家禽</span>
+    <div class="slider" @click="handleSliderClick">
+      <span
+        :class="{
+          'slider-item': true,
+          'slider-item-active': currentTab === item.tab,
+        }"
+        v-for="item in sliderList"
+        :key="item.name"
+        :data-tab="item.tab"
+        >{{ item.name }}</span
+      >
     </div>
     <div class="prod-list">
-      <div class="prod-list-item">
-        <img
-          src="http://www.dell-lee.com/imgs/vue3/tomato.png"
-          alt=""
-          class="item-img"
-        />
+      <div class="prod-list-item" v-for="item in contentList" :key="item._id">
+        <img :src="`${item.imgUrl}`" alt="" class="item-img" />
         <div class="item-info">
-          <span class="item-info-name">番茄250g/份</span>
-          <span class="item-info-sales">月售10件</span>
+          <span class="item-info-name">{{ item.name }}</span>
+          <span class="item-info-sales">月售{{ item.sales }}件</span>
           <p class="item-info-price">
-            <span class="item-info-price-new">&yen;33.6</span>
-            <span class="item-info-price-old">&yen;33.6</span>
+            <span class="item-info-price-new">&yen;{{ item.price }}</span>
+            <span class="item-info-price-old">&yen;{{ item.oldPrice }}</span>
           </p>
         </div>
         <div class="item-numbers">
           <span class="item-numbers-minus">-</span>
-          0
+          <span class="item-numbers-num">0</span>
           <span class="item-numbers-plus">+</span>
         </div>
       </div>
@@ -34,8 +34,73 @@
 </template>
 
 <script>
+import { get } from '@/utils/request'
+import { reactive, ref, toRefs } from 'vue'
+import { useRoute } from 'vue-router'
+
+// 获取商品信息数据
+const useGetDetailsDataEffect = () => {
+  // 当前路由信息
+  const route = useRoute()
+  // 页面id参数
+  const paramsID = route?.params?.id
+  const detailsData = reactive({ contentList: [] })
+  const getDetailsData = async (tabType = 'all') => {
+    const res = await get(`/api/shop/${paramsID}/products`, {
+      tab: tabType
+    })
+    if (res?.errno === 0 && res?.data) {
+      detailsData.contentList = res?.data
+    }
+  }
+  const { contentList } = toRefs(detailsData)
+  return { getDetailsData, contentList }
+}
+
 export default {
-  name: 'ContentView'
+  name: 'ContentView',
+  setup() {
+    // 当前slider tab
+    const currentTab = ref('all')
+    // slider_list
+    const sliderList = reactive([{
+      name: '全部商品',
+      tab: 'all'
+    },
+    {
+      name: '秒杀',
+      tab: 'spike'
+    },
+    {
+      name: '新鲜水果',
+      tab: 'freshFruits'
+    },
+    {
+      name: '休闲食品',
+      tab: 'snackFoods'
+    },
+    {
+      name: '时令蔬菜',
+      tab: 'seasonalVegetables'
+    },
+    {
+      name: '肉蛋家禽',
+      tab: 'meatEggs'
+    }])
+    // 获取页面商品信息
+    const { getDetailsData, contentList } = useGetDetailsDataEffect()
+    // 加载即获取
+    getDetailsData()
+    const handleSliderClick = (event) => {
+      const { target: { dataset: { tab }, nodeName } } = event
+      if (nodeName === 'SPAN') {
+        getDetailsData(tab)
+        // 切换之后改变当前currentTab的值
+        currentTab.value = tab
+      }
+    }
+    return { contentList, handleSliderClick, currentTab, sliderList }
+  }
 }
 </script>
 
@@ -76,7 +141,7 @@ export default {
       position: relative;
       display: flex;
       border-bottom: 0.01rem solid #f1f1f1;
-      padding-bottom: 0.12rem;
+      padding: 0 0.12rem 0.12rem 0;
       .item-img {
         width: 0.68rem;
         height: 0.68rem;
@@ -87,8 +152,11 @@ export default {
         flex-direction: column;
         color: $content-fontcolor;
         font-size: 0.14rem;
+        overflow: hidden;
         &-name {
           font-weight: bold;
+          min-width: 1rem;
+          @include ellipsis;
         }
         &-sales {
           font-size: 0.12rem;
@@ -110,7 +178,7 @@ export default {
       }
       .item-numbers {
         position: absolute;
-        right: 0;
+        right: 0.12rem;
         bottom: 0.12rem;
         &-minus,
         &-plus {
