@@ -14,11 +14,11 @@
       </div>
     </div>
     <ShopInfo :shopInfo="data.item" :hideBorder="true" v-show="data.item._id" />
+    <!-- Content -->
+    <Content />
+    <!-- Footer -->
+    <Footer />
   </div>
-  <!-- Content -->
-  <Content />
-  <!-- Footer -->
-  <Footer />
 </template>
 
 <script>
@@ -38,7 +38,6 @@ const useShopInfoEffect = () => {
     if (result?.errno === 0 && result?.data) {
       data.item = result.data
     }
-    console.log(result)
   }
   return { data, getItemData }
 }
@@ -62,7 +61,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  min-width: 3.65rem;
+  // min-width: 3.65rem;
   padding: 0.16rem 0.18rem 0 0.18rem;
   .search {
     display: flex;

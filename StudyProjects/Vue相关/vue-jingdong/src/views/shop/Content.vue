@@ -24,9 +24,19 @@
           </p>
         </div>
         <div class="item-numbers">
-          <span class="item-numbers-minus">-</span>
-          <span class="item-numbers-num">0</span>
-          <span class="item-numbers-plus">+</span>
+          <span
+            class="item-numbers-minus"
+            @click="handlePick('minus', paramsID, item)"
+            >-</span
+          >
+          <span class="item-numbers-num">{{
+            shopCarList?.[paramsID]?.[item._id]?.count || 0
+          }}</span>
+          <span
+            class="item-numbers-plus"
+            @click="handlePick('add', paramsID, item)"
+            >+</span
+          >
         </div>
       </div>
     </div>
@@ -35,71 +45,90 @@
 
 <script>
 import { get } from '@/utils/request'
-import { reactive, ref, toRefs } from 'vue'
+import { reactive, ref, toRefs, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
+import { useStore } from 'vuex'
 
-// 获取商品信息数据
-const useGetDetailsDataEffect = () => {
-  // 当前路由信息
-  const route = useRoute()
-  // 页面id参数
-  const paramsID = route?.params?.id
+// slider_list
+const sliderList = reactive([{
+  name: '全部商品',
+  tab: 'all'
+},
+{
+  name: '秒杀',
+  tab: 'spike'
+},
+{
+  name: '新鲜水果',
+  tab: 'freshFruits'
+},
+{
+  name: '休闲食品',
+  tab: 'snackFoods'
+},
+{
+  name: '时令蔬菜',
+  tab: 'seasonalVegetables'
+},
+{
+  name: '肉蛋家禽',
+  tab: 'meatEggs'
+}])
+
+// 处理tab切换的相关逻辑
+const useTabEffect = () => {
+  // 当前slider tab
+  const currentTab = ref('all')
+  const handleSliderClick = (event) => {
+    const { target: { dataset: { tab }, nodeName } } = event
+    if (nodeName === 'SPAN') {
+      // 切换之后改变当前currentTab的值
+      currentTab.value = tab
+    }
+  }
+  return { currentTab, handleSliderClick }
+}
+
+// 获取当前tab下所有商品信息数据
+const useCurrentListEffect = (currentTab, paramsID) => {
   const detailsData = reactive({ contentList: [] })
-  const getDetailsData = async (tabType = 'all') => {
+  const getDetailsData = async () => {
     const res = await get(`/api/shop/${paramsID}/products`, {
-      tab: tabType
+      tab: currentTab.value
     })
     if (res?.errno === 0 && res?.data) {
       detailsData.contentList = res?.data
     }
   }
   const { contentList } = toRefs(detailsData)
-  return { getDetailsData, contentList }
+  // 监听函数  如果函数中的依赖发生改变那么就会执行（第一次也会执行）
+  watchEffect(() => { getDetailsData() })
+  return { contentList }
+}
+
+// 选购商品功能（增加或移除）
+const useHandlePickProdsEffect = () => {
+  const store = useStore()
+  const { shopCarList } = toRefs(store.state)
+  const handlePick = (type, paramsID, itemInfo) => {
+    store.commit('handlePickItemToCar', { type, paramsID, itemInfo })
+  }
+  return { shopCarList, handlePick }
 }
 
 export default {
   name: 'ContentView',
   setup() {
-    // 当前slider tab
-    const currentTab = ref('all')
-    // slider_list
-    const sliderList = reactive([{
-      name: '全部商品',
-      tab: 'all'
-    },
-    {
-      name: '秒杀',
-      tab: 'spike'
-    },
-    {
-      name: '新鲜水果',
-      tab: 'freshFruits'
-    },
-    {
-      name: '休闲食品',
-      tab: 'snackFoods'
-    },
-    {
-      name: '时令蔬菜',
-      tab: 'seasonalVegetables'
-    },
-    {
-      name: '肉蛋家禽',
-      tab: 'meatEggs'
-    }])
+    // 当前路由信息
+    const route = useRoute()
+    // 页面id参数
+    const paramsID = route?.params?.id
+    const { currentTab, handleSliderClick } = useTabEffect()
     // 获取页面商品信息
-    const { getDetailsData, contentList } = useGetDetailsDataEffect()
-    // 加载即获取
-    getDetailsData()
-    const handleSliderClick = (event) => {
-      const { target: { dataset: { tab }, nodeName } } = event
-      if (nodeName === 'SPAN') {
-        getDetailsData(tab)
-        // 切换之后改变当前currentTab的值
-        currentTab.value = tab
-      }
-    }
-    return { contentList, handleSliderClick, currentTab, sliderList }
+    const { contentList } = useCurrentListEffect(currentTab, paramsID)
+    // 选购商品
+    const { shopCarList, handlePick } = useHandlePickProdsEffect()
+    return { contentList, handleSliderClick, currentTab, sliderList, handlePick, shopCarList, paramsID }
   }
 }
 </script>
@@ -113,6 +142,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0.5rem;
+  overflow-y: hidden;
   .slider {
     display: flex;
     flex-direction: column;
@@ -120,7 +150,7 @@ export default {
     background: #f5f5f5;
     border-radius: 0.02rem;
     margin-right: 0.16rem;
-    overflow-y: scroll;
+    overflow-y: auto;
     &-item {
       width: 100%;
       height: 0.4rem;
@@ -136,7 +166,7 @@ export default {
   }
   .prod-list {
     flex: 1;
-    overflow-y: scroll;
+    overflow-y: auto;
     &-item {
       position: relative;
       display: flex;
