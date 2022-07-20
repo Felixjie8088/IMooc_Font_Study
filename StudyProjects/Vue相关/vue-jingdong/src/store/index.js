@@ -22,6 +22,7 @@ export default createStore({
           prodInfo = itemInfo
           prodInfo.count = 0
         }
+        prodInfo.checked = true
         prodInfo.count++
         shopInfo[itemInfo._id] = prodInfo
       } else {
@@ -35,6 +36,18 @@ export default createStore({
         }
       }
       shopCarList[paramsID] = shopInfo
+    },
+    // 切换商品数据是否选中
+    changeProdItemCheckd(state, pyload) {
+      const shopCarList = state.shopCarList
+      const { shopID, prodID } = pyload
+      const shopInfo = shopCarList[shopID]
+      const prodInfo = shopInfo[prodID]
+      prodInfo.checked = !prodInfo.checked
+    },
+    // 清空购物车
+    clearShopCar(state, pyload) {
+      state.shopCarList[pyload.shopID] = {}
     }
   },
   actions: {

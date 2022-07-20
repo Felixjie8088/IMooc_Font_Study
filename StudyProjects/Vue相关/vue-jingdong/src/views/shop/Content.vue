@@ -47,7 +47,7 @@
 import { get } from '@/utils/request'
 import { reactive, ref, toRefs, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
-import { useStore } from 'vuex'
+import { useHandlePickProdsEffect } from './commonShopCarEffect'
 
 // slider_list
 const sliderList = reactive([{
@@ -106,16 +106,6 @@ const useCurrentListEffect = (currentTab, paramsID) => {
   return { contentList }
 }
 
-// 选购商品功能（增加或移除）
-const useHandlePickProdsEffect = () => {
-  const store = useStore()
-  const { shopCarList } = toRefs(store.state)
-  const handlePick = (type, paramsID, itemInfo) => {
-    store.commit('handlePickItemToCar', { type, paramsID, itemInfo })
-  }
-  return { shopCarList, handlePick }
-}
-
 export default {
   name: 'ContentView',
   setup() {
@@ -126,7 +116,7 @@ export default {
     const { currentTab, handleSliderClick } = useTabEffect()
     // 获取页面商品信息
     const { contentList } = useCurrentListEffect(currentTab, paramsID)
-    // 选购商品
+    // 选购商品功能（增加或移除）
     const { shopCarList, handlePick } = useHandlePickProdsEffect()
     return { contentList, handleSliderClick, currentTab, sliderList, handlePick, shopCarList, paramsID }
   }

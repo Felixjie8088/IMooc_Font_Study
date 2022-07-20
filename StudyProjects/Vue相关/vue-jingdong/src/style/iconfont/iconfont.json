@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "781034",
+      "name": "checked",
+      "font_class": "xuanzhongduigou",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "1350474",
+      "name": "sq-checked",
+      "font_class": "icons-",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
       "icon_id": "11641878",
       "name": "加号",
       "font_class": "jiahao",
