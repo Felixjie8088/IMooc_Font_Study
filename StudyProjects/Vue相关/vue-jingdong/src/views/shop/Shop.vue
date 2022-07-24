@@ -15,9 +15,9 @@
     </div>
     <ShopInfo :shopInfo="data.item" :hideBorder="true" v-show="data.item._id" />
     <!-- Content -->
-    <Content />
+    <Content :shopName="data.item.name" />
     <!-- Footer -->
-    <Footer />
+    <Footer :shopName="data.item.name" />
   </div>
 </template>
 

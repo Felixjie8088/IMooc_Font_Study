@@ -26,15 +26,15 @@
         <div class="item-numbers">
           <span
             class="item-numbers-minus"
-            @click="handlePick('minus', paramsID, item)"
+            @click="handlePick('minus', paramsID, shopName, item)"
             >-</span
           >
           <span class="item-numbers-num">{{
-            shopCarList?.[paramsID]?.[item._id]?.count || 0
+            shopCarList?.[paramsID]?.productList?.[item._id]?.count || 0
           }}</span>
           <span
             class="item-numbers-plus"
-            @click="handlePick('add', paramsID, item)"
+            @click="handlePick('add', paramsID, shopName, item)"
             >+</span
           >
         </div>
@@ -108,6 +108,12 @@ const useCurrentListEffect = (currentTab, paramsID) => {
 
 export default {
   name: 'ContentView',
+  props: {
+    shopName: {
+      type: String,
+      default: ''
+    }
+  },
   setup() {
     // 当前路由信息
     const route = useRoute()

@@ -1,14 +1,12 @@
 <template>
   <!-- 底部菜单栏 -->
   <div class="footer">
-    <div
-      v-for="item in footerMenus"
-      :key="item.text"
-      :class="{ footer__item: true, 'footer__item--active': item.active }"
-    >
-      <i :class="[{ iconfont: true }, item.className]"></i>
-      <div class="footer__text">{{ item.text }}</div>
-    </div>
+    <router-link v-for="item in footerMenus" :key="item.text" :to="item.to">
+      <div :class="{ footer__item: true, 'footer__item--active': item.active }">
+        <div :class="[{ iconfont: true }, item.className]"></div>
+        <div class="footer__text">{{ item.text }}</div>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -17,10 +15,10 @@ export default {
   name: 'FooterView',
   setup() {
     const footerMenus = [
-      { className: 'icon-home', text: '购物车', active: true },
-      { className: 'icon-gouwudai', text: '首页', active: false },
-      { className: 'icon-dingdanguanli', text: '订单', active: false },
-      { className: 'icon-wode', text: '我的', active: false }
+      { className: 'icon-gouwudai', text: '首页', to: { name: 'HomeView' }, active: true },
+      { className: 'icon-home', text: '购物车', to: { name: 'ShopCarList' }, active: false },
+      { className: 'icon-dingdanguanli', text: '订单', to: { name: 'HomeView' }, active: false },
+      { className: 'icon-wode', text: '我的', to: { name: 'HomeView' }, active: false }
     ]
     return { footerMenus }
   }
@@ -42,6 +40,10 @@ export default {
   padding: 0 0.18rem;
   box-sizing: border-box;
 
+  a {
+    color: $content-fontcolor;
+    text-decoration: none;
+  }
   &__text {
     font-size: 0.2rem;
     transform: scale(0.5, 0.5);

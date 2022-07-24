@@ -4,8 +4,8 @@ import { useStore } from 'vuex'
 export const useHandlePickProdsEffect = () => {
   const store = useStore()
   const { shopCarList } = toRefs(store.state)
-  const handlePick = (type, paramsID, itemInfo) => {
-    store.commit('handlePickItemToCar', { type, paramsID, itemInfo })
+  const handlePick = (type, paramsID, shopName, itemInfo) => {
+    store.commit('handlePickItemToCar', { type, paramsID, shopName, itemInfo })
   }
   return { shopCarList, handlePick }
 }
