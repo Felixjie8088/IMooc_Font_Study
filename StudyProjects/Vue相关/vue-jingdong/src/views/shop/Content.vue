@@ -44,10 +44,10 @@
 </template>
 
 <script>
+import { useHandlePickProdsEffect } from '@/effects/shopCarEffect'
 import { get } from '@/utils/request'
 import { reactive, ref, toRefs, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
-import { useHandlePickProdsEffect } from './commonShopCarEffect'
 
 // slider_list
 const sliderList = reactive([{
@@ -123,7 +123,7 @@ export default {
     // 获取页面商品信息
     const { contentList } = useCurrentListEffect(currentTab, paramsID)
     // 选购商品功能（增加或移除）
-    const { shopCarList, handlePick } = useHandlePickProdsEffect()
+    const { shopCarList, handlePick } = useHandlePickProdsEffect(paramsID)
     return { contentList, handleSliderClick, currentTab, sliderList, handlePick, shopCarList, paramsID }
   }
 }

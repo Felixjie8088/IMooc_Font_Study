@@ -76,15 +76,19 @@
         >&yen;{{ ComputeProd.totalAmount }}</span
       >
     </span>
-    <span class="footer-btn-pay">去结算</span>
+    <span class="footer-btn-pay">
+      <router-link :to="{ path: `/orderComfirm/${shopID}` }">
+        去结算
+      </router-link>
+    </span>
   </div>
 </template>
 
 <script>
+import { useHandlePickProdsEffect } from '@/effects/shopCarEffect'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
-import { useHandlePickProdsEffect } from './commonShopCarEffect'
 
 const useShopCarEffect = (store, shopID) => {
   // 购物车中的信息
@@ -114,14 +118,8 @@ const useShopCarEffect = (store, shopID) => {
     return { totalCount, totalAmount: totalAmount.toFixed(2), isAllChecked }
   })
 
-  // 当前商铺中的购物车种的商品信息
-  const productList = computed(() => {
-    const prodList = shopCarList?.[shopID]?.productList || {}
-    return prodList
-  })
-
   // 选购商品功能（增加或移除）
-  const { handlePick } = useHandlePickProdsEffect()
+  const { handlePick, productList } = useHandlePickProdsEffect(shopID)
   // 切换选中商品状态
   const handleChecked = (shopID, prodID) => {
     store.commit('changeProdItemCheckd', { shopID, prodID })
@@ -229,8 +227,11 @@ export default {
     height: 100%;
     line-height: 0.5rem;
     font-size: 0.14rem;
-    color: #ffffff;
     background: #4fb0f9;
+    a {
+      text-decoration: none;
+      color: #ffffff;
+    }
   }
 }
 .prod-list {
