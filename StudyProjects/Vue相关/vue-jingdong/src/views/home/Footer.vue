@@ -18,7 +18,7 @@ export default {
       { className: 'icon-gouwudai', text: '首页', to: { name: 'HomeView' }, active: true },
       { className: 'icon-home', text: '购物车', to: { name: 'ShopCarList' }, active: false },
       { className: 'icon-dingdanguanli', text: '订单', to: { name: 'OrderView' }, active: false },
-      { className: 'icon-wode', text: '我的', to: { name: 'HomeView' }, active: false }
+      { className: 'icon-wode', text: '我的', to: { name: 'PersonalCenter' }, active: false }
     ]
     return { footerMenus }
   }

@@ -28,9 +28,8 @@
         <!-- 商铺购物车商品详细信息 -->
         <div
           class="item-prod-info"
-          v-for="(prodItem, pid) in productList"
+          v-for="prodItem in productList"
           :key="prodItem._id"
-          v-show="pid < 3"
         >
           <!-- 商品图片展示 -->
           <img :src="`${prodItem.imgUrl}`" alt="" class="info-img" />
@@ -46,9 +45,9 @@
             &yen;{{ prodItem.price * prodItem.count }}
           </div>
         </div>
-        <div class="item-totalInfo" v-if="ComputeProd.totalCount > 2">
+        <!-- <div class="item-totalInfo" v-if="ComputeProd.totalCount > 2">
           共计{{ ComputeProd.totalCount }}件/1.4kg
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="footer">
@@ -58,14 +57,51 @@
           >&yen;{{ ComputeProd.totalAmount }}</span
         >
       </div>
-      <div class="footer-submit">提交订单</div>
+      <div class="footer-submit" @click="handelSubmitClick">提交订单</div>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="mask" v-if="showTag.isShowConfirm || showTag.isShowPay"></div>
+    <!-- 确认支付弹窗提示 -->
+    <div class="confirm-dialog" v-if="showTag.isShowConfirm">
+      <div class="confirm-dialog-text">确认要离开收银台？</div>
+      <div class="confirm-dialog-tip">请尽快完成支付，否则将被取消</div>
+      <div class="confirm-dialog-btn">
+        <div class="btn btn-cancel" @click="handelCancelClick">取消订单</div>
+        <div class="btn btn-pay" @click="handelPayClick">确认支付</div>
+      </div>
+    </div>
+    <!-- 支付成功弹窗提示 -->
+    <div class="confirm-dialog" v-if="showTag.isShowPay">
+      <div class="confirm-dialog-icon iconfont icon-xuanze-"></div>
+      <div class="confirm-dialog-tip tip-pay">支付成功，等待配送</div>
+      <div class="confirm-dialog-close" @click="handelCloseClick">×</div>
     </div>
   </div>
 </template>
 
 <script>
 import { useHandlePickProdsEffect } from '@/effects/shopCarEffect'
+import { reactive } from '@vue/reactivity'
 import { useRoute, useRouter } from 'vue-router'
+
+// 弹窗相关操作
+const useMaskEffect = () => {
+  const showTag = reactive({ isShowConfirm: false, isShowPay: false })
+  const handelSubmitClick = () => {
+    showTag.isShowConfirm = true
+  }
+  const handelCancelClick = () => {
+    showTag.isShowConfirm = false
+  }
+  const handelPayClick = () => {
+    showTag.isShowConfirm = false
+    showTag.isShowPay = true
+  }
+  const handelCloseClick = () => {
+    showTag.isShowPay = false
+  }
+  return { showTag, handelSubmitClick, handelCancelClick, handelPayClick, handelCloseClick }
+}
 
 export default {
   name: 'OrderComfirm',
@@ -79,28 +115,13 @@ export default {
     // console.log(shopID)
     const { productList, shopName, ComputeProd } = useHandlePickProdsEffect(shopID)
 
+    // 提交订单、弹窗后相关操作
+    const { showTag, handelSubmitClick, handelCancelClick, handelPayClick, handelCloseClick } = useMaskEffect()
     // 返回按钮
     const handleBack = () => {
       router.back()
     }
-    // const shopCarList = reactive([{
-    //   shopID: 1,
-    //   shopName: '沃尔玛',
-    //   prodList: [{ prodID: '1-1', imgUrl: 'http://www.dell-lee.com/imgs/vue3/tomato.png', name: '番茄250g/份', price: 33.6, count: 3 }, { prodID: '1-2', imgUrl: 'http://www.dell-lee.com/imgs/vue3/cherry.png', name: '车厘子250g/份', price: 33.6, count: 3 }, { prodID: '1-3', imgUrl: 'http://www.dell-lee.com/imgs/vue3/orange.png', name: '橙子250g/份', price: 20.6, count: 2 }
-    //   ],
-    //   totalPrice: 242.8
-    // }, {
-    //   shopID: 2,
-    //   shopName: '京东7FRESH七鲜',
-    //   prodList: [{ prodID: '1-1', imgUrl: 'http://www.dell-lee.com/imgs/vue3/tomato.png', name: '番茄250g/份', price: 33.6, count: 3 }, { prodID: '1-2', imgUrl: 'http://www.dell-lee.com/imgs/vue3/cherry.png', name: '提车厘子250g/份', price: 33.6, count: 3 }],
-    //   totalPrice: 201.6
-    // }, {
-    //   shopID: 2,
-    //   shopName: '百果园',
-    //   prodList: [{ prodID: '1-1', imgUrl: 'http://www.dell-lee.com/imgs/vue3/tomato.png', name: '番茄250g/份', price: 33.6, count: 3 }],
-    //   totalPrice: 100.8
-    // }])
-    return { shopName, productList, ComputeProd, handleBack }
+    return { shopName, productList, ComputeProd, handleBack, showTag, handelSubmitClick, handelCancelClick, handelPayClick, handelCloseClick }
   }
 }
 </script>
@@ -113,6 +134,74 @@ export default {
   right: 0;
   bottom: 0;
   background-color: #eee;
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .confirm-dialog {
+    position: absolute;
+    top: 50%;
+    left: 0.37rem;
+    right: 0.37rem;
+    height: 1.09rem;
+    padding: 0.24rem 0;
+    background: #fff;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 0.18rem;
+    color: $content-fontcolor;
+    border-radius: 0.04rem;
+    &-text {
+      font-weight: bold;
+    }
+    &-tip {
+      font-size: 0.14rem;
+      color: #666;
+      margin: 0.08rem 0 0.24rem 0;
+    }
+    .tip-pay {
+      font-size: 0.18rem;
+      color: $content-fontcolor;
+      margin-top: 0.25rem;
+      margin-bottom: 0;
+    }
+    &-icon {
+      line-height: 0.32rem;
+      color: #000;
+      font-size: 0.45rem;
+      margin-top: 0.2rem;
+    }
+    &-close {
+      color: #666;
+      position: absolute;
+      top: 0.12rem;
+      right: 0.12rem;
+      font-size: 0.2rem;
+    }
+    &-btn {
+      font-size: 0.14rem;
+      .btn {
+        width: 0.8rem;
+        height: 0.32rem;
+        border: 0.01rem solid #4fb0f9;
+        border-radius: 0.16rem;
+        line-height: 0.32rem;
+        display: inline-block;
+      }
+      .btn-cancel {
+        color: #0091ff;
+        margin-right: 0.24rem;
+      }
+      .btn-pay {
+        background: #4fb0f9;
+        color: #fff;
+      }
+    }
+  }
 }
 .top {
   position: relative;
