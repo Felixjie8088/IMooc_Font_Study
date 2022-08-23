@@ -42,7 +42,7 @@
           </div>
           <!-- 每个商品的总价 -->
           <div class="info-totalPrice">
-            &yen;{{ prodItem.price * prodItem.count }}
+            &yen;{{ (prodItem.price * prodItem.count).toFixed(2) }}
           </div>
         </div>
         <!-- <div class="item-totalInfo" v-if="ComputeProd.totalCount > 2">
@@ -81,11 +81,12 @@
 
 <script>
 import { useHandlePickProdsEffect } from '@/effects/shopCarEffect'
+import { post } from '@/utils/request'
 import { reactive } from '@vue/reactivity'
 import { useRoute, useRouter } from 'vue-router'
 
 // 弹窗相关操作
-const useMaskEffect = () => {
+const useMaskEffect = (shopID, shopName, productList) => {
   const showTag = reactive({ isShowConfirm: false, isShowPay: false })
   const handelSubmitClick = () => {
     showTag.isShowConfirm = true
@@ -93,7 +94,32 @@ const useMaskEffect = () => {
   const handelCancelClick = () => {
     showTag.isShowConfirm = false
   }
-  const handelPayClick = () => {
+  const handelPayClick = async () => {
+    try {
+      const products = []
+      for (const i in productList.value) {
+        const product = productList.value[i]
+        products.push({
+          id: product._id,
+          num: product.count
+        })
+      }
+      const data = {
+        addressId: '1',
+        shopId: shopID,
+        shopName: shopName.value,
+        isCanceled: false,
+        products: products
+      }
+      console.log(data)
+      const response = await post('/api/order', data)
+      // if (response?.errno === 0) {
+      // } else {
+      // }
+      console.log(response)
+    } catch (e) {
+      console.log(e)
+    }
     showTag.isShowConfirm = false
     showTag.isShowPay = true
   }
@@ -116,7 +142,7 @@ export default {
     const { productList, shopName, ComputeProd } = useHandlePickProdsEffect(shopID)
 
     // 提交订单、弹窗后相关操作
-    const { showTag, handelSubmitClick, handelCancelClick, handelPayClick, handelCloseClick } = useMaskEffect()
+    const { showTag, handelSubmitClick, handelCancelClick, handelPayClick, handelCloseClick } = useMaskEffect(shopID, shopName, productList)
     // 返回按钮
     const handleBack = () => {
       router.back()
@@ -136,6 +162,7 @@ export default {
   background-color: #eee;
   .mask {
     position: absolute;
+    z-index: 1;
     top: 0;
     left: 0;
     right: 0;
@@ -144,6 +171,7 @@ export default {
   }
   .confirm-dialog {
     position: absolute;
+    z-index: 2;
     top: 50%;
     left: 0.37rem;
     right: 0.37rem;
