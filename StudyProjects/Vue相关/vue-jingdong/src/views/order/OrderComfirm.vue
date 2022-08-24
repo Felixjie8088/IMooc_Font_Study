@@ -66,8 +66,8 @@
       <div class="confirm-dialog-text">确认要离开收银台？</div>
       <div class="confirm-dialog-tip">请尽快完成支付，否则将被取消</div>
       <div class="confirm-dialog-btn">
-        <div class="btn btn-cancel" @click="handelCancelClick">取消订单</div>
-        <div class="btn btn-pay" @click="handelPayClick">确认支付</div>
+        <div class="btn btn-cancel" @click="() => handelOrderClick(true)">取消订单</div>
+        <div class="btn btn-pay" @click="() => handelOrderClick(false)">确认支付</div>
       </div>
     </div>
     <!-- 支付成功弹窗提示 -->
@@ -84,17 +84,16 @@ import { useHandlePickProdsEffect } from '@/effects/shopCarEffect'
 import { post } from '@/utils/request'
 import { reactive } from '@vue/reactivity'
 import { useRoute, useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 // 弹窗相关操作
-const useMaskEffect = (shopID, shopName, productList) => {
+const useMaskEffect = (shopID, shopName, productList, router) => {
+  const store = useStore()
   const showTag = reactive({ isShowConfirm: false, isShowPay: false })
   const handelSubmitClick = () => {
     showTag.isShowConfirm = true
   }
-  const handelCancelClick = () => {
-    showTag.isShowConfirm = false
-  }
-  const handelPayClick = async () => {
+  const handelOrderClick = async (isCanceled) => {
     try {
       const products = []
       for (const i in productList.value) {
@@ -108,25 +107,30 @@ const useMaskEffect = (shopID, shopName, productList) => {
         addressId: '1',
         shopId: shopID,
         shopName: shopName.value,
-        isCanceled: false,
+        isCanceled: isCanceled,
         products: products
       }
-      console.log(data)
       const response = await post('/api/order', data)
-      // if (response?.errno === 0) {
-      // } else {
-      // }
-      console.log(response)
+      if (response?.errno === 0) {
+        showTag.isShowConfirm = false
+        if (!isCanceled) {
+          showTag.isShowPay = true
+        }
+        // 清空购物车
+        store.commit('clearShopCar', { shopID })
+        // 返回至订单列表页面
+        router.push({ name: 'OrderView' })
+      } else {
+        console.log('提交失败')
+      }
     } catch (e) {
       console.log(e)
     }
-    showTag.isShowConfirm = false
-    showTag.isShowPay = true
   }
   const handelCloseClick = () => {
     showTag.isShowPay = false
   }
-  return { showTag, handelSubmitClick, handelCancelClick, handelPayClick, handelCloseClick }
+  return { showTag, handelSubmitClick, handelOrderClick, handelCloseClick }
 }
 
 export default {
@@ -142,12 +146,12 @@ export default {
     const { productList, shopName, ComputeProd } = useHandlePickProdsEffect(shopID)
 
     // 提交订单、弹窗后相关操作
-    const { showTag, handelSubmitClick, handelCancelClick, handelPayClick, handelCloseClick } = useMaskEffect(shopID, shopName, productList)
+    const { showTag, handelSubmitClick, handelOrderClick, handelCloseClick } = useMaskEffect(shopID, shopName, productList, router)
     // 返回按钮
     const handleBack = () => {
       router.back()
     }
-    return { shopName, productList, ComputeProd, handleBack, showTag, handelSubmitClick, handelCancelClick, handelPayClick, handelCloseClick }
+    return { shopName, productList, ComputeProd, handleBack, showTag, handelSubmitClick, handelOrderClick, handelCloseClick }
   }
 }
 </script>

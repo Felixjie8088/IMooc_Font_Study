@@ -25,7 +25,7 @@ export default createStore({
   },
   mutations: {
     // 添加商品进购物车\删减商品从购物车
-    handlePickItemToCar(state, pyload) {
+    handlePickItemToCar (state, pyload) {
       const shopCarList = state.shopCarList
       const { type, paramsID, shopName, itemInfo } = pyload
       const shopInfo = shopCarList[paramsID] || { shopName: '', productList: {} }
@@ -53,7 +53,7 @@ export default createStore({
       setLocalShopCarList(state)
     },
     // 切换商品数据是否选中
-    changeProdItemCheckd(state, pyload) {
+    changeProdItemCheckd (state, pyload) {
       const shopCarList = state.shopCarList
       const { shopID, prodID } = pyload
       const shopInfo = shopCarList[shopID]
@@ -62,12 +62,12 @@ export default createStore({
       setLocalShopCarList(state)
     },
     // 清空购物车
-    clearShopCar(state, pyload) {
+    clearShopCar (state, pyload) {
       delete state.shopCarList[pyload.shopID]
       setLocalShopCarList(state)
     },
     // 设置全选
-    setAllChecked(state, pyload) {
+    setAllChecked (state, pyload) {
       const shopCarList = state.shopCarList
       const { shopID, allChecked } = pyload
       const shopInfo = shopCarList[shopID] || { shopName: '', productList: {} }

@@ -7,16 +7,16 @@
       <!-- 商铺信息 -->
       <div
         class="Content-itemList-item"
-        v-for="shopItem in shopCarList"
-        :key="shopItem.shopID"
+        v-for="(shopItem, shopID) in shopCarList"
+        :key="shopID"
       >
         <!-- 商铺内容 -->
         <div class="item-name">{{ shopItem.shopName }}</div>
         <!-- 商铺购物车商品详细信息 -->
         <div
           class="item-prod-info"
-          v-for="prodItem in shopItem.prodList"
-          :key="prodItem.prodID"
+          v-for="prodItem in shopItem.productList"
+          :key="prodItem._id"
         >
           <!-- 商品图片展示 -->
           <img :src="`${prodItem.imgUrl}`" alt="" class="info-img" />
@@ -28,11 +28,11 @@
             </div>
           </div>
           <!-- 每个商品的总价 -->
-          <div class="info-totalPrice">&yen;{{ shopItem.totalPrice }}</div>
+          <div class="info-totalPrice">&yen;{{ (prodItem.price * prodItem.count).toFixed(2) }}</div>
         </div>
-        <div class="item-totalInfo" v-if="shopItem.prodList.length > 2">
-          共计{{ shopItem.prodList.length }}件/1.4kg
-        </div>
+        <!-- <div class="item-totalInfo" v-if="shopItem.productList.length > 2">
+          共计{{ shopItem.productList.length }}件/1.4kg
+        </div> -->
       </div>
     </div>
   </div>
@@ -41,29 +41,31 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { useStore } from 'vuex'
 import Footer from '../home/Footer'
 export default {
   name: 'ShopCarList',
   components: { Footer },
   setup() {
-    const shopCarList = reactive([{
-      shopID: 1,
-      shopName: '沃尔玛',
-      prodList: [{ prodID: '1-1', imgUrl: 'http://www.dell-lee.com/imgs/vue3/tomato.png', name: '番茄250g/份', price: 33.6, count: 3 }, { prodID: '1-2', imgUrl: 'http://www.dell-lee.com/imgs/vue3/cherry.png', name: '车厘子250g/份', price: 33.6, count: 3 }, { prodID: '1-3', imgUrl: 'http://www.dell-lee.com/imgs/vue3/orange.png', name: '橙子250g/份', price: 20.6, count: 2 }
-      ],
-      totalPrice: 242.8
-    }, {
-      shopID: 2,
-      shopName: '京东7FRESH七鲜',
-      prodList: [{ prodID: '1-1', imgUrl: 'http://www.dell-lee.com/imgs/vue3/tomato.png', name: '番茄250g/份', price: 33.6, count: 3 }, { prodID: '1-2', imgUrl: 'http://www.dell-lee.com/imgs/vue3/cherry.png', name: '提车厘子250g/份', price: 33.6, count: 3 }],
-      totalPrice: 201.6
-    }, {
-      shopID: 2,
-      shopName: '百果园',
-      prodList: [{ prodID: '1-1', imgUrl: 'http://www.dell-lee.com/imgs/vue3/tomato.png', name: '番茄250g/份', price: 33.6, count: 3 }],
-      totalPrice: 100.8
-    }])
+    const store = useStore()
+    const { shopCarList } = store.state
+    // const shopCarList = reactive([{
+    //   shopID: 1,
+    //   shopName: '沃尔玛',
+    //   prodList: [{ prodID: '1-1', imgUrl: 'http://www.dell-lee.com/imgs/vue3/tomato.png', name: '番茄250g/份', price: 33.6, count: 3 }, { prodID: '1-2', imgUrl: 'http://www.dell-lee.com/imgs/vue3/cherry.png', name: '车厘子250g/份', price: 33.6, count: 3 }, { prodID: '1-3', imgUrl: 'http://www.dell-lee.com/imgs/vue3/orange.png', name: '橙子250g/份', price: 20.6, count: 2 }
+    //   ],
+    //   totalPrice: 242.8
+    // }, {
+    //   shopID: 2,
+    //   shopName: '京东7FRESH七鲜',
+    //   prodList: [{ prodID: '1-1', imgUrl: 'http://www.dell-lee.com/imgs/vue3/tomato.png', name: '番茄250g/份', price: 33.6, count: 3 }, { prodID: '1-2', imgUrl: 'http://www.dell-lee.com/imgs/vue3/cherry.png', name: '提车厘子250g/份', price: 33.6, count: 3 }],
+    //   totalPrice: 201.6
+    // }, {
+    //   shopID: 2,
+    //   shopName: '百果园',
+    //   prodList: [{ prodID: '1-1', imgUrl: 'http://www.dell-lee.com/imgs/vue3/tomato.png', name: '番茄250g/份', price: 33.6, count: 3 }],
+    //   totalPrice: 100.8
+    // }])
     return { shopCarList }
   }
 }

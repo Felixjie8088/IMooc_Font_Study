@@ -76,7 +76,7 @@
         >&yen;{{ ComputeProd.totalAmount }}</span
       >
     </span>
-    <span class="footer-btn-pay">
+    <span class="footer-btn-pay" v-show="ComputeProd.totalCount > 0">
       <router-link :to="{ path: `/orderComfirm/${shopID}` }">
         去结算
       </router-link>
