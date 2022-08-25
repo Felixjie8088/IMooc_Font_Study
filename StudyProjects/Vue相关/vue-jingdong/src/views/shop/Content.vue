@@ -25,17 +25,17 @@
         </div>
         <div class="item-numbers">
           <span
-            class="item-numbers-minus"
+            class="item-numbers-minus iconfont icon-jianhao"
             @click="handlePick('minus', paramsID, shopName, item)"
-            >-</span
+            ></span
           >
           <span class="item-numbers-num">{{
             shopCarList?.[paramsID]?.productList?.[item._id]?.count || 0
           }}</span>
           <span
-            class="item-numbers-plus"
+            class="item-numbers-plus iconfont icon-jiahao"
             @click="handlePick('add', paramsID, shopName, item)"
-            >+</span
+            ></span
           >
         </div>
       </div>
@@ -208,23 +208,19 @@ export default {
         bottom: 0.12rem;
         &-minus,
         &-plus {
-          display: inline-block;
-          width: 0.2rem;
-          height: 0.2rem;
-          line-height: 0.16rem;
           font-size: 0.2rem;
-          border-radius: 50%;
-          text-align: center;
+        }
+        &-num{
+          height: 0.2rem;
+          line-height: 0.2rem;
+          font-size: 0.16rem;
         }
         &-minus {
-          border: 0.01rem solid #666;
           color: #666;
           margin-right: 0.05rem;
         }
         &-plus {
-          border: 0.01rem solid #0091ff;
-          background: #0091ff;
-          color: #fff;
+          color: #0091ff;
           margin-left: 0.05rem;
         }
       }
