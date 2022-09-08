@@ -13,10 +13,12 @@ const dbname = 'commentDemo'
 mongoose.connect(`${url}/${dbname}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}, (err, client) => {
-  if (err) {
-    console.log('连接mongodb出错 ', err)
-    return
-  }
-  console.log('连接mongodb成功')
 })
+// 连接实例
+const conn = mongoose.connection
+// 监听错误
+conn.on('error', err => {
+  console.log('mongoose连接出错 ', err)
+})
+
+module.exports = mongoose
