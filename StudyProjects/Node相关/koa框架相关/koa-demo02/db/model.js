@@ -25,6 +25,19 @@ const UserSchema = mongoose.Schema({
 // 定义 Model
 const User = mongoose.model('sys_user', UserSchema)
 
+// comment Sechema
+const CommentSchema = mongoose.Schema({
+  username: String,
+  content: {
+    type: String,
+    required: true
+  }
+}, {
+  timestamps: true
+})
+
+const Comment = mongoose.model('comments', CommentSchema)
 module.exports = {
-  User
+  User,
+  Comment
 }
