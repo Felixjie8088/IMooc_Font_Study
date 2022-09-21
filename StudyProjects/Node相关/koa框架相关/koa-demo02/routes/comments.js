@@ -1,10 +1,12 @@
 const router = require('koa-router')()
 const { Comment } = require('../db/model')
 
+const loginCheck = require('../middlewares/loginCheck')
+
 router.prefix('/api')
 
 // api-获取评论列表
-router.get('/list', async (ctx, next) => {
+router.get('/list', loginCheck, async (ctx, next) => {
   // 获取所有 comment 数据
   const commentAllList = await Comment.find().sort({ _id: -1 })
   ctx.body = {

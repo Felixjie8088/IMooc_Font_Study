@@ -16,4 +16,22 @@ router.get('/json', async (ctx, next) => {
   }
 })
 
+// 测试 session，记录访问次数
+// session 常用于登录，存储用户信息（cookie 对应）用户访问次数作为用户信息
+// cookie 是登录成功之后设置的，用户尚未登录也可以设置 cookie
+router.get('/session-test', async (ctx, next) => {
+  if (ctx.session.viewCount == null) {
+    // 用户尚未访问
+    ctx.session.viewCount = 0
+  }
+  // 用户已经访问过了
+  ctx.session.viewCount++
+  console.log(ctx.session)
+  // 返回
+  ctx.body = {
+    title: 'session-test',
+    viewCount: ctx.session.viewCount
+  }
+})
+
 module.exports = router
